@@ -1,0 +1,88 @@
+ButtonControl:
+Hash: dd38c486af1dacebe0505a67fdd47ecaab807bd9aaac65d7a5f85205b22e2033
+{
+  "Call": "",
+  "Feed": "",
+  "Pet": "",
+  "Play": ""
+}
+
+FeedControl:
+Hash: c292a163c7ded329234ab975132ebaf990f2651e240cee901b0d8e510554194f
+{
+  "Dry Food": [
+    "1",
+    "0",
+    "0",
+    "The cat muches eagerly on the drive food, but does not look fully satisfied."
+  ],
+  "Wet Food": [
+    "2",
+    "1",
+    "2",
+    "The cat scarfs down the wet food."
+  ],
+  "Fish": [
+    "1",
+    "2",
+    "5",
+    "The cat sniffs the fish curiously, and then scarfs it down in one bite."
+  ],
+  "Back": [
+    "0",
+    "0",
+    "0",
+    "Back"
+  ]
+}
+
+PlayControl:
+Hash: 7b8a1961cbaa55d9e97b6dcb039ce33d9f598aa8b1a26107a9472b443ffb1780
+{
+  "Toy Mouse": [
+    0,
+    1,
+    0
+  ],
+  "Yarn": [
+    0,
+    1,
+    0
+  ],
+  "Catnip": [
+    -1,
+    2,
+    2
+  ],
+  "Back": [
+    0,
+    0,
+    0
+  ]
+}
+
+SleepControl:
+Hash: ef69228f47fb1cfb6b87b27c786e78da99b9795275f2a88247cc01b5265bd74e
+{
+  "Cat Bed": [
+    0,
+    1,
+    0
+  ],
+  "Bed Pillow": [
+    0,
+    2,
+    0
+  ],
+  "Heated Bed": [
+    0,
+    3,
+    1
+  ],
+  "Back": [
+    0,
+    0,
+    0
+  ]
+}
+
