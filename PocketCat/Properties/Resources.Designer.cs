@@ -10,9 +10,8 @@
 
 namespace PocketCat.Properties {
     using System;
-    using System.Drawing;
-
-
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -64,10 +63,20 @@ namespace PocketCat.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static Icon CatIcon {
+        internal static byte[] CatIcon {
             get {
                 object obj = ResourceManager.GetObject("CatIcon", resourceCulture);
-                return ((Icon)(obj));
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SpriteSheet {
+            get {
+                object obj = ResourceManager.GetObject("SpriteSheet", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

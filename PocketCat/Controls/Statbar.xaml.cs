@@ -2,6 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using PocketCat.StaticGame;
 
 namespace PocketCat.Controls
 {
@@ -9,6 +10,7 @@ namespace PocketCat.Controls
     {
         // Holds the states of all rectangles (bars) in this Statbar
         private List<(Rectangle Bar, int State)> _blinkStates = new();
+        public MainWindow ParentWindow { get; set; }
         public string HeaderText
         {
             get => (string)GetValue(HeaderTextProperty);
@@ -165,7 +167,7 @@ namespace PocketCat.Controls
 
         public async Task HandleBlinkingAsync(int achievedCount, bool isDecrementing = false)
         {
-            int flashInterval = 400; // Flash interval in milliseconds
+            int flashInterval = 500; // Flash interval in milliseconds
 
             // List to hold tasks for each bar's blinking logic
             var blinkingTasks = new List<Task>();
@@ -233,7 +235,7 @@ namespace PocketCat.Controls
 
         private async Task FlashBarAsync(Rectangle bar, Color firstColor, Color secondColor, int interval)
         {
-            for (int j = 0; j < 3; j++) // 6 flashes
+            for (int j = 0; j < 6; j++) // 6 flashes
             {
                 bar.Fill = new SolidColorBrush(firstColor);
                 await Task.Delay(interval);
@@ -254,21 +256,36 @@ namespace PocketCat.Controls
 
         private Dictionary<int, bool> _blinkingBars = new Dictionary<int, bool>();
 
-        public async Task BlinkContinuouslyAsync(int index)
+        public async Task BlinkContinuouslyAsync(int index, int durationInMinutes)
         {
             if (index < 0 || index >= _blinkStates.Count) return;
 
             _blinkingBars[index] = true; // Start blinking for this bar
             var (bar, state) = _blinkStates[index];
 
-            while (_blinkingBars.ContainsKey(index) && _blinkingBars[index])
+            // Calculate the time when blinking should stop
+            var endTime = DateTime.Now.AddMinutes(durationInMinutes);
+
+            while (_blinkingBars.ContainsKey(index) && _blinkingBars[index] && DateTime.Now < endTime)
             {
                 bar.Fill = new SolidColorBrush(Colors.White); // Blink to white
                 await Task.Delay(300); // 300ms interval for blinking
                 bar.Fill = new SolidColorBrush(Colors.Black); // Blink to black
                 await Task.Delay(300); // 300ms interval for blinking
             }
+
+            // Ensure the bar stops in a final state (e.g., black)
+            if (index >= 0 && index < _blinkStates.Count)
+            {
+                bar.Fill = new SolidColorBrush(Colors.Black);
+            }
+
+            // Stop the blinking explicitly when the time has elapsed
+            _blinkingBars[index] = false;
         }
+
+
+
         public void StopBlinking(int index)
         {
             if (index < 0 || index >= _blinkStates.Count) return;
@@ -277,6 +294,34 @@ namespace PocketCat.Controls
             var (bar, state) = _blinkStates[index];
             bar.Fill = new SolidColorBrush(Colors.Green); // Finalize to solid green
         }
+
+        public void UpdateBarColorFromHeaderText()
+        {
+            if (ParentWindow == null)
+            {
+                Console.WriteLine("ParentWindow is not set. Unable to retrieve stats.");
+                return;
+            }
+
+            // Look up the stat using Header.Text
+            int stat = Stats.GetStat(Header.Text); // Replace with your actual method to fetch stat
+
+            // Ensure stat value is within bounds
+            if (stat < 0) stat = 0;
+            if (stat > StatbarPanel.Children.Count) stat = StatbarPanel.Children.Count;
+
+            // Update bar colors based on stat
+            for (int i = 0; i < StatbarPanel.Children.Count; i++)
+            {
+                if (StatbarPanel.Children[i] is Rectangle bar)
+                {
+                    bar.Fill = i < stat
+                        ? new SolidColorBrush(Colors.Green) // Green for achieved bars
+                        : new SolidColorBrush(Colors.Black); // Black for remaining bars
+                }
+            }
+        }
+
 
     }
 }

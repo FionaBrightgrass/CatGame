@@ -16,6 +16,12 @@
     <Compile Update="Controls\Statbar.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Controls\ActionText.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\SpriteControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">
@@ -30,6 +36,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\Statbar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\ActionText.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\SpriteControl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

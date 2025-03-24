@@ -2,7 +2,6 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:default="clr-namespace:PocketCat.DefaultData"
-             xmlns:helpers="clr-namespace:PocketCat.Helpers"
              xmlns:local="clr-namespace:PocketCat"
              StartupUri="MainWindow.xaml">
     <Application.Resources>

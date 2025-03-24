@@ -7,7 +7,8 @@
         xmlns:controls="clr-namespace:PocketCat.Controls"
         xmlns:datatables="clr-namespace:PocketCat.DefaultData"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="330" WindowStyle="none" AllowsTransparency="True" MouseDown="Window_MouseDown" Opacity="0.9" Background="{Binding WindowColorBrush, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}">
+        Title="MainWindow" Height="450" Width="330" 
+        WindowStyle="None" AllowsTransparency="True" Opacity="1" MouseDown="Window_MouseDown">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -25,6 +26,12 @@
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0" ResizeBorderThickness="5" />
     </WindowChrome.WindowChrome>
+
+    <!-- Semi-transparent background for the window -->
+    <Window.Background>
+        <SolidColorBrush Color="#000000" Opacity="0.8"/>
+        <!-- Adjust color and opacity as needed -->
+    </Window.Background>
     <Grid Background="Transparent" Margin="0">
         <StackPanel Background="Transparent">
             <DockPanel Height="40" Width="Auto" HorizontalAlignment="Right">
@@ -35,8 +42,10 @@
                     <TextBlock Text="x"></TextBlock>
                 </Button>
             </DockPanel>
-            <DockPanel Margin="0,0,0,132"></DockPanel>
-            <TextBlock x:Name="ActionText" Text="" FontFamily="Unispace" FontSize="12" Height="56" Margin="4,0,4,-10" TextWrapping="Wrap" Opacity="1" Foreground="{Binding TextColorText, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+            <DockPanel Margin="100,16,0,0" Height="152" VerticalAlignment="Center">
+                <controls:SpriteControl></controls:SpriteControl>
+            </DockPanel>
+            <controls:ActionText x:Name="ActionText" Text="" FontFamily="Unispace" FontSize="12" Height="56" Margin="8,0,8,0" TextWrapping="Wrap" Opacity="1" Foreground="{Binding TextColorText, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}"></controls:ActionText>
             <DockPanel Height="60" Width="Auto" HorizontalAlignment="Left">
                 <controls:Statbar x:Name="AffectionBar" Margin="4" HeaderText="{Binding Source={StaticResource AffectionNameProvider}}" HorizontalAlignment="Left" Foreground="{Binding TextColorText, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}" />
 
@@ -47,7 +56,7 @@
 
             </DockPanel>
         </StackPanel>
-        <DockPanel x:Name="MainControl" LastChildFill="True" VerticalAlignment="Top" Height="130" Margin="0,272,0,0">
+        <DockPanel x:Name="MainControl" LastChildFill="True" VerticalAlignment="Top" Height="130" Margin="0,322,0,0">
             <!--MainWindow-->
             <ItemsControl Margin="0" x:Name="ButtonControl" ItemsSource="{Binding Source={StaticResource ButtonTableProvider}}" Visibility="Visible" Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Window}}" Height="120" HorizontalAlignment="Stretch">
                 <ItemsControl.ItemsPanel>

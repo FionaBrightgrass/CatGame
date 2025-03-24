@@ -22,7 +22,7 @@ namespace PocketCat
             else
             {
                 string[] lines = File.ReadAllLines(path);
-                if (lines.Length < 5)
+                if (lines.Length < 10)
                     CreateSettingsFile(path);
                 foreach (string line in lines)
                 {
@@ -50,8 +50,29 @@ namespace PocketCat
                                 _textColor = line.Split(':')[1];
                                 TextColorText = line.Split(':')[1];
                                 break;
+                            case "PrimaryColor":
+                                _primaryColor = line.Split(':')[1];
+                                PrimaryColor = line.Split(':')[1];
+                                break;
+                            case "SecondaryColor":
+                                _secondaryColor = line.Split(':')[1];
+                                SecondaryColor = line.Split(':')[1];
+                                break;
+                            case "TertiaryColor":
+                                _tertiaryColor = line.Split(':')[1];
+                                TertiaryColor = line.Split(':')[1];
+                                break;
+                            case "DetailColor":
+                                _detailColor = line.Split(':')[1];
+                                DetailColor = line.Split(':')[1];
+                                break;
+                            case "EyeColor":
+                                _eyeColor = line.Split(':')[1];
+                                EyeColor = line.Split(':')[1];
+                                break;
                             case "SleepInterval":
-                                _sleepInterval = int.Parse(line.Split(':')[1]);
+                                _sleepInterval = int.Parse(line.Split(':')[1].Trim());
+                                SleepInterval = int.Parse(line.Split(':')[1].Trim());
                                 break;
                         }
                     }
@@ -72,6 +93,11 @@ namespace PocketCat
                 writer.WriteLine("BorderColor:" + _borderColor);
                 writer.WriteLine("ButtonColor:" + _buttonColor);
                 writer.WriteLine("TextColor:" + _textColor);
+                writer.WriteLine("PrimaryColor:" + _primaryColor);
+                writer.WriteLine("SecondaryColor:" + _secondaryColor);
+                writer.WriteLine("TertiaryColor:" + _tertiaryColor);
+                writer.WriteLine("DetailColor:" + _detailColor);
+                writer.WriteLine("EyeColor:" + _eyeColor);
                 writer.WriteLine("SleepInterval:" + _sleepInterval.ToString());
                 writer.Close();
             }
@@ -267,6 +293,7 @@ namespace PocketCat
                     try
                     {
                         // Save the updated settings to file
+                        OnPropertyChanged(nameof(SleepInterval));
                         CreateSettingsFile(path); // Replace 'path' with your actual settings file path
                     }
                     catch
@@ -279,6 +306,104 @@ namespace PocketCat
             }
         }
 
+        private string _primaryColor = "#202020";
+        private string _secondaryColor = "#252525";
+        private string _tertiaryColor = "#303030";
+        private string _detailColor = "#C090B0";
+        private string _eyeColor = "#A00090";
+
+        public string PrimaryColor
+        {
+            get => _primaryColor;
+            set
+            {
+                _primaryColor = value;
+                try
+                {
+                    // Save the updated settings to file
+                    CreateSettingsFile(path); // Replace 'path' with your actual settings file path
+                }
+                catch
+                {
+                    // Handle any exceptions related to saving, if needed
+                }
+                OnPropertyChanged(nameof(PrimaryColor));
+            }
+        }
+        public string SecondaryColor
+        {
+            get => _secondaryColor;
+            set
+            {
+                _secondaryColor = value;
+                try
+                {
+                    // Save the updated settings to file
+                    CreateSettingsFile(path); // Replace 'path' with your actual settings file path
+                }
+                catch
+                {
+                    // Handle any exceptions related to saving, if needed
+                }
+                OnPropertyChanged(nameof(SecondaryColor));
+            }
+        }
+        public string TertiaryColor
+        {
+            get => _tertiaryColor;
+            set
+            {
+                _tertiaryColor = value;
+                try
+                {
+                    // Save the updated settings to file
+                    CreateSettingsFile(path); // Replace 'path' with your actual settings file path
+                }
+                catch
+                {
+                    // Handle any exceptions related to saving, if needed
+                }
+                OnPropertyChanged(nameof(TertiaryColor));
+            }
+        }
+        public string DetailColor
+        {
+            get => _detailColor;
+            set
+            {
+                _detailColor = value;
+                try
+                {
+                    // Save the updated settings to file
+                    CreateSettingsFile(path); // Replace 'path' with your actual settings file path
+                }
+                catch
+                {
+                    // Handle any exceptions related to saving, if needed
+                }
+                OnPropertyChanged(nameof(DetailColor));
+            }
+        }
+
+        public string EyeColor
+        {
+            get => _eyeColor;
+            set
+            {
+                _eyeColor = value;
+                try
+                {
+                    // Save the updated settings to file
+                    CreateSettingsFile(path); // Replace 'path' with your actual settings file path
+                }
+                catch
+                {
+                    // Handle any exceptions related to saving, if needed
+                }
+                OnPropertyChanged(nameof(EyeColor));
+            }
+
+        }
 
 
         public event PropertyChangedEventHandler? PropertyChanged;

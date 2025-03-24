@@ -22,16 +22,16 @@
         },
             FeedControl = new Dictionary<string, string>
         {
-            { "Dry Food", "Hunger: 1, Affection: 0, Energy: -1, #NAME# munches eagerly on the dry food but doesn't look fully satisfied." },
+            { "Dry Food", "Hunger: 1, Affection: -1, Energy: -1, #NAME# munches eagerly on the dry food but doesn't look fully satisfied." },
             { "Wet Food", "Hunger: 2, Affection: 1, Energy: 0, #NAME# scarfs down the wet food eagerly." },
             { "Fish", "Hunger: 1, Affection: 2, Energy: 1, #NAME# sniffs the fish curiously, then scarfs it down in one bite." },
             { "Back", "Hunger: 0, Affection: 0, Energy: 0, Back." },
         },
             PlayControl = new Dictionary<string, string>
         {
-            { "Toy Mouse", "Hunger: 0, Affection: 1, Energy: -1, #NAME# chases the toy mouse. #PRONOUNONE# seems to be enjoying #PRONOUNTWOLOWER#self." },
-            { "Yarn", "Hunger: 0, Affection: 1, Energy: -1, #NAME# rolls around with the ball of yarn. #PRONOUNONE# seems to be enjoying #PRONOUNTWOLOWER#self." },
-            { "Catnip", "Hunger: -1, Affection: 2, Energy: -1, #NAME# rolls around with the catnip. #PRONOUNONE# seems to be enjoying #PRONOUNTWOLOWER#self." },
+            { "Toy Mouse", "Hunger: -2, Affection: 1, Energy: -3, #NAME# stares curiously at the toy mouse. #PRONOUNONE# doesn't seem to want to hurt it." },
+            { "Catnip", "Hunger: -4, Affection: 3, Energy: -4, #NAME# rolls around with the catnip. #PRONOUNONE# seems to be enjoying #PRONOUNTWOLOWER#self." },
+            { "Box", "Hunger: -1, Affection: 1, Energy: -1, #NAME# climbs into the box. #PRONOUNONE# seems to be enjoying #PRONOUNTWOLOWER#self!" },
             { "Back", "Hunger: 0, Affection: 0, Energy: 0, Back." },
         },
             SleepControl = new Dictionary<string, string>

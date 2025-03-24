@@ -121,4 +121,7 @@
   <data name="CatIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\CatIcon.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="SpriteSheet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\SpriteSheet.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

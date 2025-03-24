@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\PocketCat\PocketCat\App.xaml
-5-1328102883
+7-621108009
 
-221990226036
+27-1108970753
 226-294794639
-Controls\CallPopup.xaml;Controls\SettingsWindow.xaml;Controls\Statbar.xaml;MainWindow.xaml;UIDictionary\GlobalStyles.xaml;
+Controls\ActionText.xaml;Controls\CallPopup.xaml;Controls\SettingsWindow.xaml;Controls\SpriteControl.xaml;Controls\Statbar.xaml;MainWindow.xaml;UIDictionary\GlobalStyles.xaml;
 
 False
 

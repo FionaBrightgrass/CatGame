@@ -28,8 +28,8 @@
         {
             //Name               //<Hunger, Affection, Cost>
             { "Toy Mouse", new List<int> { 0, 1, 0 } },
-            { "Yarn", new List<int> { 0, 1, 0 } },
-            { "Catnip", new List<int> { -1, 2, 2 } },
+            { "Catnip", new List<int> { 0, 1, 0 } },
+            { "Box", new List<int> { -1, 2, 2 } },
             { "Back", new List<int> { 0, 0, 0 } },
         };
         public static Dictionary<string, List<int>> SleepControl { get; set; } = new Dictionary<string, List<int>>
