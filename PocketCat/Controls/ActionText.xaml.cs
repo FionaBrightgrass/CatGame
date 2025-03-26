@@ -21,46 +21,56 @@ namespace PocketCat.Controls
     /// </summary>
     public partial class ActionText : TextBlock
     {
+        private CancellationTokenSource _cancellationTokenSource;
         public ActionText() : base()
         {
         }
-        private bool textActionInProgress = false;
-        public bool TextActionInProgress
+        public async Task StartTextWritingAsync(string customText, double lettersPerSecond, CancellationToken cancellationToken)
         {
-            get => textActionInProgress; // Getter
-            set => textActionInProgress = value; // Setter
-        }
-        public async Task WriteTextWithLetterFadeInAsync(string customText, double lettersPerSecond, string name, string pronounOne, string pronounTwo, string pronounOneLower, string pronounTwoLower)
-        {
-            if (textActionInProgress)
-                return;
-
-            textActionInProgress = true;
-
             // Perform replacements in the text
-            customText = customText.Replace("#NAME#", name)
-                                   .Replace("#PRONOUNONE#", pronounOne)
-                                   .Replace("#PRONOUNTWO#", pronounTwo)
-                                   .Replace("#PRONOUNONELOWER#", pronounOneLower)
-                                   .Replace("#PRONOUNTWOLOWER#", pronounTwoLower);
+            customText = customText.Replace("#NAME#", DefaultData.ActionData.DataModel.Name)
+                                   .Replace("#PRONOUNONE#", DefaultData.ActionData.DataModel.PronounOne)
+                                   .Replace("#PRONOUNTWO#", DefaultData.ActionData.DataModel.PronounTwo)
+                                   .Replace("#PRONOUNONELOWER#", DefaultData.ActionData.DataModel.PronounOneLower)
+                                   .Replace("#PRONOUNTWOLOWER#", DefaultData.ActionData.DataModel.PronounTwoLower)
+                                   .Replace("#PRONOUNTHREE#", DefaultData.ActionData.DataModel.PronounThree)
+                                   .Replace("#PRONOUNTHREELOWER#", DefaultData.ActionData.DataModel.PronounThreeLower);
 
             // Clear the existing text in the TextBlock
             Inlines.Clear();
 
-            // Determine the delay per letter
             double delay = 1000 / lettersPerSecond;
 
-            // Iterate over each letter and add it with animation
             for (int i = 0; i < customText.Length; i++)
             {
+                // Check for cancellation before processing each letter
+                if (cancellationToken.IsCancellationRequested)
+                {
+                    return; // Exit gracefully if cancellation is requested
+                }
+
                 var letterRun = new Run(customText[i].ToString());
-                Inlines.Add(letterRun); // Add the letter to the TextBlock
-                FadeInLetter(letterRun); // Animate the letter's opacity
+                Inlines.Add(letterRun);
+                FadeInLetter(letterRun);
 
-                await Task.Delay((int)delay); // Wait before adding the next letter
+                await Task.Delay((int)delay, cancellationToken); // Pass the CancellationToken
             }
+        }
 
-            textActionInProgress = false;
+        public async Task StartTextWritingAsync(string customText, double lettersPerSecond)
+        {
+            // Cancel any previous task if it exists
+            _cancellationTokenSource?.Cancel();
+            _cancellationTokenSource = new CancellationTokenSource();
+
+            try
+            {
+                await StartTextWritingAsync(customText, lettersPerSecond, _cancellationTokenSource.Token);
+            }
+            catch (TaskCanceledException)
+            {
+                // Handle the cancellation gracefully (optional)
+            }
         }
 
         private void FadeInLetter(Run letterRun)

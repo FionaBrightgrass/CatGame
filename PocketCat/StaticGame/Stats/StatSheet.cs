@@ -4,30 +4,27 @@ using System.IO;
 
 namespace PocketCat.StaticGame.Stats
 {
-    public class StatSheet
+    public static class StatSheet
     {
         // File path for saving stats
-        private readonly string _statsFilePath = "stats.txt";
-
+        private static readonly string _statsFilePath = Path.Combine(Globals.AppWide.ApplicationData,"stats.txt");
+        public const int MaxValue = 10;
         // Dictionary to store all stats as Stat objects
-        private readonly Dictionary<string, Stat> _statDictionary;
-
-        // Constructor to initialize the stats
-        public StatSheet()
+        private static readonly Dictionary<string, Stat> _statDictionary = new Dictionary<string, Stat>
         {
-            _statDictionary = new Dictionary<string, Stat>
-            {
-                { "Hunger", new Stat("Hunger") },
-                { "Energy", new Stat("Energy") },
-                { "Affection", new Stat("Affection") }
-            };
+            { "Hunger", new Stat("Hunger") },
+            { "Energy", new Stat("Energy") },
+            { "Affection", new Stat("Affection") }
+        };
 
-            // Load stats from file if available
+        // Static constructor to load stats from file at runtime
+        static StatSheet()
+        {
             LoadStatsFromFile();
         }
 
         // Method to retrieve a Stat object by key
-        public Stat GetStat(string key)
+        public static Stat GetStat(string key)
         {
             if (_statDictionary.TryGetValue(key, out var stat))
             {
@@ -38,7 +35,7 @@ namespace PocketCat.StaticGame.Stats
         }
 
         // Method to update a stat value dynamically by key
-        public void UpdateStat(string key, int amount)
+        public static async Task UpdateStat(string key, int amount)
         {
             if (_statDictionary.TryGetValue(key, out var stat))
             {
@@ -53,7 +50,7 @@ namespace PocketCat.StaticGame.Stats
         }
 
         // Save stats to a file
-        private void SaveStatsToFile()
+        private static void SaveStatsToFile()
         {
             using (StreamWriter writer = new StreamWriter(_statsFilePath))
             {
@@ -65,7 +62,7 @@ namespace PocketCat.StaticGame.Stats
         }
 
         // Load stats from a file
-        private void LoadStatsFromFile()
+        private static void LoadStatsFromFile()
         {
             if (!File.Exists(_statsFilePath)) return;
 
@@ -84,7 +81,7 @@ namespace PocketCat.StaticGame.Stats
         }
 
         // Example of subscribing to stat changes for all stats
-        public void SubscribeToAllStatChanges()
+        public static void SubscribeToAllStatChanges()
         {
             foreach (var stat in _statDictionary.Values)
             {
@@ -96,7 +93,7 @@ namespace PocketCat.StaticGame.Stats
         }
 
         // Configure blink bar callbacks for all stats
-        public void ConfigureBlinkBars()
+        public static void ConfigureBlinkBars()
         {
             foreach (var stat in _statDictionary.Values)
             {

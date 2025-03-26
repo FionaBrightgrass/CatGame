@@ -44,6 +44,7 @@
             </DockPanel>
             <DockPanel Margin="100,16,0,0" Height="152" VerticalAlignment="Center">
                 <controls:SpriteControl></controls:SpriteControl>
+                <controls:HeartContainer HorizontalAlignment="Right" VerticalAlignment="Top" Margin="16,0,16,0" Visibility="Hidden"></controls:HeartContainer>
             </DockPanel>
             <controls:ActionText x:Name="ActionText" Text="" FontFamily="Unispace" FontSize="12" Height="56" Margin="8,0,8,0" TextWrapping="Wrap" Opacity="1" Foreground="{Binding TextColorText, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}"></controls:ActionText>
             <DockPanel Height="60" Width="Auto" HorizontalAlignment="Left">

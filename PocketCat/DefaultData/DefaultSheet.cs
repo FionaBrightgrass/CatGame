@@ -7,6 +7,8 @@
         public static string pronounOneLower = pronounOne.ToLower();
         public static string pronounTwo = "Him";
         public static string pronounTwoLower = pronounTwo.ToLower();
+        public static string pronounThree = "His";
+        public static string pronounThreeLower = pronounThree.ToLower();
         // Dictionaries
         public static Dictionary<string, string> ButtonControl { get; set; } = new Dictionary<string, string>
         {
@@ -55,7 +57,6 @@
             { "If some day you and #Name must part,     \nI ask that you remember this work of art."},
             { "Because maybe, some day a real kitty cat,     \n...will be adopted into your heart."},
         };
-
         public static Dictionary<string, string> StatusMessages = new Dictionary<string, string>
         {
             { "VERYHUNGRY", "You hear a tummy rumble... \n#NAME# looks very hungry." },

@@ -7,12 +7,68 @@
       "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\properties\\resources.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\properties\\resources.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\pocketcat.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\pocketcat.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\pocketcat.csproj.backup.tmp||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\pocketcat.csproj.backup.tmp||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\statbar.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\statbar.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\defaultdata\\customsheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\defaultdata\\customsheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\defaultdata\\hashencryptutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\defaultdata\\hashencryptutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\defaultdata\\datahashutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\defaultdata\\datahashutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\defaultdata\\defaultsheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\defaultdata\\defaultsheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\defaultdata\\actiondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\defaultdata\\actiondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\defaultdata\\actiondataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\defaultdata\\actiondataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\defaultdata\\actiondatamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\defaultdata\\actiondatamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\globals\\appwide.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\globals\\appwide.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\staticgame\\stats\\statsheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\staticgame\\stats\\statsheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\staticgame\\stats\\stat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\staticgame\\stats\\stat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\staticgame\\time.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\staticgame\\time.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\staticgame\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,8 +79,48 @@
       "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\staticgame\\states.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\defaultdata\\actiondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\defaultdata\\actiondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\staticgame\\stats\\stat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\staticgame\\stats\\stat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\spritecontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\spritecontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\settingswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\settingswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\actiontext.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\actiontext.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\heartcontainer.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\heartcontainer.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\heartcontainer.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\heartcontainer.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\spritecontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\spritecontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\integervalidationrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\integervalidationrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\settingswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\settingswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\statbar.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\statbar.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -39,100 +135,20 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PocketCat\\obj\\Debug\\net8.0-windows\\App.g.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\settingswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\settingswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\defaultdata\\actiondatamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\defaultdata\\actiondatamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\defaultdata\\customsheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\defaultdata\\customsheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\defaultdata\\datahashutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\defaultdata\\datahashutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\defaultdata\\defaultsheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\defaultdata\\defaultsheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\statbar.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\statbar.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\spritecontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\spritecontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\settingswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\settingswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\globals\\appwide.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\globals\\appwide.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\integervalidationrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\integervalidationrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\catsystemtray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\catsystemtray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\actiontext.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\actiontext.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\staticgame\\time.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\staticgame\\time.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\spritecontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\spritecontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\properties\\resources.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\properties\\resources.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\pocketcat.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\pocketcat.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\statbar.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\statbar.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\uidictionary\\globalstyles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\uidictionary\\globalstyles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\defaultdata\\hashencryptutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\defaultdata\\hashencryptutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\actiontext.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\actiontext.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\callpopup.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -157,91 +173,143 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 29,
+          "SelectedChildIndex": 33,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "StatSheet.cs",
-              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\StaticGame\\Stats\\StatSheet.cs",
-              "RelativeDocumentMoniker": "PocketCat\\StaticGame\\Stats\\StatSheet.cs",
-              "ToolTip": "D:\\PocketCat\\PocketCat\\StaticGame\\Stats\\StatSheet.cs",
-              "RelativeToolTip": "PocketCat\\StaticGame\\Stats\\StatSheet.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAgwAsAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T20:46:46.378Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Stat.cs",
-              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\StaticGame\\Stats\\Stat.cs",
-              "RelativeDocumentMoniker": "PocketCat\\StaticGame\\Stats\\Stat.cs",
-              "ToolTip": "D:\\PocketCat\\PocketCat\\StaticGame\\Stats\\Stat.cs",
-              "RelativeToolTip": "PocketCat\\StaticGame\\Stats\\Stat.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T20:46:33.428Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
+              "Title": "PocketCat.csproj.Backup.tmp",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\PocketCat.csproj.Backup.tmp",
+              "RelativeDocumentMoniker": "PocketCat\\PocketCat.csproj.Backup.tmp",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\PocketCat.csproj.Backup.tmp",
+              "RelativeToolTip": "PocketCat\\PocketCat.csproj.Backup.tmp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-26T06:15:45.537Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "HeartContainer.xaml.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\HeartContainer.xaml.cs",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\HeartContainer.xaml.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\HeartContainer.xaml.cs",
+              "RelativeToolTip": "PocketCat\\Controls\\HeartContainer.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T19:40:22.399Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "HeartContainer.xaml",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\HeartContainer.xaml",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\HeartContainer.xaml",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\HeartContainer.xaml",
+              "RelativeToolTip": "PocketCat\\Controls\\HeartContainer.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-25T19:38:21.257Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ActionDataService.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\DefaultData\\ActionDataService.cs",
+              "RelativeDocumentMoniker": "PocketCat\\DefaultData\\ActionDataService.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\DefaultData\\ActionDataService.cs",
+              "RelativeToolTip": "PocketCat\\DefaultData\\ActionDataService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T18:43:06.86Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "StatSheet.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\StaticGame\\Stats\\StatSheet.cs",
+              "RelativeDocumentMoniker": "PocketCat\\StaticGame\\Stats\\StatSheet.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\StaticGame\\Stats\\StatSheet.cs",
+              "RelativeToolTip": "PocketCat\\StaticGame\\Stats\\StatSheet.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAAA0wGEAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T20:46:46.378Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Stat.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\StaticGame\\Stats\\Stat.cs",
+              "RelativeDocumentMoniker": "PocketCat\\StaticGame\\Stats\\Stat.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\StaticGame\\Stats\\Stat.cs",
+              "RelativeToolTip": "PocketCat\\StaticGame\\Stats\\Stat.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T20:46:33.428Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "States.cs",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\StaticGame\\States.cs",
               "RelativeDocumentMoniker": "PocketCat\\StaticGame\\States.cs",
               "ToolTip": "D:\\PocketCat\\PocketCat\\StaticGame\\States.cs",
               "RelativeToolTip": "PocketCat\\StaticGame\\States.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAwwFUAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-23T20:49:56.648Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 16,
               "Title": "Time.cs",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\StaticGame\\Time.cs",
               "RelativeDocumentMoniker": "PocketCat\\StaticGame\\Time.cs",
               "ToolTip": "D:\\PocketCat\\PocketCat\\StaticGame\\Time.cs",
               "RelativeToolTip": "PocketCat\\StaticGame\\Time.cs",
-              "ViewState": "AgIAAJgAAAAAAAAAAADwv2UAAABTAAAAAAAAAA==",
+              "ViewState": "AgIAALkAAAAAAAAAAAAqwNAAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T20:11:41.775Z"
+              "WhenOpened": "2025-03-23T20:11:41.775Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 1,
               "Title": "Resources.resx",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Properties\\Resources.resx",
               "RelativeDocumentMoniker": "PocketCat\\Properties\\Resources.resx",
               "ToolTip": "D:\\PocketCat\\PocketCat\\Properties\\Resources.resx",
               "RelativeToolTip": "PocketCat\\Properties\\Resources.resx",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAAAHwAAAALAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
               "WhenOpened": "2025-03-23T12:13:36.826Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "SpriteControl.xaml.cs",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\SpriteControl.xaml.cs",
               "RelativeDocumentMoniker": "PocketCat\\Controls\\SpriteControl.xaml.cs",
               "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\SpriteControl.xaml.cs",
               "RelativeToolTip": "PocketCat\\Controls\\SpriteControl.xaml.cs",
-              "ViewState": "AgIAACQBAAAAAAAAAAAkwDUBAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAOEBAAAAAAAAAAAgwPoBAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T12:02:15.828Z"
+              "WhenOpened": "2025-03-23T12:02:15.828Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "SpriteControl.xaml",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\SpriteControl.xaml",
               "RelativeDocumentMoniker": "PocketCat\\Controls\\SpriteControl.xaml",
@@ -253,19 +321,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 22,
               "Title": "ActionText.xaml.cs",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\ActionText.xaml.cs",
               "RelativeDocumentMoniker": "PocketCat\\Controls\\ActionText.xaml.cs",
               "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\ActionText.xaml.cs",
               "RelativeToolTip": "PocketCat\\Controls\\ActionText.xaml.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAABoAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAAQwDsAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T15:11:40.382Z"
+              "WhenOpened": "2025-03-21T15:11:40.382Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 36,
               "Title": "ActionText.xaml",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\ActionText.xaml",
               "RelativeDocumentMoniker": "PocketCat\\Controls\\ActionText.xaml",
@@ -277,7 +346,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 27,
               "Title": "IntegerValidationRule.cs",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\IntegerValidationRule.cs",
               "RelativeDocumentMoniker": "PocketCat\\Controls\\IntegerValidationRule.cs",
@@ -289,7 +358,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 2,
               "Title": "PocketCat",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\PocketCat.csproj",
               "RelativeDocumentMoniker": "PocketCat\\PocketCat.csproj",
@@ -301,13 +370,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 11,
               "Title": "ActionData.cs",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\DefaultData\\ActionData.cs",
               "RelativeDocumentMoniker": "PocketCat\\DefaultData\\ActionData.cs",
               "ToolTip": "D:\\PocketCat\\PocketCat\\DefaultData\\ActionData.cs",
               "RelativeToolTip": "PocketCat\\DefaultData\\ActionData.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwB0AAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAABfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-19T18:02:02.385Z",
               "EditorCaption": ""
@@ -320,35 +389,38 @@
               "RelativeDocumentMoniker": "PocketCat\\DefaultData\\ActionDataModel.cs",
               "ToolTip": "D:\\PocketCat\\PocketCat\\DefaultData\\ActionDataModel.cs",
               "RelativeToolTip": "PocketCat\\DefaultData\\ActionDataModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAA6wAwAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAiwAsAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T18:01:40.366Z"
+              "WhenOpened": "2025-03-19T18:01:40.366Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 39,
               "Title": "XamlReader.cs",
               "DocumentMoniker": "C:\\Users\\lvl99\\AppData\\Local\\Temp\\.vsdbgsrc\\6aa8dfe6dce7647690db27e2d44efd3bdfeed3cfaad2ff4a1195b1c962d31917\\XamlReader.cs",
               "ToolTip": "C:\\Users\\lvl99\\AppData\\Local\\Temp\\.vsdbgsrc\\6aa8dfe6dce7647690db27e2d44efd3bdfeed3cfaad2ff4a1195b1c962d31917\\XamlReader.cs",
               "ViewState": "AgIAAGkBAAAAAAAAAAAcwJABAAACAAAAAQAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T22:44:54.074Z"
+              "WhenOpened": "2025-03-18T22:44:54.074Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 3,
               "Title": "AppSettings.cs",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\AppSettings.cs",
               "RelativeDocumentMoniker": "PocketCat\\AppSettings.cs",
               "ToolTip": "D:\\PocketCat\\PocketCat\\AppSettings.cs",
               "RelativeToolTip": "PocketCat\\AppSettings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGQAAABNAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAADgvwwAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T21:45:03.832Z"
+              "WhenOpened": "2025-03-18T21:45:03.832Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 7,
               "Title": "CustomSheet.cs",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\DefaultData\\CustomSheet.cs",
               "RelativeDocumentMoniker": "PocketCat\\DefaultData\\CustomSheet.cs",
@@ -356,11 +428,12 @@
               "RelativeToolTip": "PocketCat\\DefaultData\\CustomSheet.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T17:42:29.086Z"
+              "WhenOpened": "2025-03-18T17:42:29.086Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 8,
               "Title": "HashEncryptUtil.cs",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\DefaultData\\HashEncryptUtil.cs",
               "RelativeDocumentMoniker": "PocketCat\\DefaultData\\HashEncryptUtil.cs",
@@ -368,23 +441,25 @@
               "RelativeToolTip": "PocketCat\\DefaultData\\HashEncryptUtil.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T16:43:25.5Z"
+              "WhenOpened": "2025-03-18T16:43:25.5Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 9,
               "Title": "DataHashUtil.cs",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\DefaultData\\DataHashUtil.cs",
               "RelativeDocumentMoniker": "PocketCat\\DefaultData\\DataHashUtil.cs",
               "ToolTip": "D:\\PocketCat\\PocketCat\\DefaultData\\DataHashUtil.cs",
               "RelativeToolTip": "PocketCat\\DefaultData\\DataHashUtil.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T16:02:25.274Z"
+              "WhenOpened": "2025-03-18T16:02:25.274Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 37,
               "Title": "CallPopup.xaml",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\CallPopup.xaml",
               "RelativeDocumentMoniker": "PocketCat\\Controls\\CallPopup.xaml",
@@ -396,7 +471,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 38,
               "Title": "CallPopup.xaml.cs",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\CallPopup.xaml.cs",
               "RelativeDocumentMoniker": "PocketCat\\Controls\\CallPopup.xaml.cs",
@@ -408,7 +483,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 34,
               "Title": "CatSystemTray.cs",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\CatSystemTray.cs",
               "RelativeDocumentMoniker": "PocketCat\\Controls\\CatSystemTray.cs",
@@ -420,31 +495,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "SettingsWindow.xaml.cs",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\SettingsWindow.xaml.cs",
               "RelativeDocumentMoniker": "PocketCat\\Controls\\SettingsWindow.xaml.cs",
               "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\SettingsWindow.xaml.cs",
               "RelativeToolTip": "PocketCat\\Controls\\SettingsWindow.xaml.cs",
-              "ViewState": "AgIAAHUAAAAAAAAAAAAYwEwAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEwAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T04:15:51.506Z"
+              "WhenOpened": "2025-03-18T04:15:51.506Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 10,
               "Title": "DefaultSheet.cs",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\DefaultData\\DefaultSheet.cs",
               "RelativeDocumentMoniker": "PocketCat\\DefaultData\\DefaultSheet.cs",
               "ToolTip": "D:\\PocketCat\\PocketCat\\DefaultData\\DefaultSheet.cs",
               "RelativeToolTip": "PocketCat\\DefaultData\\DefaultSheet.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T01:33:19.119Z"
+              "WhenOpened": "2025-03-18T01:33:19.119Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 31,
               "Title": "PocketCat.csproj",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\PocketCat.csproj",
               "RelativeDocumentMoniker": "PocketCat\\PocketCat.csproj",
@@ -457,7 +534,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 4,
               "Title": "AssemblyInfo.cs",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\AssemblyInfo.cs",
               "RelativeDocumentMoniker": "PocketCat\\AssemblyInfo.cs",
@@ -465,11 +542,12 @@
               "RelativeToolTip": "PocketCat\\AssemblyInfo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T23:41:11.588Z"
+              "WhenOpened": "2025-03-17T23:41:11.588Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 40,
               "Title": "Statbar.g.i.cs",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\obj\\Debug\\net8.0-windows\\Controls\\Statbar.g.i.cs",
               "RelativeDocumentMoniker": "PocketCat\\obj\\Debug\\net8.0-windows\\Controls\\Statbar.g.i.cs",
@@ -481,19 +559,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 6,
               "Title": "Statbar.xaml.cs",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\Statbar.xaml.cs",
               "RelativeDocumentMoniker": "PocketCat\\Controls\\Statbar.xaml.cs",
               "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\Statbar.xaml.cs",
               "RelativeToolTip": "PocketCat\\Controls\\Statbar.xaml.cs",
-              "ViewState": "AgIAACoBAAAAAAAAAAAQwKcAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAASwCMAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T18:04:57.557Z"
+              "WhenOpened": "2025-03-17T18:04:57.557Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "Statbar.xaml",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\Statbar.xaml",
               "RelativeDocumentMoniker": "PocketCat\\Controls\\Statbar.xaml",
@@ -511,39 +590,40 @@
               "RelativeDocumentMoniker": "PocketCat\\MainWindow.xaml.cs",
               "ToolTip": "D:\\PocketCat\\PocketCat\\MainWindow.xaml.cs",
               "RelativeToolTip": "PocketCat\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAM8AAAAAAAAAAAAAwCUAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-17T12:27:16.366Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 14,
               "Title": "AppWide.cs",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Globals\\AppWide.cs",
               "RelativeDocumentMoniker": "PocketCat\\Globals\\AppWide.cs",
               "ToolTip": "D:\\PocketCat\\PocketCat\\Globals\\AppWide.cs",
               "RelativeToolTip": "PocketCat\\Globals\\AppWide.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T12:11:48.675Z"
+              "WhenOpened": "2025-03-17T12:11:48.675Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 17,
               "Title": "Stats.cs",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\StaticGame\\Stats.cs",
               "RelativeDocumentMoniker": "PocketCat\\StaticGame\\Stats.cs",
               "ToolTip": "D:\\PocketCat\\PocketCat\\StaticGame\\Stats.cs",
               "RelativeToolTip": "PocketCat\\StaticGame\\Stats.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAUwBUAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwB4AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-17T12:09:36.158Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 32,
               "Title": "App.g.cs",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\obj\\Debug\\net8.0-windows\\App.g.cs",
               "RelativeDocumentMoniker": "PocketCat\\obj\\Debug\\net8.0-windows\\App.g.cs",
@@ -556,7 +636,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 23,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\MainWindow.xaml",
               "RelativeDocumentMoniker": "PocketCat\\MainWindow.xaml",
@@ -568,7 +648,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 30,
               "Title": "App.xaml",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\App.xaml",
               "RelativeDocumentMoniker": "PocketCat\\App.xaml",
@@ -580,7 +660,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 33,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\App.xaml.cs",
               "RelativeDocumentMoniker": "PocketCat\\App.xaml.cs",
@@ -592,7 +672,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 28,
               "Title": "SettingsWindow.xaml",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\SettingsWindow.xaml",
               "RelativeDocumentMoniker": "PocketCat\\Controls\\SettingsWindow.xaml",
@@ -604,7 +684,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 35,
               "Title": "GlobalStyles.xaml",
               "DocumentMoniker": "D:\\PocketCat\\PocketCat\\UIDictionary\\GlobalStyles.xaml",
               "RelativeDocumentMoniker": "PocketCat\\UIDictionary\\GlobalStyles.xaml",

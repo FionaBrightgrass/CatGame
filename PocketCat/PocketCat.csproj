@@ -7,10 +7,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ApplicationIcon>Properties\Resources\CatIcon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Properties\Resources\CatIcon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Properties\Resources\CatIcon.ico" />
   </ItemGroup>
 
   <ItemGroup>

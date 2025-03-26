@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.IO;
 using System.Windows.Media;
+using PocketCat.StaticGame;
 
 namespace PocketCat
 {
@@ -12,9 +13,9 @@ namespace PocketCat
             LoadSettingsFromFile();
         }
 
+
         public void LoadSettingsFromFile()
         {
-
             if (!File.Exists(path))
             {
                 CreateSettingsFile(path);
@@ -23,62 +24,73 @@ namespace PocketCat
             {
                 string[] lines = File.ReadAllLines(path);
                 if (lines.Length < 10)
-                    CreateSettingsFile(path);
-                foreach (string line in lines)
                 {
-                    if (line.Contains(":"))
+                    CreateSettingsFile(path); // Create the file with defaults if invalid
+                }
+                else
+                {
+                    foreach (string line in lines)
                     {
-                        string[] data = line.Split(':');
-                        string identifier = data[0];
-                        if (data.Length < 2)
-                            CreateSettingsFile(path);
-                        switch (identifier)
+                        if (line.Contains(":"))
                         {
-                            case "WindowColor":
-                                _windowColor = line.Split(':')[1];
-                                WindowColorText = line.Split(':')[1];
-                                break;
-                            case "BorderColor":
-                                _borderColor = line.Split(":")[1];
-                                BorderColorText = line.Split(':')[1];
-                                break;
-                            case "ButtonColor":
-                                _buttonColor = line.Split(':')[1];
-                                ButtonColorText = line.Split(':')[1];
-                                break;
-                            case "TextColor":
-                                _textColor = line.Split(':')[1];
-                                TextColorText = line.Split(':')[1];
-                                break;
-                            case "PrimaryColor":
-                                _primaryColor = line.Split(':')[1];
-                                PrimaryColor = line.Split(':')[1];
-                                break;
-                            case "SecondaryColor":
-                                _secondaryColor = line.Split(':')[1];
-                                SecondaryColor = line.Split(':')[1];
-                                break;
-                            case "TertiaryColor":
-                                _tertiaryColor = line.Split(':')[1];
-                                TertiaryColor = line.Split(':')[1];
-                                break;
-                            case "DetailColor":
-                                _detailColor = line.Split(':')[1];
-                                DetailColor = line.Split(':')[1];
-                                break;
-                            case "EyeColor":
-                                _eyeColor = line.Split(':')[1];
-                                EyeColor = line.Split(':')[1];
-                                break;
-                            case "SleepInterval":
-                                _sleepInterval = int.Parse(line.Split(':')[1].Trim());
-                                SleepInterval = int.Parse(line.Split(':')[1].Trim());
-                                break;
+                            string[] data = line.Split(':');
+                            if (data.Length < 2) continue; // Skip invalid lines
+
+                            string identifier = data[0];
+                            string value = data[1].Trim(); // Trim whitespace around values
+
+                            switch (identifier)
+                            {
+                                case "SleepInterval":
+                                    if (int.TryParse(value.Trim(), out int interval) && interval >= 1 && interval <= 60)
+                                    {
+                                        _sleepInterval = interval; // Assign only if valid
+                                        SleepInterval = interval;
+                                    }
+                                    break;
+                                case "WindowColor":
+                                    _windowColor = value;
+                                    WindowColorText = value;
+                                    break;
+                                case "BorderColor":
+                                    _borderColor = value;
+                                    BorderColorText = value;
+                                    break;
+                                case "ButtonColor":
+                                    _buttonColor = value;
+                                    ButtonColorText = value;
+                                    break;
+                                case "TextColor":
+                                    _textColor = value;
+                                    TextColorText = value;
+                                    break;
+                                case "PrimaryColor":
+                                    _primaryColor = value;
+                                    PrimaryColor = value;
+                                    break;
+                                case "SecondaryColor":
+                                    _secondaryColor = value;
+                                    SecondaryColor = value;
+                                    break;
+                                case "TertiaryColor":
+                                    _tertiaryColor = value;
+                                    TertiaryColor = value;
+                                    break;
+                                case "DetailColor":
+                                    _detailColor = value;
+                                    DetailColor = value;
+                                    break;
+                                case "EyeColor":
+                                    _eyeColor = value;
+                                    EyeColor = value;
+                                    break;
+                            }
                         }
                     }
                 }
             }
         }
+
 
         private void CreateSettingsFile(string path)
         {
@@ -86,7 +98,8 @@ namespace PocketCat
             {
                 File.Delete(path);
             }
-            // Use a StreamWriter to create and write to the file
+
+            // Write current values to the file
             using (StreamWriter writer = new StreamWriter(path, false))
             {
                 writer.WriteLine("WindowColor:" + _windowColor);
@@ -98,10 +111,10 @@ namespace PocketCat
                 writer.WriteLine("TertiaryColor:" + _tertiaryColor);
                 writer.WriteLine("DetailColor:" + _detailColor);
                 writer.WriteLine("EyeColor:" + _eyeColor);
-                writer.WriteLine("SleepInterval:" + _sleepInterval.ToString());
-                writer.Close();
+                writer.WriteLine("SleepInterval:" + _sleepInterval); // Use the current value of SleepInterval
             }
         }
+
 
         private string _windowColor; // Default hex color
 
@@ -286,25 +299,20 @@ namespace PocketCat
             get => _sleepInterval;
             set
             {
-                if (_sleepInterval != value && value >= 1 && value <= 60) // Validate range (1-60)
+                int valueTemp = Math.Min(Math.Max(value, 1), 60);
+                _sleepInterval = valueTemp;
+                try
                 {
-                    _sleepInterval = value;
-
-                    try
-                    {
-                        // Save the updated settings to file
-                        OnPropertyChanged(nameof(SleepInterval));
-                        CreateSettingsFile(path); // Replace 'path' with your actual settings file path
-                    }
-                    catch
-                    {
-                        // Handle any exceptions related to saving, if needed
-                    }
-
-                    OnPropertyChanged(nameof(SleepInterval)); // Notify listeners of the change
+                    CreateSettingsFile(path); // Save updated value
                 }
+                catch
+                {
+                    Console.WriteLine("Error saving settings to file.");
+                }
+                OnPropertyChanged(nameof(SleepInterval)); // Notify listeners of the change
             }
         }
+
 
         private string _primaryColor = "#202020";
         private string _secondaryColor = "#252525";

@@ -2,6 +2,7 @@
 using System.IO;
 using System.Windows.Threading;
 using PocketCat.Controls;
+using PocketCat.StaticGame.Stats;
 
 namespace PocketCat.StaticGame
 {
@@ -17,9 +18,13 @@ namespace PocketCat.StaticGame
         public static DateTime? SleepCooldownStartTime { get; set; }
         public static readonly TimeSpan SleepCooldownDuration = TimeSpan.FromHours(1);
         public static int SleepIncrement { get; set; } = 30; // Time interval for restoring energy (ms)
+        public static MainWindow? _mainWindow { get;  set; }
 
         static Time()
         {
+            _timerCancellationTokenSource = new CancellationTokenSource();
+            _ = RunContinuousTimerAsync(_timerCancellationTokenSource.Token); // Fire and forget the timer loop
+            StartHungerTimer(); // Keep your existing hunger timer
             StartHungerTimer();
             LoadCooldownsFromFile();
             PetCooldownDuration = TimeSpan.FromMinutes(_AppSettings?.SleepInterval ?? 15);
@@ -38,7 +43,7 @@ namespace PocketCat.StaticGame
 
         private static void HungerTimer_Tick(object sender, EventArgs e)
         {
-            int hungerLevel = Stats.GetStat("Hunger");
+            int hungerLevel = StatSheet.GetStat("Hunger").Value;
             // 50% chance to reduce hunger level
             if (_random.NextDouble() <= 0.5)
             {
@@ -98,13 +103,14 @@ namespace PocketCat.StaticGame
             SleepCooldownStartTime = null;
             SaveCooldownsToFile();
         }
-
         public static async Task StartSleepWithIncrementsAsync(int energyNeeded, Statbar energyBar)
         {
-            if (energyNeeded <= 0 || States.IsSleeping) return; // Exit if no energy needed or already sleeping
+            // Exit if no energy needed or already sleeping
+            if (energyNeeded <= 0 || States.IsSleeping) return;
 
-            States.IsSleeping = true; // Set the sleeping state
-            SleepCooldownStartTime = DateTime.Now; // Record cooldown start time
+            // Set sleeping state and record cooldown
+            States.IsSleeping = true;
+            SleepCooldownStartTime = DateTime.Now;
             SaveCooldownsToFile();
 
             try
@@ -112,24 +118,25 @@ namespace PocketCat.StaticGame
                 // Gradually restore energy
                 while (energyNeeded > 0)
                 {
-                    int currentEnergy = Stats.GetStat("Energy");
+                    int currentEnergy = StatSheet.GetStat("Energy").Value;
 
-                    if (currentEnergy < Stats.MaxStatValue)
+                    // Only restore energy if it hasn't reached max value
+                    if (currentEnergy < StatSheet.MaxValue)
                     {
+                        Console.WriteLine($"Starting blinking for energy bar index {currentEnergy}...");
+
+                        // Update blinking states in the Statbar
+                        energyBar.UpdateBlinkStates(currentEnergy, currentEnergy, 1); // Set state to +1 (increasing)
+
                         try
                         {
-                            Console.WriteLine($"Starting blinking for energy bar index {currentEnergy}...");
-
-                            // Update blinking states in the Statbar
-                            energyBar.UpdateBlinkStates(currentEnergy, currentEnergy, 1); // Set state to +1 (increasing)
-
                             // Trigger blinking and wait for it to complete
-                            await energyBar.HandleBlinkingAsync(currentEnergy + 1); // Update up to the next bar
+                            await energyBar.HandleBlinkingAsync(currentEnergy, currentEnergy + 1, false); // Incrementing=false
+                            Console.WriteLine($"Incrementing energy stat for bar index {currentEnergy}...");
 
                             // Increment the energy stat
-                            Console.WriteLine($"Incrementing energy stat for bar index {currentEnergy}...");
-                            await Stats.UpdateStat("Energy", 1);
-                            energyNeeded--; // Decrement remaining energy to restore
+                            await StatSheet.UpdateStat("Energy", 1);
+                            energyNeeded--; // Decrease remaining energy to restore
                         }
                         catch (Exception ex)
                         {
@@ -138,10 +145,11 @@ namespace PocketCat.StaticGame
                     }
                     else
                     {
-                        break; // Stop if max energy is reached
+                        Console.WriteLine("Max energy reached. Stopping energy restoration.");
+                        break;
                     }
 
-                    // Wait for the sleep interval before continuing
+                    // Wait for the sleep increment interval before continuing
                     await Task.Delay(SleepIncrement);
                 }
             }
@@ -151,11 +159,11 @@ namespace PocketCat.StaticGame
             }
             finally
             {
-                energyBar.ResetBlinkStates(); // Reset blinking states after completion
-                States.IsSleeping = false; // Reset the sleeping state
+                States.IsSleeping = false;
                 SaveCooldownsToFile();
             }
         }
+
 
         // Save/Load Cooldowns to/from File
         private static void SaveCooldownsToFile()
@@ -187,6 +195,127 @@ namespace PocketCat.StaticGame
             }
         }
 
+        private static DispatcherTimer _tenMinuteTimer;
+        private static CancellationTokenSource _timerCancellationTokenSource;
 
+        // Method to start the timer
+        
+        private static async Task RunContinuousTimerAsync(CancellationToken cancellationToken)
+        {
+            while (!cancellationToken.IsCancellationRequested) // Loop until cancellation is requested
+            {
+                try
+                {
+                    await HandleTenMinuteTickAsync();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error in HandleTenMinuteTickAsync: {ex.Message}");
+                }
+
+                // Wait for 10 minutes unless canceled
+                try
+                {
+                    await Task.Delay(TimeSpan.FromMinutes(10), cancellationToken);
+                }
+                catch (TaskCanceledException)
+                {
+                    // Graceful exit when cancellation is triggered
+                    break;
+                }
+            }
+        }
+        private static async Task HandleTenMinuteTickAsync()
+        {
+            if(_mainWindow == null || States.CurrentState == "Sleeping")
+            {
+                return;
+            }
+            int hungerIncrement = 0;
+            var blinkTasks = new List<Task>();
+            // Decrement hunger based on probabilities
+            double randomValue = _random.NextDouble();
+            if (randomValue <= 0.5)
+            {
+                hungerIncrement -= 0;
+            }
+            else if (randomValue <= 0.8)
+            {
+                hungerIncrement -= 1;
+            }
+            else if (randomValue <= 1.0)
+            {
+                hungerIncrement -= 2;
+            }
+
+            hungerIncrement = Math.Max(hungerIncrement, 0);
+
+            HungerLevelChanged?.Invoke(hungerIncrement);
+            Console.WriteLine($"Hunger updated by: {hungerIncrement}");
+            int finalHunger = 0;
+            int finalAffection = 0;
+            int finalEnergy = 0;
+            // Reduce affection if hunger is under 5
+            if (_random.NextDouble() <= 0.5 || StatSheet.GetStat("Energy").Value == 0 || StatSheet.GetStat("Hunger").Value == 0)
+            {
+                int startIndex = 0;
+                int endIndex = 0;
+                int hungerLevel = StatSheet.GetStat("Hunger").Value;
+                if (hungerLevel > 0)
+                {
+                    startIndex = Math.Max(hungerLevel - 1, 0); // Starting point after decrement
+                    endIndex = hungerLevel - 1; // Ending point of affected bars
+                    if (startIndex <= endIndex) // Ensure valid range
+                    {
+                        _mainWindow.HungerBar.UpdateBlinkStates(startIndex, endIndex, -1); // State = -1 for decrement
+                        blinkTasks.Add(_mainWindow.HungerBar.HandleBlinkingAsync(startIndex, endIndex, true)); // isDecrementing = true
+                    }
+                }
+
+                int affectionLevel = StatSheet.GetStat("Affection").Value;
+                if (affectionLevel > 0 && _random.NextDouble() <= 0.5)
+                {
+                    startIndex = Math.Max(affectionLevel - 1, 0); // Starting point after decrement
+                    endIndex = affectionLevel - 1; // Ending point of affected bars
+                    if (startIndex <= endIndex) // Ensure valid range
+                    {
+                        _mainWindow.AffectionBar.UpdateBlinkStates(startIndex, endIndex, -1); // State = -1 for decrement
+                        blinkTasks.Add(_mainWindow.AffectionBar.HandleBlinkingAsync(startIndex, endIndex, true)); // isDecrementing = true
+                    }
+                    affectionLevel -= 1;
+                    finalAffection = -1;
+                    Console.WriteLine($"Affection decreased: {affectionLevel}");
+                }
+                finalHunger = -1;
+            }
+
+            // 25% chance to decrement energy
+            if (_random.NextDouble() <= 0.5)
+            {
+                int energyLevel = StatSheet.GetStat("Energy").Value;
+
+                if (energyLevel > 0)
+                {
+
+                    int currentEnergy = StatSheet.GetStat("Energy").Value;
+                    int startIndex = Math.Max(currentEnergy - 1, 0); // Starting point after decrement
+                    int endIndex = currentEnergy - 1; // Ending point of affected bars
+                    if (startIndex <= endIndex) // Ensure valid range
+                    {
+                        _mainWindow.EnergyBar.UpdateBlinkStates(startIndex, endIndex, -1); // State = -1 for decrement
+                        blinkTasks.Add(_mainWindow.EnergyBar.HandleBlinkingAsync(startIndex, endIndex, true)); // isDecrementing = true
+                    }
+                    energyLevel -= 1;
+
+                    Console.WriteLine($"Energy decreased: {energyLevel}");
+                    finalEnergy = -1;
+                }
+            }
+            // Wait for all blinking tasks to complete
+            await Task.WhenAll(blinkTasks);
+            StatSheet.UpdateStat("Energy", finalEnergy);
+            StatSheet.UpdateStat("Affection", finalAffection);
+            StatSheet.UpdateStat("Hunger", finalHunger); // Update asynchronously
+        }
     }
 }

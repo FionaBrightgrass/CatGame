@@ -69,7 +69,7 @@ namespace PocketCat.Controls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PocketCat;V1.0.0.0;component/controls/statbar.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PocketCat;component/controls/statbar.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Controls\Statbar.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

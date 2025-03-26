@@ -73,6 +73,26 @@ namespace PocketCat.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] Heart {
+            get {
+                object obj = ResourceManager.GetObject("Heart", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Icon {
+            get {
+                object obj = ResourceManager.GetObject("Icon", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] SpriteSheet {
             get {
                 object obj = ResourceManager.GetObject("SpriteSheet", resourceCulture);

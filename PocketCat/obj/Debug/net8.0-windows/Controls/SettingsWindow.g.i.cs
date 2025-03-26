@@ -54,7 +54,7 @@ namespace PocketCat.Controls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PocketCat;V1.0.0.0;component/controls/settingswindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PocketCat;component/controls/settingswindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Controls\SettingsWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

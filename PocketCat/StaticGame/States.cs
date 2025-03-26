@@ -52,7 +52,7 @@ namespace PocketCat.StaticGame
                         OnStateChanged?.Invoke(_currentState); // Notify subscribers
 
                         // Start or stop the state reset task based on the new state
-                        if (_currentState != "Idle" && _currentState != "Sleeping")
+                        if (_currentState != "Idle" && _currentState != "Sleeping" && _currentState != "Tired" && _currentState != "Hungry")
                         {
                             StartStateResetTask(previousState);
                         }
@@ -84,8 +84,10 @@ namespace PocketCat.StaticGame
             { "Fish", new int[] { 424, 15, 150 } },      // WalkRight + 140px
             { "Sleeping", new int[] { 564, 8, 400 } },    // Eating + 140px
             { "Toy Mouse", new int[] { 704, 9, 250 } },      // Sleeping + 140px
-            { "Catnip", new int[] { 844, 8, 150 } },      // Play01 + 140px
-            { "Box", new int[] { 984, 8, 150 } }       // Play02 + 140px
+            { "Catnip", new int[] { 844, 4, 150 } },      // Toy Mouse + 140px
+            { "Box", new int[] { 984, 8, 150 } },     // Catnip + 140px
+            { "Tired", new int[] { 1124, 10, 150 }  },// Box + 140px
+            { "Hungry", new int[] { 1124, 10, 150 }  }// Box + 140px
         };
 
 

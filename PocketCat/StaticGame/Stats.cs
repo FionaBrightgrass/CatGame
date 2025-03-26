@@ -14,9 +14,9 @@ namespace PocketCat.StaticGame
 
         private static Dictionary<string, int> StatDict = new Dictionary<string, int>
         {
-            { "Affection", 0 },
-            { "Hunger", 0 },
-            { "Energy", 0 }
+            { "Affection", 2 },
+            { "Hunger", 5 },
+            { "Energy", 5 }
         };
 
         static Stats2()

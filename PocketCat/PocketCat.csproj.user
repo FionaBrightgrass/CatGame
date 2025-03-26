@@ -10,6 +10,9 @@
     <Compile Update="Controls\CallPopup.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Controls\HeartContainer.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Controls\SettingsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -30,6 +33,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Controls\CallPopup.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\HeartContainer.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\SettingsWindow.xaml">

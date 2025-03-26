@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using PocketCat.StaticGame;
+using PocketCat.StaticGame.Stats;
 
 namespace PocketCat.Controls
 {
@@ -86,76 +87,25 @@ namespace PocketCat.Controls
         }
         public void UpdateBlinkStates(int startIndex, int endIndex, int changeState)
         {
-            // Validate _blinkStates and ensure it has valid entries
             if (_blinkStates == null || _blinkStates.Count == 0)
             {
                 Console.WriteLine("Error: Blink states are empty or uninitialized.");
                 return;
             }
 
-            // Clamp indices to valid range
             startIndex = Math.Max(startIndex, 0);
             endIndex = Math.Min(_blinkStates.Count - 1, endIndex);
 
-            // Handle single-bar updates (startIndex == endIndex)
-            if (startIndex == endIndex)
-            {
-                Console.WriteLine($"Updating single blink state: Index={startIndex}, ChangeState={changeState}");
-                _blinkStates[startIndex] = (_blinkStates[startIndex].Bar, changeState);
-                return; // No need for further looping
-            }
-
-            // Handle invalid range (startIndex > endIndex after clamping)
             if (startIndex > endIndex)
             {
                 Console.WriteLine($"Invalid range after clamping: startIndex={startIndex}, endIndex={endIndex}");
                 return;
             }
 
-            // Handle multi-bar updates (startIndex <= endIndex)
-            Console.WriteLine($"Updating blink states from Index={startIndex} to Index={endIndex} with ChangeState={changeState}");
             for (int i = startIndex; i <= endIndex; i++)
             {
-                _blinkStates[i] = (_blinkStates[i].Bar, changeState);
+                _blinkStates[i] = (_blinkStates[i].Bar, changeState); // Explicitly update the state
                 Console.WriteLine($"BlinkState Updated: Index={i}, ChangeState={changeState}");
-            }
-        }
-
-        public async Task UpdateBlinkStatesAsync(int startIndex, int endIndex, int changeState)
-        {
-            // Clamp the indices to valid values
-            startIndex = Math.Max(startIndex, 0);
-            endIndex = Math.Min(_blinkStates.Count - 1, endIndex);
-
-            // Handle the case where no valid range is provided
-            if (startIndex > endIndex)
-            {
-                Console.WriteLine($"Invalid range: startIndex={startIndex}, endIndex={endIndex}");
-                return;
-            }
-
-            // Handle single-bar updates (startIndex == endIndex)
-            if (startIndex == endIndex)
-            {
-                Console.WriteLine($"Blinking single bar at index: {startIndex}");
-
-                // Blink the single bar asynchronously before updating it
-                await HandleBlinkingAsync(startIndex);
-
-                // Update the state for the single bar after blinking
-                _blinkStates[startIndex] = (_blinkStates[startIndex].Bar, changeState);
-                Console.WriteLine($"BlinkState Updated: Index={startIndex}, ChangeState={changeState}");
-            }
-            else
-            {
-                // Handle multi-bar updates (range from startIndex to endIndex)
-                Console.WriteLine($"Updating blink states from {startIndex} to {endIndex} with changeState={changeState}");
-
-                for (int i = startIndex; i <= endIndex; i++)
-                {
-                    _blinkStates[i] = (_blinkStates[i].Bar, changeState);
-                    Console.WriteLine($"BlinkState Updated: Index={i}, ChangeState={changeState}");
-                }
             }
         }
 
@@ -164,74 +114,52 @@ namespace PocketCat.Controls
             get => _blinkStates.Count; // Returns the number of rectangles in the Statbar
         }
 
+        private HashSet<int> _blinkedIndices = new HashSet<int>(); // Track indices already blinked
 
-        public async Task HandleBlinkingAsync(int achievedCount, bool isDecrementing = false)
+        bool isBlinking = false;
+        public async Task HandleBlinkingAsync(int startIndex, int endIndex, bool isDecrementing = false)
         {
-            int flashInterval = 500; // Flash interval in milliseconds
+            if (isBlinking)
+                return;
+            isBlinking = true;
+            int flashInterval = 500;
 
-            // List to hold tasks for each bar's blinking logic
+            startIndex = Math.Max(startIndex, 0);
+            endIndex = Math.Min(_blinkStates.Count - 1, endIndex);
+
+            if (startIndex > endIndex) return;
+
             var blinkingTasks = new List<Task>();
 
-            // Flashing Logic
-            for (int i = 0; i < _blinkStates.Count; i++)
+            for (int i = startIndex; i <= endIndex; i++)
             {
-                var (bar, state) = _blinkStates[i];
-                Console.WriteLine($"Index: {i}, State: {state}, AchievedCount: {achievedCount}");
+                if (_blinkedIndices.Contains(i)) continue; // Skip if already blinked
+                _blinkedIndices.Add(i);
 
-                if (state == 1 && i <= achievedCount) // Incrementing Bars
-                {
+                var (bar, state) = _blinkStates[i];
+                Console.WriteLine($"Blinking Bar Index: {i}, State: {state}");
+
+                if (state == 1)
                     blinkingTasks.Add(FlashBarAsync(bar, Colors.White, Colors.Black, flashInterval));
-                }
-                else if (state == -1) // Decrementing Bars
-                {
+                else if (state == -1 && isDecrementing)
                     blinkingTasks.Add(FlashBarAsync(bar, Colors.Red, Colors.Black, flashInterval));
-                }
             }
-
-            // Wait for all blinking tasks to complete
             await Task.WhenAll(blinkingTasks);
-
-            // Finalization Logic
-            for (int i = 0; i < _blinkStates.Count; i++)
+            for (int i = startIndex; i <= endIndex -1; i++)
             {
                 var (bar, state) = _blinkStates[i];
 
-                if (state == 1) // Finalize incrementing bars to green
-                {
+                if (state == 1)
                     bar.Fill = new SolidColorBrush(Colors.Green);
-                }
-                else if (state == -1) // Finalize decrementing bars to black
-                {
+                else if (state == -1 && isDecrementing)
                     bar.Fill = new SolidColorBrush(Colors.Black);
-                }
-                else if (i < achievedCount) // Already achieved bars remain green
-                {
-                    bar.Fill = new SolidColorBrush(Colors.Green);
-                }
             }
-
-            ResetBlinkStates(); // Reset all states to default
+            ResetBlinkStates(0, 9);
+            _blinkedIndices.Clear(); // Reset blinked indices for the next operation
+            isBlinking = false;
         }
 
-        public async Task BlinkOnceAsync(int index)
-        {
-            int flashInterval = 300; // 30ms interval
 
-            if (index >= 0 && index < _blinkStates.Count)
-            {
-                var (bar, state) = _blinkStates[index];
-
-                // Blink: Black -> White
-                bar.Fill = new SolidColorBrush(Colors.White);
-                await Task.Delay(flashInterval);
-                bar.Fill = new SolidColorBrush(Colors.Black);
-                await Task.Delay(flashInterval);
-
-                // Finalize: Solid Green
-                bar.Fill = new SolidColorBrush(Colors.Green);
-                ResetBlinkStates(); // Reset state for this bar
-            }
-        }
 
         private async Task FlashBarAsync(Rectangle bar, Color firstColor, Color secondColor, int interval)
         {
@@ -246,13 +174,21 @@ namespace PocketCat.Controls
 
 
 
-        public void ResetBlinkStates()
+        public void ResetBlinkStates(int startIndex, int endIndex)
         {
-            for (int i = 0; i < _blinkStates.Count; i++)
+            startIndex = Math.Max(startIndex, 0);
+            endIndex = Math.Min(_blinkStates.Count - 1, endIndex);
+
+            if (startIndex > endIndex) return;
+
+            for (int i = startIndex; i <= endIndex; i++)
             {
-                _blinkStates[i] = (_blinkStates[i].Bar, 0); // Reset state to 0
+                _blinkStates[i] = (_blinkStates[i].Bar, 0); // Reset state to 0 for affected range
             }
+
+            Console.WriteLine($"Blink states reset for range: startIndex={startIndex}, endIndex={endIndex}");
         }
+
 
         private Dictionary<int, bool> _blinkingBars = new Dictionary<int, bool>();
 
@@ -293,33 +229,6 @@ namespace PocketCat.Controls
             _blinkingBars[index] = false; // Stop blinking
             var (bar, state) = _blinkStates[index];
             bar.Fill = new SolidColorBrush(Colors.Green); // Finalize to solid green
-        }
-
-        public void UpdateBarColorFromHeaderText()
-        {
-            if (ParentWindow == null)
-            {
-                Console.WriteLine("ParentWindow is not set. Unable to retrieve stats.");
-                return;
-            }
-
-            // Look up the stat using Header.Text
-            int stat = Stats.GetStat(Header.Text); // Replace with your actual method to fetch stat
-
-            // Ensure stat value is within bounds
-            if (stat < 0) stat = 0;
-            if (stat > StatbarPanel.Children.Count) stat = StatbarPanel.Children.Count;
-
-            // Update bar colors based on stat
-            for (int i = 0; i < StatbarPanel.Children.Count; i++)
-            {
-                if (StatbarPanel.Children[i] is Rectangle bar)
-                {
-                    bar.Fill = i < stat
-                        ? new SolidColorBrush(Colors.Green) // Green for achieved bars
-                        : new SolidColorBrush(Colors.Black); // Black for remaining bars
-                }
-            }
         }
 
 
