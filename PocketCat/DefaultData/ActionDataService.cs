@@ -6,7 +6,6 @@ namespace PocketCat.DefaultData
     public static class ActionDataService
     {
         private static readonly Random _random = new Random();
-
         // Method for lists with lastIndex parameter
         public static string GetRandomItem(List<string> items, int? lastIndex = null)
         {

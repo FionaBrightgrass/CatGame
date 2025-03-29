@@ -2,38 +2,12 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using PocketCat.StaticGame.Stats;
 
 namespace PocketCat.StaticGame
 {
     public static class States
     {
-        private static bool _isSleeping;
-        public static bool IsSleeping
-        {
-            get => _isSleeping;
-            set
-            {
-                if (_isSleeping != value)
-                {
-                    _isSleeping = value;
-                    Console.WriteLine($"IsSleeping state changed to: {_isSleeping}");
-                }
-            }
-        }
-
-        private static bool _wantsPets;
-        public static bool WantsPets
-        {
-            get => _wantsPets;
-            set
-            {
-                if (_wantsPets != value)
-                {
-                    _wantsPets = value;
-                    Console.WriteLine($"WantsPets state changed to: {_wantsPets}");
-                }
-            }
-        }
 
         private static string _currentState = "Idle";
         private static CancellationTokenSource _resetTokenSource; // Token to cancel pending reset tasks
@@ -52,9 +26,12 @@ namespace PocketCat.StaticGame
                         OnStateChanged?.Invoke(_currentState); // Notify subscribers
 
                         // Start or stop the state reset task based on the new state
-                        if (_currentState != "Idle" && _currentState != "Sleeping" && _currentState != "Tired" && _currentState != "Hungry")
+                        if (_currentState != "Idle" && _currentState != "Sleeping" && _currentState != "Tired")
                         {
-                            StartStateResetTask(previousState);
+                            if(_currentState == "Hungry")
+                                StartStateResetTask("Hungry");
+                            else
+                                StartStateResetTask(previousState);
                         }
                         else
                         {
@@ -62,7 +39,7 @@ namespace PocketCat.StaticGame
                         }
                     }
                 }
-                else
+                else if (_currentState != "Idle" && _currentState != "Sleeping" && _currentState != "Tired")
                 {
                     Console.WriteLine($"Invalid state: {value}. Defaulting to 'Idle'.");
                     _currentState = "Idle"; // Set to Idle if invalid
@@ -117,14 +94,6 @@ namespace PocketCat.StaticGame
 
                 // Wait asynchronously for 10 seconds (or cancel if the token is triggered)
                 await Task.Delay(TimeSpan.FromSeconds(10), token);
-
-                // Check if the state has changed independently
-                if (initialTrackedState != CurrentState)
-                {
-                    Console.WriteLine($"State changed independently to '{CurrentState}', reset task canceled.");
-                    return;
-                }
-
                 // Otherwise, reset the state to "Idle"
                 ResetToIdle();
             }
@@ -134,7 +103,7 @@ namespace PocketCat.StaticGame
             }
         }
 
-        private static void StopStateResetTask()
+        public static void StopStateResetTask()
         {
             if (_resetTokenSource != null)
             {
@@ -146,11 +115,18 @@ namespace PocketCat.StaticGame
             }
         }
 
-        private static void ResetToIdle()
+        public static void ResetToIdle()
         {
             StopStateResetTask(); // Stop any ongoing reset tasks
-            CurrentState = "Idle"; // Reset the state to Idle
-            Console.WriteLine("State has been reset to Idle.");
+            if (Flags.IsSleeping)
+                CurrentState = "Sleeping";
+            else if (StatSheet.GetStat("Energy").Value < 3)
+                CurrentState = "Tired";
+            else if (StatSheet.GetStat("Hunger").Value < 3)
+                CurrentState = "Hungry";
+            else
+                CurrentState = "Idle"; // Reset the state to Idle
+            Console.WriteLine("State has been reset to " + CurrentState +".");
         }
     }
 }

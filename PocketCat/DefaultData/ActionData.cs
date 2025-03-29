@@ -5,12 +5,7 @@
         public static ActionDataModel DataModel = new ActionDataModel
         {
             Name = "Sherlock",
-            PronounOne = "He",
-            PronounOneLower = "he",
-            PronounTwo = "Him",
-            PronounTwoLower = "him",
-            PronounThree = "His",
-            PronounThreeLower = "his",
+            Pronouns = "He/Him/His",
             HungerName = "Hunger",
             AffectionName = "Affection",
             EnergyName = "Energy",
@@ -31,7 +26,7 @@
             PlayControl = new Dictionary<string, string>
             {
                 { "Toy Mouse", "Hunger: -1; Affection: 1; Energy: -1; #NAME# stares curiously at the toy mouse. #PRONOUNONE# doesn't seem to want to hurt it." },
-                { "Catnip", "Hunger: -1; Affection: 2; Energy: 1; #NAME# stuffs his little face with catnip. #PRONOUNONE# seems to be enjoying #PRONOUNTWOLOWER#self." },
+                { "Catnip", "Hunger: -1; Affection: 2; Energy: 1; #NAME# stuffs #PRONOUNTHREELOWER# little face with catnip. #PRONOUNONE# seems to be enjoying #PRONOUNTWOLOWER#self." },
                 { "Box", "Hunger: -1; Affection: 1; Energy: -1; #NAME# climbs into the box. #PRONOUNONE# seems to be enjoying #PRONOUNTWOLOWER#self!" },
                 { "Back", "Hunger: 0; Affection: 0; Energy: 0; Back." },
             },
@@ -82,6 +77,7 @@
             Hungry = new List<string>
             {
                 "#NAME# looks hungry.",
+                "Snack time?",
             },
             Full = new List<string>
             {
@@ -95,6 +91,12 @@
                 "#NAME# looks sleepy.",
                 "It appears to be time for a nap.",
                 "Time to put #NAME# to bed soon!",
+            },
+            Sleeping = new List<string>
+            {
+                "#NAME# is sound asleep.",
+                "ZzZzZz",
+                "So cute. Best not to wake #PRONOUNONELOWER# up.",
             },
             Woke = new List<string>
             {
@@ -136,6 +138,10 @@
             PlayStoryIndex = 0
         };
 
+        public static string Name => DataModel.Name;
+
+        public static string Pronouns => DataModel.Pronouns;
+
         // Shortcut properties for bar names
         public static string HungerName => DataModel.HungerName;
         public static string AffectionName => DataModel.AffectionName;
@@ -153,6 +159,7 @@
         public static List<string> Hungry => DataModel.Hungry;
         public static List<string> Full => DataModel.Full;
         public static List<string> Tired => DataModel.Tired;
+        public static List<string> Sleeping => DataModel.Sleeping;
         public static List<string> Woke => DataModel.Woke;
         public static List<string> HighAffectionIdle => DataModel.HighAffectionIdle;
         public static List<string> MidAffectionIdle => DataModel.MidAffectionIdle;

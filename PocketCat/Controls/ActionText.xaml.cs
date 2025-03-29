@@ -21,20 +21,44 @@ namespace PocketCat.Controls
     /// </summary>
     public partial class ActionText : TextBlock
     {
+        public AppSettings _appSettings;
         private CancellationTokenSource _cancellationTokenSource;
         public ActionText() : base()
         {
         }
         public async Task StartTextWritingAsync(string customText, double lettersPerSecond, CancellationToken cancellationToken)
         {
+            string Name = _appSettings.Name;
+            string[] pronouns = _appSettings.Pronouns.Split('/');
+            string He = "#Set Pronouns in Settings. Format: They/Them/Their";
+            string he = "#Set Pronouns in Settings. Format: She/Her/Hers";
+            string Him = "#Set Pronouns in Settings. Format: He/Him/His";
+            string him = "#Set Pronouns in Settings. Format: They/Them/Their";
+            string His = "#Set Pronouns in Settings. Format: She/Her/Hers";
+            string his = "#Set Pronouns in Settings. Format: He/Him/His";
+            if (pronouns.Length >=1)
+            {
+                He = pronouns[0];
+                he = pronouns[0].ToLower();
+            }
+            if(pronouns.Length >= 2)
+            {
+                Him = pronouns[1];
+                him = pronouns[1].ToLower();
+            }
+            if (pronouns.Length >= 3)
+            {
+                His = pronouns[2];
+                his = pronouns[2].ToLower();
+            }
             // Perform replacements in the text
-            customText = customText.Replace("#NAME#", DefaultData.ActionData.DataModel.Name)
-                                   .Replace("#PRONOUNONE#", DefaultData.ActionData.DataModel.PronounOne)
-                                   .Replace("#PRONOUNTWO#", DefaultData.ActionData.DataModel.PronounTwo)
-                                   .Replace("#PRONOUNONELOWER#", DefaultData.ActionData.DataModel.PronounOneLower)
-                                   .Replace("#PRONOUNTWOLOWER#", DefaultData.ActionData.DataModel.PronounTwoLower)
-                                   .Replace("#PRONOUNTHREE#", DefaultData.ActionData.DataModel.PronounThree)
-                                   .Replace("#PRONOUNTHREELOWER#", DefaultData.ActionData.DataModel.PronounThreeLower);
+            customText = customText.Replace("#NAME#", Name)
+                                   .Replace("#PRONOUNONELOWER#", he)
+                                   .Replace("#PRONOUNONE#", He)
+                                   .Replace("#PRONOUNTWO#", Him)
+                                   .Replace("#PRONOUNTWOLOWER#", him)
+                                   .Replace("#PRONOUNTHREE#", His)
+                                   .Replace("#PRONOUNTHREELOWER#", his);
 
             // Clear the existing text in the TextBlock
             Inlines.Clear();

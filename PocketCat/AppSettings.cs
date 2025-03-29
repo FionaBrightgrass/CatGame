@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.IO;
 using System.Windows.Media;
+using PocketCat.DefaultData;
 using PocketCat.StaticGame;
 
 namespace PocketCat
@@ -23,8 +24,9 @@ namespace PocketCat
             else
             {
                 string[] lines = File.ReadAllLines(path);
-                if (lines.Length < 10)
+                if (lines.Length < 13)
                 {
+                    Console.WriteLine("Invalid settings file. Creating new file with defaults.");
                     CreateSettingsFile(path); // Create the file with defaults if invalid
                 }
                 else
@@ -34,8 +36,11 @@ namespace PocketCat
                         if (line.Contains(":"))
                         {
                             string[] data = line.Split(':');
-                            if (data.Length < 2) continue; // Skip invalid lines
-
+                            if (data.Length < 2)
+                            {
+                                Console.WriteLine("Invalid settings file. Skipping: " + data[0]);
+                                continue; // Skip invalid lines
+                            }
                             string identifier = data[0];
                             string value = data[1].Trim(); // Trim whitespace around values
 
@@ -46,6 +51,13 @@ namespace PocketCat
                                     {
                                         _sleepInterval = interval; // Assign only if valid
                                         SleepInterval = interval;
+                                    }
+                                    break;
+                                case "TimeInterval":
+                                    if (int.TryParse(value.Trim(), out int ninterval) && ninterval >= 1 && ninterval <= 60)
+                                    {
+                                        _timeInterval = ninterval; // Assign only if valid
+                                        TimeInterval = ninterval;
                                     }
                                     break;
                                 case "WindowColor":
@@ -63,6 +75,12 @@ namespace PocketCat
                                 case "TextColor":
                                     _textColor = value;
                                     TextColorText = value;
+                                    break;
+                                case "Name":
+                                    ActionData.DataModel.Name = value;
+                                    break;
+                                case "Pronouns":
+                                    ActionData.DataModel.Pronouns = value;
                                     break;
                                 case "PrimaryColor":
                                     _primaryColor = value;
@@ -106,17 +124,68 @@ namespace PocketCat
                 writer.WriteLine("BorderColor:" + _borderColor);
                 writer.WriteLine("ButtonColor:" + _buttonColor);
                 writer.WriteLine("TextColor:" + _textColor);
+                writer.WriteLine("Name:" + ActionData.DataModel.Name);
+                writer.WriteLine("Pronouns:" + ActionData.DataModel.Pronouns);
                 writer.WriteLine("PrimaryColor:" + _primaryColor);
                 writer.WriteLine("SecondaryColor:" + _secondaryColor);
                 writer.WriteLine("TertiaryColor:" + _tertiaryColor);
                 writer.WriteLine("DetailColor:" + _detailColor);
                 writer.WriteLine("EyeColor:" + _eyeColor);
                 writer.WriteLine("SleepInterval:" + _sleepInterval); // Use the current value of SleepInterval
+                writer.WriteLine("TimeInterval:" + _timeInterval); // Use the current value of SleepInterval
             }
         }
 
+        private string _name = "Sherlock"; // Default hex color
 
-        private string _windowColor; // Default hex color
+        // Bound to TextBox in the UI
+        public string Name
+        {
+            get => _name;
+            set
+            {
+                if (_name != value)
+                {
+                    _name = value;
+                    try
+                    {
+                        OnPropertyChanged(nameof(Name)); // Notify changes for dependent properties
+                        CreateSettingsFile(path);
+                    }
+                    catch
+                    {
+                        // If the conversion fails, do nothing
+                    }
+                    OnPropertyChanged(nameof(Name));
+                }
+            }
+        }
+        private string _pronouns = "He/Him/His"; // Default hex color
+
+        // Bound to TextBox in the UI
+        public string Pronouns
+        {
+            get => _pronouns;
+            set
+            {
+                if (_pronouns != value)
+                {
+                    _pronouns = value;
+                    try
+                    {
+                        OnPropertyChanged(nameof(Pronouns)); // Notify changes for dependent properties
+                        CreateSettingsFile(path);
+                    }
+                    catch
+                    {
+                        // If the conversion fails, do nothing
+                    }
+                    OnPropertyChanged(nameof(Pronouns));
+                }
+            }
+        }
+
+        private string _windowColor = "#000000"; // Default hex color
 
         // Bound to TextBox in the UI
         public string WindowColorText
@@ -160,7 +229,7 @@ namespace PocketCat
         }
 
 
-        private string _buttonColor = "#FF3060"; // Default hex color
+        private string _buttonColor = "#0000000"; // Default hex color
 
         // Bound to TextBox in the UI
         public string ButtonColorText
@@ -204,7 +273,7 @@ namespace PocketCat
             }
         }
 
-        private string _textColor = "#FF3060"; // Default hex color
+        private string _textColor = "#FFFFFF"; // Default hex color
 
         // Bound to TextBox in the UI
         public string TextColorText
@@ -248,7 +317,7 @@ namespace PocketCat
             }
         }
 
-        private string _borderColor = "#FF3060"; // Default hex color
+        private string _borderColor = "#FFFFFF"; // Default hex color
 
         // Bound to TextBox in the UI
         public string BorderColorText
@@ -299,7 +368,7 @@ namespace PocketCat
             get => _sleepInterval;
             set
             {
-                int valueTemp = Math.Min(Math.Max(value, 1), 60);
+                var valueTemp = Math.Min(Math.Max(value, 1), 60);
                 _sleepInterval = valueTemp;
                 try
                 {
@@ -313,6 +382,25 @@ namespace PocketCat
             }
         }
 
+        private int _timeInterval = 6; // Default to 6 minutes
+        public int TimeInterval
+        {
+            get => _timeInterval;
+            set
+            {
+                var valueTemp = Math.Min(Math.Max(value, 1), 60);
+                _timeInterval = valueTemp;
+                try
+                {
+                    CreateSettingsFile(path); // Save updated value
+                }
+                catch
+                {
+                    Console.WriteLine("Error saving settings to file.");
+                }
+                OnPropertyChanged(nameof(TimeInterval)); // Notify listeners of the change
+            }
+        }
 
         private string _primaryColor = "#202020";
         private string _secondaryColor = "#252525";

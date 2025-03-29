@@ -12,6 +12,9 @@ using PocketCat.Controls;
 using System;
 using PocketCat.DefaultData;
 using System.ComponentModel;
+using PocketCat.Controls.Windows;
+using PocketCat.StaticGame.Items;
+using System.Reflection.Metadata;
 
 namespace PocketCat
 {
@@ -20,28 +23,33 @@ namespace PocketCat
     /// </summary>
     public partial class MainWindow : Window
     {
-        private AppSettings _appSettings = new AppSettings();
-        private SettingsWindow settingsWindow;
-        private int storyIndex = 0;
+        private AppSettings AppSettings = new AppSettings();
+        private SettingsWindow SettingsWindow;
+        private Money Money = new Money();
+        private Shop Shop;
         private int lastRandom = -1;
 
         public MainWindow()
         {
             InitializeComponent();
+            // Initialize other components
+            ActionText._appSettings = AppSettings;
+            Time._appSettings = AppSettings;
+            Time._mainWindow = this;
+            Time.RunContinuousTimerAsync();
+            Time.HungerLevelChanged += OnSleepingHungerLevelChanged;
+            States.ResetToIdle();
+            States.OnStateChanged += HandleStateChanged;
 
             // Configure StatSheet (no need for instantiation since it's static)
             StatSheet.SubscribeToAllStatChanges();
             StatSheet.ConfigureBlinkBars();
 
-            // Initialize other components
-            Time._AppSettings = _appSettings;
-            Time._mainWindow = this;
-            Time.HungerLevelChanged += OnSleepingHungerLevelChanged;
-            States.OnStateChanged += HandleStateChanged;
-
+            Shop = new Shop(this);
+            Shop.Show();
             // Initialize the Settings window
-            settingsWindow = new SettingsWindow(_appSettings);
-            settingsWindow.Visibility = Visibility.Hidden;
+            SettingsWindow = new SettingsWindow(AppSettings, this);
+            SettingsWindow.Visibility = Visibility.Hidden;
 
             // Assign BlinkBarCallback dynamically within each Stat
             foreach (var statKey in new[] { "Hunger", "Affection", "Energy" })
@@ -92,6 +100,8 @@ namespace PocketCat
             HungerBar.ParentWindow = this;
             EnergyBar.ParentWindow = this;
             RefreshBars();
+            HandleStateChanged(States.CurrentState);
+            DataContext = Money;
         }
 
         public void RefreshBars()
@@ -105,7 +115,7 @@ namespace PocketCat
 
         private async void OnSleepingHungerLevelChanged(int newHungerLevel)
         {
-            if (!States.IsSleeping || States.CurrentState != "Sleeping")
+            if (!Flags.IsSleeping || States.CurrentState != "Sleeping")
                 return;
             Console.WriteLine("Begining OnSleepHungerLevelChanged");
             // Prepare tasks for blinking
@@ -123,7 +133,7 @@ namespace PocketCat
             }
 
             // Check if the pet is sleeping and display appropriate message
-            string actionText = States.IsSleeping
+            string actionText = Flags.IsSleeping
                 ? $"#NAME#'s belly rumbles quietly."
                 : $"#NAME# wakes up and meows for food.";
 
@@ -148,8 +158,93 @@ namespace PocketCat
 
         private void CloseWindow(object sender, RoutedEventArgs e)
         {
-            settingsWindow.Close();
+            SettingsWindow.Close();
+            Shop.Close();
             this.Close();
+        }
+        private void HideUI(object sender, RoutedEventArgs e)
+        {
+            MainBorder.BorderThickness = new Thickness(0);
+            MainBorder.Background.Opacity = 0;
+            // Show the NotificationWindow
+            NotificationWindow notification = new NotificationWindow(this);
+            notification.SetNotificationText("To show the UI in the future, you can simply double-click your pet.");
+            notification.WindowStartupLocation = WindowStartupLocation.Manual;
+            notification.Left = this.Left + (this.Width - notification.Width) / 2;
+            notification.Top = this.Top + ((this.Height - notification.Height) / 2) - 20;
+            // Subscribe to NotificationWindow events
+            notification.ContinueClicked += ExecuteHideUI; // Call ExecuteHideUI only if Continue is clicked
+            notification.CancelClicked += ShowUI; // Handle cancellation
+
+            notification.Owner = this; // Optional, sets MainWindow as owner
+            notification.ShowDialog(); // Show as modal dialog
+        }
+        private void ExecuteHideUI()
+        {
+            // Hide UI elements
+            ButtonControl.Visibility = Visibility.Collapsed;
+            FeedControl.Visibility = Visibility.Collapsed;
+            PlayControl.Visibility = Visibility.Collapsed;
+            SleepControl.Visibility = Visibility.Collapsed;
+            MainControl.Visibility = Visibility.Collapsed;
+            Close_Button.Visibility = Visibility.Collapsed;
+            Settings_Button.Visibility = Visibility.Collapsed;
+            HideUI_Button.Visibility = Visibility.Collapsed;
+
+            ActionText.Visibility = Visibility.Visible;
+            AffectionBar.Visibility = Visibility.Visible;
+            HungerBar.Visibility = Visibility.Visible;
+            EnergyBar.Visibility = Visibility.Visible;
+
+            // Make the background transparent
+            this.Background = Brushes.Transparent;
+
+            // Hide other UI components
+            SettingsWindow.Visibility = Visibility.Hidden;
+            Shop.Visibility = Visibility.Hidden;
+
+            // Update the UIHidden flag
+            Flags.UIHidden = true;
+
+            Console.WriteLine("UI has been hidden successfully.");
+        }
+
+
+        private void OnContinueClicked()
+        {
+            // Handle Continue button click
+            Console.WriteLine("Continue button was clicked!");
+            // Add logic to proceed with actions
+        }
+
+        private void OnCancelClicked()
+        {
+            // Handle Cancel button click
+            Console.WriteLine("Cancel button was clicked!");
+            // Add logic to abort actions or clean up
+        }
+
+
+        private void ShowUI(object sender, RoutedEventArgs e)
+        {
+            // Hide UI elements
+            ButtonControl.Visibility = Visibility.Visible;
+            FeedControl.Visibility = Visibility.Visible;
+            PlayControl.Visibility = Visibility.Visible;
+            SleepControl.Visibility = Visibility.Visible;
+            MainControl.Visibility = Visibility.Visible;
+            Close_Button.Visibility = Visibility.Visible;
+            Settings_Button.Visibility = Visibility.Visible;
+            HideUI_Button.Visibility = Visibility.Visible;
+            // Keep visible the desired elements
+            ActionText.Visibility = Visibility.Visible;
+            AffectionBar.Visibility = Visibility.Visible;
+            HungerBar.Visibility = Visibility.Visible;
+            EnergyBar.Visibility = Visibility.Visible;
+            // If you have headers as separate elements, ensure their visibility
+            Flags.UIHidden = false;
+            this.Background = AppSettings.WindowColorBrush;
+            this.Background.Opacity = 0.8;
         }
 
         private void OpenSettings(object sender, RoutedEventArgs e)
@@ -160,24 +255,29 @@ namespace PocketCat
             var mainWindowWidth = this.ActualWidth; // Width of MainWindow
 
             // Set the position for the SettingsWindow to the right of MainWindow
-            settingsWindow.Left = mainWindowLeft + mainWindowWidth; // Position it to the right
-            settingsWindow.Top = mainWindowTop; // Align the top of both windows
-            if (settingsWindow.Visibility == Visibility.Visible)
+            SettingsWindow.Left = mainWindowLeft + mainWindowWidth; // Position it to the right
+            SettingsWindow.Top = mainWindowTop; // Align the top of both windows
+            if (SettingsWindow.Visibility == Visibility.Visible)
             {
-                settingsWindow.Visibility = Visibility.Hidden;
+                SettingsWindow.Visibility = Visibility.Hidden;
+                MainBorder.CornerRadius = new CornerRadius(5);
             }
             else
             {
-                settingsWindow.Visibility = Visibility.Visible;
-                settingsWindow.Show();
+                SettingsWindow.Visibility = Visibility.Visible;
+                SettingsWindow.Show();
+                MainBorder.CornerRadius = new CornerRadius(5, 0, 0, 5);
             }
         }
 
         private void ReturnMain(object sender, RoutedEventArgs e)
         {
-            ButtonControl.Visibility = Visibility.Visible;
-            FeedControl.Visibility = Visibility.Hidden;
-            PlayControl.Visibility = Visibility.Hidden;
+            if(ButtonControl.Visibility != Visibility.Visible)
+                ButtonControl.Visibility = Visibility.Visible;
+            if (FeedControl.Visibility == Visibility.Visible)
+                FeedControl.Visibility = Visibility.Hidden;
+            if (PlayControl.Visibility == Visibility.Visible)
+                PlayControl.Visibility = Visibility.Hidden;
         }
 
         private void UpdateControlVisibility(UIElement visibleControl)
@@ -192,7 +292,7 @@ namespace PocketCat
         private async void MainButton_Click(object sender, RoutedEventArgs e)
         {
             // Handle sleeping pet scenario
-            if (States.IsSleeping)
+            if (Flags.IsSleeping)
             {
                 TimeSpan remainingTime = Time.SleepCooldownStartTime.Value.Add(Time.PetCooldownDuration) - DateTime.Now;
 
@@ -284,23 +384,12 @@ namespace PocketCat
         {
             try
             {
-                // Log the changes for debugging
                 Console.WriteLine($"Performing action: {actionText} | Hunger: {hungerValue}, Affection: {affectionValue}, Energy: {energyValue}");
-
-                // Update stats using the StatSheet object
-                //StatSheet.UpdateStat("Hunger", hungerValue);
-                //StatSheet.UpdateStat("Affection", affectionValue);
-                //StatSheet.UpdateStat("Energy", energyValue);
-
-                // Display feedback text with animation
                 await ActionText.StartTextWritingAsync(actionText, 25);
-
-                // Refresh UI after updating stats
                 RefreshBars();
             }
             catch (Exception ex)
             {
-                // Log the exception for debugging
                 Console.WriteLine($"Error performing action: {ex.Message}");
             }
             finally
@@ -316,6 +405,7 @@ namespace PocketCat
                 ReturnMain(null, e);
                 return true;
             }
+            Console.WriteLine("Back button failed.");
             return false;
         }
 
@@ -324,7 +414,7 @@ namespace PocketCat
             try
             {
                 // Handle sleeping pet scenario asynchronously
-                if (States.IsSleeping)
+                if (Flags.IsSleeping)
                 {
                     ReturnMain(sender, e);
                     await ActionText.StartTextWritingAsync("Best not to wake #NAME#.", 25);
@@ -343,74 +433,15 @@ namespace PocketCat
                     // Parse action data
                     if (TryParseActionData(playData.Value, out int hungerValue, out int affectionValue, out int energyValue, out string actionText))
                     {
-                        var blinkTasks = new List<Task>();
+                        States.StopStateResetTask();
                         States.CurrentState = playData.Key;
-
-                        // Handle HungerBar blinking
-                        if (hungerValue < 0) // Hunger decreases
-                        {
-                            int currentHunger = StatSheet.GetStat("Hunger").Value;
-                            int startIndex = Math.Max(currentHunger + hungerValue, 0); // Starting point after decrement
-                            int endIndex = currentHunger - 1; // Ending point of affected bars
-                            if (startIndex <= endIndex) // Ensure valid range
-                            {
-                                HungerBar.UpdateBlinkStates(startIndex, endIndex, -1); // State = -1 for decrement
-                                blinkTasks.Add(HungerBar.HandleBlinkingAsync(startIndex, endIndex, true)); // Trigger blinking
-                            }
-                        }
-
-                        // Handle AffectionBar blinking
-                        if (affectionValue != 0) // Affection changes (increase or decrease)
-                        {
-                            int currentAffection = StatSheet.GetStat("Affection").Value;
-                            int startIndex = affectionValue > 0
-                                ? currentAffection
-                                : Math.Max(currentAffection + affectionValue, 0); // Starting point depends on the change
-                            int endIndex = affectionValue > 0
-                                ? Math.Min(currentAffection + affectionValue - 1, AffectionBar.BlinkStateCount - 1)
-                                : currentAffection - 1; // Ending point depends on increase or decrease
-
-                            AffectionBar.UpdateBlinkStates(startIndex, endIndex, affectionValue > 0 ? 1 : -1); // Update blink state
-                            blinkTasks.Add(AffectionBar.HandleBlinkingAsync(startIndex, endIndex, affectionValue < 0)); // Trigger blinking
-                        }
-
-                        // Handle EnergyBar blinking
-                        // Handle EnergyBar blinking for both increases and decreases
-                        if (energyValue != 0) // Energy changes
-                        {
-                            int currentEnergy = StatSheet.GetStat("Energy").Value;
-
-                            if (energyValue > 0) // Energy increases
-                            {
-                                int startIndex = currentEnergy; // Starting point of increment
-                                int endIndex = Math.Min(currentEnergy + energyValue - 1, EnergyBar.BlinkStateCount - 1); // Clamp to valid range
-                                if (startIndex <= endIndex) // Ensure valid range
-                                {
-                                    EnergyBar.UpdateBlinkStates(startIndex, endIndex, 1); // State = 1 for increment
-                                    blinkTasks.Add(EnergyBar.HandleBlinkingAsync(startIndex, endIndex, false)); // isDecrementing = false
-                                }
-                            }
-                            else if (energyValue < 0) // Energy decreases
-                            {
-                                int decrementAmount = Math.Abs(energyValue); // Get absolute value for decrement
-                                int startIndex = Math.Max(currentEnergy - decrementAmount, 0); // Starting point after decrement
-                                int endIndex = currentEnergy - 1; // Ending point of affected bars
-                                if (startIndex <= endIndex) // Ensure valid range
-                                {
-                                    EnergyBar.UpdateBlinkStates(startIndex, endIndex, -1); // State = -1 for decrement
-                                    blinkTasks.Add(EnergyBar.HandleBlinkingAsync(startIndex, endIndex, true)); // isDecrementing = true
-                                }
-                            }
-                        }
-
-
+                        States.StopStateResetTask();
                         // Display action feedback text
+                        List<Task> blinkTasks = HandleAllBlinkTasks(hungerValue, affectionValue, energyValue);
                         await ActionText.StartTextWritingAsync(actionText, 25);
 
                         // Wait for all blinking tasks to complete
                         await Task.WhenAll(blinkTasks);
-
-                        // Update stats dynamically
                         StatSheet.UpdateStat("Hunger", hungerValue);
                         StatSheet.UpdateStat("Affection", affectionValue);
                         StatSheet.UpdateStat("Energy", energyValue);
@@ -435,39 +466,33 @@ namespace PocketCat
 
         private async void PetButton_Click(object sender, RoutedEventArgs e)
         {
+            TimeSpan remainingTime = new();
+            int maxAffection = StatSheet.GetStat("Affection").Value;
             // Check if the pet is on cooldown
-            if (!States.WantsPets)
+            if (!Flags.WantsPets && Time.PetCooldownStartTime != null)
             {
-                TimeSpan remainingTime;
-                if (Time.PetCooldownStartTime == null)
-                {
-                    Time.PetCooldownStartTime = DateTime.Now;
-                    remainingTime = Time.PetCooldownStartTime.Value.Add(Time.PetCooldownDuration) - DateTime.Now;
-                }
-                else
-                {
-                    remainingTime = Time.PetCooldownStartTime.Value.Add(Time.PetCooldownDuration) - DateTime.Now;
-                }
-
+                Time.PetCooldownStartTime ??= DateTime.Now;
+                remainingTime = Time.PetCooldownStartTime.Value.Add(Time.PetCooldownDuration) - DateTime.Now;
                 // Calculate the percentage of cooldown completion
                 int passedMilliseconds = (int)(DateTime.Now - Time.PetCooldownStartTime.Value).TotalMilliseconds;
                 Console.WriteLine($"Total time passed since last pet: {passedMilliseconds}ms");
-
-                float ratio = 100; // Default to complete
-                if (passedMilliseconds > 0 && remainingTime.TotalMilliseconds > 0)
+                float ratio;
+                if (passedMilliseconds <= 100 || remainingTime.TotalMilliseconds <= 100)
                 {
-                    float diff = (float)passedMilliseconds / (passedMilliseconds + (float)remainingTime.TotalMilliseconds);
-                    ratio = diff * 100; // Scale to percentage
+                    Console.WriteLine("Invalid cooldown timing data detected.");
+                    ratio = -1;
                 }
                 else
                 {
-                    ratio = 0; // Default for unexpected values
+                    float diff = (float)passedMilliseconds / (passedMilliseconds + (float)remainingTime.TotalMilliseconds);
+                    ratio = diff * 100;
                 }
-
+                remainingTime = Time.PetCooldownStartTime.Value.Add(Time.PetCooldownDuration) - DateTime.Now;
+                if (remainingTime.Milliseconds >= 0)
+                    return;
+                else
+                    Flags.WantsPets = true;
                 Console.WriteLine($"{ratio}% cooldown complete.");
-
-                // Handle different cooldown states
-                int maxAffection = StatSheet.GetStat("Affection").Value;
                 if (ratio < 20)
                 {
                     string actionText = ActionDataService.GetRandomItem(ActionData.Extra, maxAffection);
@@ -486,51 +511,42 @@ namespace PocketCat
                     await ActionText.StartTextWritingAsync(actionText, 25);
                     return;
                 }
-                else
-                {
-                    States.WantsPets = true;
-                }
             }
-
-            // Start the pet cooldown
-            Time.StartPetCooldownAsync();
-
-            // Fetch a random petting story
-            string story = ActionDataService.GetRandomItem(ActionData.PetRandom);
-
-            // Calculate stat changes
-            int affectionGain = 0 % 3; // Stat change for Affection
-            int hungerChange = 0;      // No hunger change for petting
-            int energyChange = -1 * (1 % 3); // Energy cost for petting
-
-            // Perform the main action and update stats
-            await PerformAction(story, hungerChange, affectionGain, energyChange);
-
-            // Check if extra data is available
-            if (DefaultData.ActionData.Extra == null || DefaultData.ActionData.Extra.Count == 0)
+            else
             {
-                Console.WriteLine("Extra story data is missing or empty.");
-                return;
-            }
 
-            // Optionally display an extra story (30% chance)
-            if (GenerateIndex(10) < 3)
-            {
-                await Task.Delay(2000);
-                string extraStory = ActionDataService.GetRandomItem(ActionData.PetRandom);
-                await PerformAction(extraStory, 0, 0, 0); // No stat change for extra story
+                Flags.WantsPets = true;
+                States.StopStateResetTask();
+                Time.StartPetCooldownAsync();
+                string story = ActionDataService.GetRandomItem(ActionData.PetRandom);
+                ActionText.StartTextWritingAsync(story, 25);
 
-                // Cycle through the extra story index
-                storyIndex++;
-                if (storyIndex >= DefaultData.ActionData.Extra.Count)
+                // Calculate stat changes
+                const int TextWritingSpeed = 25;
+                int affectionGain = 1 % 3;
+                int hungerChange = 0;
+                int energyChange = -1 * (1 % 3);
+
+                List<Task> blinkTasks = HandleAllBlinkTasks(hungerChange, affectionGain, energyChange);
+                await Task.WhenAll(blinkTasks);
+
+                // Update stats dynamically
+                StatSheet.UpdateStat("Affection", affectionGain);
+                StatSheet.UpdateStat("Energy", energyChange);
+                RefreshBars();
+                // Optionally display an extra story (30% chance)
+                if (DefaultData.ActionData.Extra != null && DefaultData.ActionData.Extra.Count > 0)
                 {
-                    storyIndex = 0;
+                    if (GenerateIndex(10) < 3)
+                    {
+                        await Task.Delay(2000);
+                        string extraStory = ActionDataService.GetRandomItem(ActionData.PetRandom);
+                        ActionText.StartTextWritingAsync(extraStory, 25);
+                    }
                 }
-            }
-
-            // Refresh the visual bars
-            RefreshBars();
+            }  
         }
+
 
         private int GenerateIndex(int randomCount)
         {
@@ -548,96 +564,119 @@ namespace PocketCat
 
         private async void SleepButton_Click(object sender, RoutedEventArgs e)
         {
+            string buttonName = sender is Button button ? button.Content?.ToString().Trim() ?? string.Empty : string.Empty;
+
+            // Handle the "Back" button scenario
+            if (string.Equals(buttonName, "Back", StringComparison.OrdinalIgnoreCase))
+            {
+                ReturnMain(sender, e);
+                return;
+            }
+
             try
             {
-                // Safely extract button name
-                string buttonName = sender is Button button ? button.Content?.ToString().Trim() ?? string.Empty : string.Empty;
-
-                // Handle the "Back" button scenario
-                if (HandleBackButton(buttonName, e))
-                {
-                    ReturnMain(sender, e);
-                    return;
-                }
-
                 // Process sleep action logic if button corresponds to a valid sleep action
                 if (DefaultData.ActionData.DataModel.SleepControl.TryGetValue(buttonName, out string sleepData))
                 {
                     if (TryParseActionData(sleepData, out int hungerValue, out int affectionValue, out int energyValue, out string actionText))
                     {
-                        // Set the pet to sleeping state
-                        States.IsSleeping = true;
-                        States.CurrentState = "Sleeping";
+                        Console.WriteLine($"Handling sleep: {actionText}");
+                        await HandleSleep(hungerValue, affectionValue, energyValue, actionText);
 
-                        // Perform initial action
-                        await PerformAction(actionText, hungerValue, affectionValue, 0);
-                        Console.WriteLine("The pet is now sleeping.");
-
-                        // Start cooldown and calculate sleep duration
-                        Time.SleepCooldownStartTime = DateTime.Now;
-                        int currentEnergy = StatSheet.GetStat("Energy").Value;
-                        int energyToRestore = Stat.MaxValue - currentEnergy; // Number of energy units to restore
-                        int sleepDuration = _appSettings.SleepInterval * energyToRestore;
-                        DateTime sleepEndTime = Time.SleepCooldownStartTime.Value.AddMinutes(sleepDuration);
-
-                        // Restore energy while pet is sleeping
-                        while (currentEnergy < Stat.MaxValue)
-                        {
-                            await EnergyBar.BlinkContinuouslyAsync(currentEnergy, _appSettings.SleepInterval); // Blink bar
-                            EnergyBar.StopBlinking(currentEnergy); // Stop blinking
-                            StatSheet.UpdateStat("Energy", 1); // Update stat dynamically
-                            currentEnergy++;
-                            Console.WriteLine($"Energy restored: {currentEnergy}/{Stat.MaxValue}");
-                        }
-                        int currentHunger = StatSheet.GetStat("Hunger").Value;
-                        int currentAffection = StatSheet.GetStat("Affection").Value;
-
-                        // Finalize sleeping state
-                        States.IsSleeping = false;
-                        Time.SleepCooldownStartTime = null;
-
-                        // Calculate remaining sleep time
-                        double hours = (sleepEndTime - DateTime.Now).TotalHours;
-                        int minutes = (int)(sleepEndTime - DateTime.Now).TotalMinutes;
-
-                        if (currentHunger == 0)
-                        {
-                            if (currentAffection > 0)
-                            {
-                                // Use HandleBarBlinking for affection bar updates
-                                HandleBarBlinking(currentAffection, -1, AffectionBar.BlinkStateCount, AffectionBar, new List<Task>());
-                                StatSheet.UpdateStat("Affection", -1);
-                            }
-                            States.CurrentState = "Hungry";
-                            actionText = ActionDataService.GetRandomItem(ActionData.Hungry);
-                        }
-                        else
-                        {
-                            actionText = ActionDataService.GetRandomItem(ActionData.Woke);
-                        }
-
-                        await ActionText.StartTextWritingAsync(actionText, 25);
-                        // Update stats
-                        StatSheet.UpdateStat("Hunger", hungerValue);
+                        RefreshBars(); // Refresh bars after sleep action
+                        ReturnMain(sender, e);
+                        States.ResetToIdle(); // Safely reset to Idle state
                     }
                 }
             }
             finally
             {
-                RefreshBars();
-                ReturnMain(sender, e); // Navigate back to the main menu
-                if (States.CurrentState == "Sleeping")
-                    States.CurrentState = "Idle";
+                // Ensure states are reset even if exceptions occur
+                Flags.IsSleeping = false;
+                States.CurrentState = "Idle";
             }
         }
 
+
+        private async Task HandleSleep(int hungerValue, int affectionValue, int energyValue, string actionText)
+        {
+            // Set the pet to sleeping state
+            States.StopStateResetTask();
+            Flags.IsSleeping = true;
+            States.CurrentState = "Sleeping";
+
+            // Perform initial sleep action
+            await PerformAction(actionText, hungerValue, affectionValue, 0);
+            Console.WriteLine("The pet is now sleeping.");
+
+            // Calculate energy restoration parameters
+            Time.SleepCooldownStartTime = DateTime.Now;
+            int currentEnergy = StatSheet.GetStat("Energy").Value;
+            int energyToRestore = Stat.MaxValue - currentEnergy; // Amount of energy to restore
+            int sleepDuration = AppSettings.SleepInterval * energyToRestore;
+
+            DateTime sleepEndTime = Time.SleepCooldownStartTime.Value.AddMinutes(sleepDuration);
+            List<Task> blinkTasks = new();
+            // Restore energy dynamically while the pet is sleeping
+            while (currentEnergy < Stat.MaxValue)
+            {
+                Flags.IsSleeping = true; // Ensure consistent sleeping state
+                await EnergyBar.BlinkContinuouslyAsync(currentEnergy, AppSettings.SleepInterval); // Blink energy bar
+                EnergyBar.StopBlinking(currentEnergy); // Stop blinking
+                StatSheet.UpdateStat("Energy", 1); // Update energy stat dynamically
+                currentEnergy++;
+                Console.WriteLine($"Energy restored: {currentEnergy}/{Stat.MaxValue}");
+                Random random = new Random();
+                if(random.NextDouble() < 0.25)
+                {
+                    if (StatSheet.GetStat("Hunger").Value == 0)
+                    {
+                        if (StatSheet.GetStat("Affection").Value > 0)
+                        {
+                            blinkTasks = HandleAllBlinkTasks(0, affectionValue, 0);
+                            await Task.WhenAll(blinkTasks);
+                            StatSheet.UpdateStat("Affection", -1);
+                        }
+                    }         
+                }
+            }
+            // Finalize sleeping state
+            Time.SleepCooldownStartTime = null;
+            string finalActionText = string.Empty;
+            if (StatSheet.GetStat("Hunger").Value == 0)
+            {
+                if (StatSheet.GetStat("Affection").Value > 0)
+                {
+                    blinkTasks = HandleAllBlinkTasks(0, affectionValue, 0);
+                    StatSheet.UpdateStat("Affection", affectionValue);
+                }
+
+                States.CurrentState = "Hungry";
+                finalActionText = ActionDataService.GetRandomItem(ActionData.Hungry);
+            }
+            else
+            {
+                if (StatSheet.GetStat("Hunger").Value > 0)
+                {
+                    blinkTasks = HandleAllBlinkTasks(hungerValue, 0, 0);
+                    StatSheet.UpdateStat("Hunger", hungerValue);
+                }
+                finalActionText = ActionDataService.GetRandomItem(ActionData.Woke);
+            }
+            await Task.WhenAll(blinkTasks);
+            await ActionText.StartTextWritingAsync(finalActionText, 25);
+            RefreshBars();
+            // Additional delay for UI consistency
+            await Task.Delay(1000);
+            Flags.IsSleeping = false; // Exit sleeping state
+            States.CurrentState = "Idle"; // Reset state
+        }
 
 
         private async void FeedButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                // Check if the pet is sleeping
                 if (await HandleSleepingPetAsync())
                 {
                     ReturnMain(sender, e);
@@ -646,59 +685,28 @@ namespace PocketCat
 
                 if (sender is Button button && button.DataContext is KeyValuePair<string, string> feedData)
                 {
-                    // Handle "Back" button functionality
                     if (HandleBackButton(feedData.Key))
                     {
                         ReturnMain(sender, e);
                         return;
                     }
-                    // Parse feed data
                     if (TryParseFeedData(feedData.Value, out int hungerValue, out int affectionValue, out int energyValue, out string actionText))
                     {
-                        var blinkTasks = new List<Task>();
-                        // States.CurrentState = feedData.Key;
-
-                        // Handle HungerBar blinking
-                        if(StatSheet.GetStat("Hunger").Value == 10)
+                        if(StatSheet.GetStat("Hunger").Value == StatSheet.MaxValue)
                         {
                             actionText = ActionDataService.GetRandomItem(ActionData.Full);
                             ActionText.StartTextWritingAsync(actionText, 25);
                         }
                         else
                         {
+                            List<Task> blinkTasks = HandleAllBlinkTasks(hungerValue, affectionValue, energyValue);
                             States.CurrentState = feedData.Key;
-                            if (hungerValue != 0) // Hunger changes
-                            {
-                                int currentHunger = StatSheet.GetStat("Hunger").Value;
-                                HandleBarBlinking(currentHunger, hungerValue, HungerBar.BlinkStateCount, HungerBar, blinkTasks);
-                            }
-
-                            // Handle AffectionBar blinking
-                            if (affectionValue != 0) // Affection changes
-                            {
-                                int currentAffection = StatSheet.GetStat("Affection").Value;
-                                HandleBarBlinking(currentAffection, affectionValue, AffectionBar.BlinkStateCount, AffectionBar, blinkTasks);
-                            }
-
-                            // Handle EnergyBar blinking
-                            if (energyValue != 0) // Energy changes
-                            {
-                                int currentEnergy = StatSheet.GetStat("Energy").Value;
-                                HandleBarBlinking(currentEnergy, energyValue, EnergyBar.BlinkStateCount, EnergyBar, blinkTasks);
-                            }
-                            // Show action feedback text
                             ActionText.StartTextWritingAsync(actionText, 25);
-
-                            // Wait for all blinking tasks to finish
                             await Task.WhenAll(blinkTasks);
-
-                            // Update stats dynamically
                             StatSheet.UpdateStat("Hunger", hungerValue);
                             StatSheet.UpdateStat("Affection", affectionValue);
                             StatSheet.UpdateStat("Energy", energyValue);
                         }
-                        // Reset state to Idle after 10 seconds
-                        //SetStateToIdleAfterDelayAsync(feedData.Key, 1);
                     }
                 }
             }
@@ -710,26 +718,9 @@ namespace PocketCat
         }
 
 
-
-        private async void SetStateToIdleAfterDelayAsync(string expectedState, int seconds)
-        {
-            await Task.Delay(1000 * seconds); // 10-second delay
-
-            // Validate the current state before changing to "Idle"
-            if (States.CurrentState == expectedState)
-            {
-                States.CurrentState = "Idle"; // Set to Idle if it matches
-                Console.WriteLine($"Cat's state has been set to 'Idle' after 10 seconds, as it matched the expected state: {expectedState}.");
-            }
-            else
-            {
-                Console.WriteLine($"State did not match. CurrentState: {States.CurrentState}, ExpectedState: {expectedState}. No change made.");
-            }
-        }
-
         private async Task<bool> HandleSleepingPetAsync()
         {
-            if (States.IsSleeping)
+            if (Flags.IsSleeping)
             {
                 if (DefaultData.ActionData.DataModel.StatusMessages.TryGetValue("SLEEPNOEAT", out string message))
                 {
@@ -773,30 +764,102 @@ namespace PocketCat
             }
             return false;
         }
+
         private int stateRandom = 0;
         private async void HandleStateChanged(string newState)
         {
+            Console.WriteLine($"State changed to: {newState}");
+
+            // Immediate safeguard: Exit if sleeping
+            if (Flags.IsSleeping)
+            {
+                Console.WriteLine("HandleStateChanged exited: Pet is sleeping.");
+                return;
+            }
+
+            // Delay for state handling
+            await Task.Delay(6000);
+
             var blinkTasks = new List<Task>();
             int energy = StatSheet.GetStat("Energy").Value;
             int max = 0;
             Random _random = new Random();
             int selection = 0;
-            if (newState == "Tired")
+
+            // Handle "Sleeping" state exclusively
+            if (newState == "Sleeping" || Flags.IsSleeping)
             {
-                max = ActionData.Tired.Count -1;
+                // Ensure further processing stops when already sleeping
+                if (!Flags.IsSleeping)
+                {
+                    Console.WriteLine("Entering Sleep Logic.");
+                    await HandleSleep(0, 0, 0, "#NAME# falls fast asleep.");
+                }
+                return; // Exit after handling sleep logic
+            }
+
+            // Handle "Hungry" state or low hunger
+            if (newState == "Hungry" || StatSheet.GetStat("Hunger").Value < 3)
+            {
+                max = ActionData.Hungry.Count - 1;
                 selection = _random.Next(0, max);
                 if (stateRandom == selection)
                 {
                     selection = _random.Next(0, max);
                 }
                 stateRandom = selection;
-                string text = ActionData.Tired[selection];
-                if (!String.IsNullOrEmpty(text)) // 30% chance for an extra story
+                string text = ActionData.Hungry[selection];
+                Console.WriteLine(text);
+
+                if (!String.IsNullOrEmpty(text))
                 {
                     await Task.Delay(2000);
                     await ActionText.StartTextWritingAsync(text, 25);
                 }
+
                 int currentAffection = StatSheet.GetStat("Affection").Value;
+
+                if (StatSheet.GetStat("Hunger").Value < 1 && currentAffection > 0)
+                {
+                    int startIndex = currentAffection;
+                    int endIndex = currentAffection - 1;
+                    AffectionBar.UpdateBlinkStates(startIndex, endIndex, -1);
+                    blinkTasks.Add(AffectionBar.HandleBlinkingAsync(startIndex, endIndex, true));
+                    await Task.WhenAll(blinkTasks);
+                    StatSheet.UpdateStat("Affection", -1);
+                    RefreshBars();
+
+                    await Task.Delay(AppSettings.TimeInterval * 1000 * 60);
+                    if (StatSheet.GetStat("Hunger").Value < 1)
+                    {
+                        HandleStateChanged("Hungry");
+                    }
+                }
+                return; // Ensure no further state changes occur
+            }
+
+            // Handle "Tired" state
+            if (newState == "Tired")
+            {
+                max = ActionData.Tired.Count - 1;
+                selection = _random.Next(0, max);
+
+                if (stateRandom == selection)
+                {
+                    selection = _random.Next(0, max);
+                }
+                stateRandom = selection;
+
+                string text = ActionData.Tired[selection];
+
+                if (!String.IsNullOrEmpty(text))
+                {
+                    await Task.Delay(2000);
+                    await ActionText.StartTextWritingAsync(text, 25);
+                }
+
+                int currentAffection = StatSheet.GetStat("Affection").Value;
+
                 if (energy < 1 && currentAffection > 0)
                 {
                     int startIndex = currentAffection;
@@ -811,13 +874,14 @@ namespace PocketCat
 
                 return;
             }
-            // Check if the new state is "Idle"
-            else if (newState == "Idle")
+
+            // Handle "Idle" state logic
+            if (newState == "Idle")
             {
-                await Task.Delay(10000);
                 string story = "";
                 int num;
-                // Select the story to display
+
+                // Select story based on Affection level
                 switch (StatSheet.GetStat("Affection").Value)
                 {
                     case > 6:
@@ -837,41 +901,97 @@ namespace PocketCat
                         break;
                 }
 
-                // Optionally display an extra story
-                if (!String.IsNullOrEmpty(story)) // 30% chance for an extra story
+                if (!String.IsNullOrEmpty(story))
                 {
-                    await Task.Delay(10000);
+                    await Task.Delay(2000);
                     await ActionText.StartTextWritingAsync(story, 25);
                 }
-                States.CurrentState = "Idle";
+
+                States.CurrentState = "Idle"; // Ensure state updates cleanly
                 RefreshBars();
             }
         }
-        private void HandleBarBlinking(int currentStatValue, int valueChange, int blinkStateCount, Statbar bar, List<Task> blinkTasks)
+
+
+        private List<Task> HandleAllBlinkTasks(int hungerValue, int affectionValue, int energyValue)
         {
-            if (valueChange != 0) // Only handle changes (non-zero values)
+            var blinkTasks = new List<Task>();
+            if (hungerValue != 0) // Hunger changes
             {
-                int startIndex = valueChange > 0
-                    ? currentStatValue // Starting point for increment
-                    : Math.Max(currentStatValue + valueChange, 0); // Starting point for decrement
+                int currentHunger = StatSheet.GetStat("Hunger").Value;
+                int startIndex = hungerValue > 0
+                    ? currentHunger
+                    : Math.Max(currentHunger + hungerValue, 0); // Starting point depends on the change
+                int endIndex = hungerValue > 0
+                    ? Math.Min(currentHunger + hungerValue - 1, HungerBar.BlinkStateCount - 1)
+                    : currentHunger - 1; // Ending point depends on increase or decrease
 
-                int endIndex = valueChange > 0
-                    ? Math.Min(currentStatValue + valueChange - 1, blinkStateCount - 1) // Ending point for increment
-                    : currentStatValue - 1; // Ending point for decrement
-
-                if (startIndex <= endIndex) // Ensure valid range
-                {
-                    int stateChange = valueChange > 0 ? 1 : -1; // 1 for increment, -1 for decrement
-                    bool isDecrementing = valueChange < 0; // True if decrementing
-
-                    // Update the bar's blink states
-                    bar.UpdateBlinkStates(startIndex, endIndex, stateChange);
-
-                    // Trigger blinking and add it to the tasks list
-                    blinkTasks.Add(bar.HandleBlinkingAsync(startIndex, endIndex, isDecrementing));
-                }
+                HungerBar.UpdateBlinkStates(startIndex, endIndex, hungerValue > 0 ? 1 : -1); // Update blink state
+                blinkTasks.Add(HungerBar.HandleBlinkingAsync(startIndex, endIndex, hungerValue < 0)); // Trigger blinking
             }
+
+            // Handle AffectionBar blinking
+            if (affectionValue != 0) // Affection changes
+            {
+                int currentAffection = StatSheet.GetStat("Affection").Value;
+                int startIndex = affectionValue > 0
+                    ? currentAffection
+                    : Math.Max(currentAffection + affectionValue, 0); // Starting point depends on the change
+                int endIndex = affectionValue > 0
+                    ? Math.Min(currentAffection + affectionValue - 1, AffectionBar.BlinkStateCount - 1)
+                    : currentAffection - 1; // Ending point depends on increase or decrease
+
+                AffectionBar.UpdateBlinkStates(startIndex, endIndex, affectionValue > 0 ? 1 : -1); // Update blink state
+                blinkTasks.Add(AffectionBar.HandleBlinkingAsync(startIndex, endIndex, affectionValue < 0)); // Trigger blinking
+            }
+
+            // Handle EnergyBar blinking
+            if (energyValue != 0) // Energy changes
+            {
+                int currentEnergy = StatSheet.GetStat("Energy").Value;
+                int startIndex = energyValue > 0
+                    ? currentEnergy
+                    : Math.Max(currentEnergy + energyValue, 0); // Starting point depends on the change
+                int endIndex = energyValue > 0
+                    ? Math.Min(currentEnergy + energyValue - 1, EnergyBar.BlinkStateCount - 1)
+                    : currentEnergy - 1; // Ending point depends on increase or decrease
+
+                EnergyBar.UpdateBlinkStates(startIndex, endIndex, energyValue > 0 ? 1 : -1); // Update blink state
+                blinkTasks.Add(EnergyBar.HandleBlinkingAsync(startIndex, endIndex, energyValue < 0)); // Trigger blinking
+            }
+            return blinkTasks;
         }
 
+        private void SpriteControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (Flags.UIHidden)
+            {
+                ShowUI();
+            }
+            else
+            {
+                // UI is already visible, no action needed
+                return;
+            }
+        }
+        private void ShowUI()
+        {
+            MainBorder.BorderThickness = new Thickness(2);
+            MainBorder.Background.Opacity = 0.8;
+            // Cancel the hide UI operation
+            Console.WriteLine("Cancel clicked. UI restoration in progress.");
+            // Restore UI elements
+            ButtonControl.Visibility = Visibility.Visible;
+            FeedControl.Visibility = Visibility.Visible;
+            PlayControl.Visibility = Visibility.Visible;
+            SleepControl.Visibility = Visibility.Visible;
+            MainControl.Visibility = Visibility.Visible;
+            Close_Button.Visibility = Visibility.Visible;
+            Settings_Button.Visibility = Visibility.Visible;
+            HideUI_Button.Visibility = Visibility.Visible;
+            MainBorder.Visibility = Visibility.Visible;
+            Flags.UIHidden = false;
+            UpdateLayout();
+        }
     }
 }

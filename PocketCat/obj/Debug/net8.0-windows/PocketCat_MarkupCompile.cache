@@ -1,7 +1,7 @@
 ﻿PocketCat
 
 
-exe
+winexe
 C#
 .cs
 D:\PocketCat\PocketCat\obj\Debug\net8.0-windows\
@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\PocketCat\PocketCat\App.xaml
-888986634
+10-1445492402
 1-1397927510
-28-10411632
+34187618424
 226-294794639
-Controls\ActionText.xaml;Controls\CallPopup.xaml;Controls\HeartContainer.xaml;Controls\SettingsWindow.xaml;Controls\SpriteControl.xaml;Controls\Statbar.xaml;MainWindow.xaml;UIDictionary\GlobalStyles.xaml;
+Controls\ActionText.xaml;Controls\CallPopup.xaml;Controls\HeartContainer.xaml;Controls\SpriteControl.xaml;Controls\Statbar.xaml;Controls\Windows\NotificationWindow.xaml;Controls\Windows\SettingsWindow.xaml;Controls\Windows\Shop\Shop.xaml;MainWindow.xaml;UIDictionary\GlobalStyles.xaml;
 
 False
 

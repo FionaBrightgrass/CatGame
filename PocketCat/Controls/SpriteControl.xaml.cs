@@ -306,7 +306,7 @@ namespace PocketCat.Controls
         {
             if (States.CurrentState != null)
                 return States.CurrentState;
-            if (States.IsSleeping)
+            if (Flags.IsSleeping)
                 return "Sleeping";
             return "Idle"; // Default state
         }

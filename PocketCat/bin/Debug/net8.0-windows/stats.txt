@@ -1,3 +1,0 @@
-Hunger:4
-Energy:0
-Affection:2

@@ -22,7 +22,6 @@ namespace PocketCat.StaticGame
         static Stats2()
         {
             SetStatsFromFile();
-            
         }
 
         // Event to notify when a stat changes

@@ -1,15 +1,20 @@
-﻿using System.Windows;
+﻿using System.IO;
+using System.Windows;
 using PocketCat.Controls; // Reference to the class library
 
 namespace PocketCat
 {
     public partial class App : Application
     {
-        private CatTrayIcon SystemTrayIco = new CatTrayIcon();
+       // private CatTrayIcon SystemTrayIco = new CatTrayIcon();
 
 
         protected override void OnStartup(StartupEventArgs e)
         {
+            if(!Path.Exists(Path.Combine(Globals.AppWide.ApplicationData, "PocketCat")))
+            {
+                Directory.CreateDirectory(Path.Combine(Globals.AppWide.ApplicationData, "PocketCat"));
+            }
             base.OnStartup(e);
         }
 

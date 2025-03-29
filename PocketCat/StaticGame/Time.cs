@@ -8,7 +8,7 @@ namespace PocketCat.StaticGame
 {
     public static class Time
     {
-        public static AppSettings _AppSettings;
+        public static AppSettings _appSettings;
         private static readonly Random _random = new Random(); // Random generator for 50% chance
         private static DispatcherTimer _hungerTimer; // Timer for hunger management
         public static event Action<int> HungerLevelChanged; // Event to notify when hunger level changes
@@ -19,15 +19,13 @@ namespace PocketCat.StaticGame
         public static readonly TimeSpan SleepCooldownDuration = TimeSpan.FromHours(1);
         public static int SleepIncrement { get; set; } = 30; // Time interval for restoring energy (ms)
         public static MainWindow? _mainWindow { get;  set; }
-
+        private static CancellationTokenSource _timerCancellationTokenSource = new CancellationTokenSource();
         static Time()
         {
-            _timerCancellationTokenSource = new CancellationTokenSource();
-            _ = RunContinuousTimerAsync(_timerCancellationTokenSource.Token); // Fire and forget the timer loop
             StartHungerTimer(); // Keep your existing hunger timer
             StartHungerTimer();
             LoadCooldownsFromFile();
-            PetCooldownDuration = TimeSpan.FromMinutes(_AppSettings?.SleepInterval ?? 15);
+            PetCooldownDuration = TimeSpan.FromMinutes(_appSettings?.SleepInterval ?? 15);
         }
 
         private static void StartHungerTimer()
@@ -35,7 +33,7 @@ namespace PocketCat.StaticGame
             // Create and configure the DispatcherTimer
             _hungerTimer = new DispatcherTimer
             {
-                Interval = TimeSpan.FromMinutes(_AppSettings?.SleepInterval ?? 5) // Trigger every 15 minutes
+                Interval = TimeSpan.FromMinutes(_appSettings?.SleepInterval ?? 5) // Trigger every 15 minutes
             };
             _hungerTimer.Tick += HungerTimer_Tick;
             _hungerTimer.Start();
@@ -55,7 +53,7 @@ namespace PocketCat.StaticGame
                 }
                 else
                 {
-                    States.IsSleeping = false; // Wake up the pet if hunger level is at minimum
+                    Flags.IsSleeping = false; // Wake up the pet if hunger level is at minimum
                     Console.WriteLine("Hunger level is already at minimum!");
                 }
             }
@@ -76,12 +74,12 @@ namespace PocketCat.StaticGame
         {
             PetCooldownStartTime = DateTime.Now;
             SaveCooldownsToFile();
-            States.WantsPets = false;
+            Flags.WantsPets = false;
             await Task.Delay(PetCooldownDuration);
 
             PetCooldownStartTime = null;
             SaveCooldownsToFile();
-            States.WantsPets = true;
+            Flags.WantsPets = true;
         }
 
         // Cooldown Management for Sleep
@@ -95,21 +93,21 @@ namespace PocketCat.StaticGame
         {
             SleepCooldownStartTime = DateTime.Now;
             SaveCooldownsToFile();
-            States.IsSleeping = true;
+            Flags.IsSleeping = true;
 
             await Task.Delay(SleepCooldownDuration);
 
-            States.IsSleeping = false;
+            Flags.IsSleeping = false;
             SleepCooldownStartTime = null;
             SaveCooldownsToFile();
         }
         public static async Task StartSleepWithIncrementsAsync(int energyNeeded, Statbar energyBar)
         {
             // Exit if no energy needed or already sleeping
-            if (energyNeeded <= 0 || States.IsSleeping) return;
+            if (energyNeeded <= 0 || Flags.IsSleeping) return;
 
             // Set sleeping state and record cooldown
-            States.IsSleeping = true;
+            Flags.IsSleeping = true;
             SleepCooldownStartTime = DateTime.Now;
             SaveCooldownsToFile();
 
@@ -159,7 +157,7 @@ namespace PocketCat.StaticGame
             }
             finally
             {
-                States.IsSleeping = false;
+                Flags.IsSleeping = false;
                 SaveCooldownsToFile();
             }
         }
@@ -196,13 +194,13 @@ namespace PocketCat.StaticGame
         }
 
         private static DispatcherTimer _tenMinuteTimer;
-        private static CancellationTokenSource _timerCancellationTokenSource;
 
         // Method to start the timer
         
-        private static async Task RunContinuousTimerAsync(CancellationToken cancellationToken)
+        public static async Task RunContinuousTimerAsync()
         {
-            while (!cancellationToken.IsCancellationRequested) // Loop until cancellation is requested
+            await Task.Delay(TimeSpan.FromMinutes(_appSettings.SleepInterval), _timerCancellationTokenSource.Token);
+            while (!_timerCancellationTokenSource.IsCancellationRequested) // Loop until cancellation is requested
             {
                 try
                 {
@@ -216,7 +214,7 @@ namespace PocketCat.StaticGame
                 // Wait for 10 minutes unless canceled
                 try
                 {
-                    await Task.Delay(TimeSpan.FromMinutes(10), cancellationToken);
+                    await Task.Delay(TimeSpan.FromMinutes(_appSettings.SleepInterval), _timerCancellationTokenSource.Token);
                 }
                 catch (TaskCanceledException)
                 {
@@ -235,7 +233,7 @@ namespace PocketCat.StaticGame
             var blinkTasks = new List<Task>();
             // Decrement hunger based on probabilities
             double randomValue = _random.NextDouble();
-            if (randomValue <= 0.5)
+            if (randomValue <= 0.25)
             {
                 hungerIncrement -= 0;
             }
@@ -256,15 +254,16 @@ namespace PocketCat.StaticGame
             int finalAffection = 0;
             int finalEnergy = 0;
             // Reduce affection if hunger is under 5
-            if (_random.NextDouble() <= 0.5 || StatSheet.GetStat("Energy").Value == 0 || StatSheet.GetStat("Hunger").Value == 0)
+            if (_random.NextDouble() <= 0.5)
             {
                 int startIndex = 0;
                 int endIndex = 0;
                 int hungerLevel = StatSheet.GetStat("Hunger").Value;
-                if (hungerLevel > 0)
+                if (hungerLevel > 0 && _random.NextDouble() <= 0.5)
                 {
-                    startIndex = Math.Max(hungerLevel - 1, 0); // Starting point after decrement
-                    endIndex = hungerLevel - 1; // Ending point of affected bars
+                    finalHunger = hungerIncrement;
+                    startIndex = Math.Max(hungerLevel - hungerIncrement, 0); // Starting point after decrement
+                    endIndex = hungerLevel - hungerIncrement; // Ending point of affected bars
                     if (startIndex <= endIndex) // Ensure valid range
                     {
                         _mainWindow.HungerBar.UpdateBlinkStates(startIndex, endIndex, -1); // State = -1 for decrement
@@ -273,7 +272,7 @@ namespace PocketCat.StaticGame
                 }
 
                 int affectionLevel = StatSheet.GetStat("Affection").Value;
-                if (affectionLevel > 0 && _random.NextDouble() <= 0.5)
+                if (affectionLevel > 0 && _random.NextDouble() <= 0.5 && (StatSheet.GetStat("Energy").Value == 0 || StatSheet.GetStat("Hunger").Value == 0))
                 {
                     startIndex = Math.Max(affectionLevel - 1, 0); // Starting point after decrement
                     endIndex = affectionLevel - 1; // Ending point of affected bars
@@ -286,11 +285,11 @@ namespace PocketCat.StaticGame
                     finalAffection = -1;
                     Console.WriteLine($"Affection decreased: {affectionLevel}");
                 }
-                finalHunger = -1;
+
             }
 
             // 25% chance to decrement energy
-            if (_random.NextDouble() <= 0.5)
+            if (_random.NextDouble() <= 0.75)
             {
                 int energyLevel = StatSheet.GetStat("Energy").Value;
 

@@ -31,7 +31,7 @@ namespace PocketCat.StaticGame.Stats
             }
         }
 
-        private int _value;
+        private int _value = 5;
         public int Value
         {
             get => _value;

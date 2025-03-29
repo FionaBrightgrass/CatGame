@@ -62,11 +62,74 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    <Style x:Key="FullWidthTabItemStyle" TargetType="TabItem">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TabItem">
+                    <Grid>
+                        <!-- Header Area -->
+                        <Border x:Name="TabBackground"
+                        Background="{Binding ButtonColorBrush, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}"
+                        BorderBrush="{Binding BorderColorBrush, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}"
+                        BorderThickness="1,1,1,0"
+                        CornerRadius="4,4,0,0" Margin="0,4,0,0">
+                            <ContentPresenter ContentSource="Header" 
+                                      HorizontalAlignment="Center" 
+                                      VerticalAlignment="Center"
+                                      TextElement.Foreground="{Binding TextColorBrush, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}" />
+                        </Border>
+                    </Grid>
+
+                    <!-- Triggers for Tab States -->
+                    <ControlTemplate.Triggers>
+                        <!-- Hover State -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="TabBackground" Property="BorderThickness" Value="2,2,2,1" />
+                        </Trigger>
+
+                        <!-- Selected State -->
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="TabBackground" Property="BorderThickness" Value="2,2,2,1" />
+                        </Trigger>
+
+                        <!-- Disabled State -->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="TabBackground" Property="BorderThickness" Value="2,2,2,1" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Width" Value="120"/>
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Height" Value="50" />
+        <Setter Property="FontFamily" Value="Unispace" />
+        <Setter Property="FontSize" Value="18" />
+    </Style>
+    <Style TargetType="TabItem" x:Key="RoundedTabItemStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TabItem">
+                    <Border 
+                        Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="2" Padding="4" Margin="2">
+                        <ContentPresenter 
+                            ContentSource="Header" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <Style x:Key="SharpButtonStyle" TargetType="Button">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button" >
-                    <Border Background="{Binding ButtonColorBrush, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}"
+                    <Border Background="Transparent"
          BorderBrush="Transparent" 
          BorderThickness="0" 
          CornerRadius="0" OverridesDefaultStyle="True">
@@ -84,6 +147,40 @@
         <Setter Property="FontSize" Value="14" />
         <Setter Property="BorderBrush" Value="{Binding BorderColorBrush, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}" />
         <Setter Property="Margin" Value="5"/>
+    </Style>
+    <Style x:Key="ShopDataGridCell" TargetType="DataGridCell">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Margin" Value="2" />
+        <Setter Property="Height" Value="22" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Bottom"/>
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Padding" Value="4"/>
+        <Setter Property="Foreground" Value="{Binding TextColorBrush, Source={StaticResource AppSettings}}" />
+    </Style>
+    <Style x:Key="ColumnHeaderStyle" TargetType="DataGridColumnHeader">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{Binding TextColorBrush, Source={StaticResource AppSettings}}" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Height" Value="24" />
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Top"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+    <Style x:Key="ShopDataGridTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+        <Setter Property="Margin" Value="0,12,0,0" />
+        <Setter Property="Padding" Value="4"/>
+        <!-- Push text down -->
+        <Setter Property="FontFamily" Value="Unispace" />
+        <Setter Property="FontSize" Value="16" />
+        
     </Style>
     <SolidColorBrush x:Key="AppBorderBrush" Color="{Binding BorderColorBrush, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}" />
     <Color x:Key="AppBorder">#D0D0D0</Color>
