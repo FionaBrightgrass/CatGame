@@ -201,7 +201,6 @@ namespace PocketCat.Controls
 
             // Calculate the time when blinking should stop
             var endTime = DateTime.Now.AddMinutes(durationInMinutes);
-
             while (_blinkingBars.ContainsKey(index) && _blinkingBars[index] && DateTime.Now < endTime)
             {
                 bar.Fill = new SolidColorBrush(Colors.White); // Blink to white
@@ -222,10 +221,9 @@ namespace PocketCat.Controls
 
 
 
-        public void StopBlinking(int index)
+        public async Task StopBlinking(int index)
         {
             if (index < 0 || index >= _blinkStates.Count) return;
-
             _blinkingBars[index] = false; // Stop blinking
             var (bar, state) = _blinkStates[index];
             bar.Fill = new SolidColorBrush(Colors.Green); // Finalize to solid green

@@ -4,17 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PocketCat.Controls.Windows.Shop"
+        xmlns:models="clr-namespace:PocketCat.Controls.Windows.Models"
+        xmlns:items="clr-namespace:PocketCat.StaticGame.Items"
         xmlns:appSettings="clr-namespace:PocketCat" 
         mc:Ignorable="d"
         Title="ShopWindow" Height="450" Width="300" WindowStyle="None" Background="Transparent" AllowsTransparency="True" MouseDown="Window_MouseDown">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0" ResizeBorderThickness="0" GlassFrameThickness="0" CornerRadius="0" />
     </WindowChrome.WindowChrome>
+
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="../../../UIDictionary/GlobalStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <!-- Money Instance Resource -->
+            <items:Money x:Key="MoneyInstance" />
+
+            <!-- Other Resources -->
             <appSettings:AppSettings x:Key="AppSettings" />
 
             <!-- Row Style for Background Binding -->
@@ -26,55 +34,75 @@
             <Style x:Key="DynamicCellStyle" TargetType="DataGridCell">
                 <Style.Triggers>
                     <DataTrigger Binding="{Binding Price}" Value="100">
-                        <Setter Property="Background" Value="Transparent"  />
+                        <Setter Property="Background" Value="Transparent" />
                     </DataTrigger>
                     <DataTrigger Binding="{Binding Price}" Value="150">
-                        <Setter Property="Background" Value="Transparent"  />
+                        <Setter Property="Background" Value="Transparent" />
                     </DataTrigger>
                 </Style.Triggers>
             </Style>
         </ResourceDictionary>
     </Window.Resources>
+
     <Border BorderBrush="{Binding BorderColorBrush, Source={StaticResource AppSettings}}" 
             BorderThickness="2" CornerRadius="5" Margin="0">
         <Border.Background>
-            <SolidColorBrush Color="{Binding WindowColorBrush.Color, Source={StaticResource AppSettings}}" Opacity="0.8" />
+            <SolidColorBrush Color="{Binding WindowColorBrush.Color, Source={StaticResource AppSettings}}" Opacity="0.85" />
         </Border.Background>
-        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="MainGrid">
             <StackPanel>
             <DockPanel Height="40" HorizontalAlignment="Stretch" VerticalAlignment="Top">
-                <TextBlock Text="{Binding Money.FormattedAmount}" />
+                    <DockPanel HorizontalAlignment="Left" Margin="12,12,0,0">
+                        <TextBlock Text="Item Shop  " FontFamily="Unispace" FontSize="22" Foreground="{Binding TextColorText, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}"/>
+                    </DockPanel>
+
                 <DockPanel HorizontalAlignment="Right">
                     <Button x:Name="Close_Button" Click="CloseWindow" Style="{StaticResource SharpButtonStyle}">
                         <TextBlock Text="x"></TextBlock>
                     </Button>
                 </DockPanel>
             </DockPanel>
-            <DataGrid x:Name="ShopDataGrid" 
-                      AutoGenerateColumns="False" 
-                      HeadersVisibility="Column"
-                      BorderThickness="0"
-                      GridLinesVisibility="None"
-                      RowStyle="{StaticResource DynamicRowStyle}" 
-                      CellStyle="{StaticResource ShopDataGridCell}" 
-                      Background="{Binding WindowColorBrush.Color, Source={StaticResource AppSettings}}"
-                      ColumnHeaderStyle="{StaticResource ColumnHeaderStyle}"
-                      CanUserResizeColumns="False"
-                      CanUserResizeRows="False">
-                <DataGrid.Columns>
-                    <DataGridTemplateColumn Header=" " Width="28">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Image Source="{Binding Image}" Width="16" Height="16" Focusable="False"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                        
-                    </DataGridTemplateColumn>
+                <DataGrid x:Name="ShopDataGrid"
+                          AutoGenerateColumns="False"
+                          HeadersVisibility="Column"
+                          BorderThickness="0"
+                          GridLinesVisibility="None"
+                          RowStyle="{StaticResource DynamicRowStyle}"
+                          CellStyle="{StaticResource ShopDataGridCell}"
+                          Background="{Binding WindowColorBrush.Color, Source={StaticResource AppSettings}}"
+                          ColumnHeaderStyle="{StaticResource ColumnHeaderStyle}"
+                          CanUserResizeColumns="False"
+                          CanUserResizeRows="False"
+                          RowHeight="32"
+                          MouseDoubleClick="ShopDataGrid_MouseDoubleClick">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="" Width="28">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding Image}" Width="20" Height="26" Focusable="False" VerticalAlignment="Top"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
                         <DataGridTextColumn Header=" " Binding="{Binding Name}" Width="180" Foreground="{Binding TextColorBrush, Source={StaticResource AppSettings}}" IsReadOnly="True" CellStyle="{StaticResource ShopDataGridCell}" FontFamily="Unispace"/>
                         <DataGridTextColumn Header="Price" Binding="{Binding FormattedPrice}" Width="80" Foreground="{Binding TextColorBrush, Source={StaticResource AppSettings}}" IsReadOnly="True" CellStyle="{StaticResource ShopDataGridCell}" FontFamily="Unispace"/>
-                </DataGrid.Columns>
-            </DataGrid>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+
             </StackPanel>
+            <DockPanel x:Name="MoneyDock" VerticalAlignment="Bottom" Height="28" HorizontalAlignment="Stretch">
+                <DockPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="16,0,8,4">
+                    <TextBlock Text="{Binding Money.FormattedAmount}" 
+           FontFamily="Unispace" 
+           FontSize="18" 
+           Foreground="{Binding TextColorBrush, Source={StaticResource AppSettings}}" 
+           VerticalAlignment="Bottom"/>
+
+
+
+                </DockPanel>
+            </DockPanel>
+            <Canvas x:Name="FloatingTextCanvas" IsHitTestVisible="False" />
         </Grid>
     </Border>
 </Window>

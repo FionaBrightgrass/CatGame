@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using PocketCat.StaticGame.Items;
 
 namespace PocketCat.StaticGame.Stats
 {
@@ -8,19 +9,19 @@ namespace PocketCat.StaticGame.Stats
     {
         // File path for saving stats
         private static readonly string _statsFilePath = Path.Combine(Globals.AppWide.ApplicationData,"stats.txt");
+        public static MainWindow _mainWindow;
         public const int MaxValue = 10;
         // Dictionary to store all stats as Stat objects
         private static readonly Dictionary<string, Stat> _statDictionary = new Dictionary<string, Stat>
         {
             { "Hunger", new Stat("Hunger") },
             { "Energy", new Stat("Energy") },
-            { "Affection", new Stat("Affection") }
+            { "Happiness", new Stat("Happiness") }
         };
 
         // Static constructor to load stats from file at runtime
         static StatSheet()
         {
-            LoadStatsFromFile();
         }
 
         // Method to retrieve a Stat object by key
@@ -39,6 +40,14 @@ namespace PocketCat.StaticGame.Stats
         {
             if (_statDictionary.TryGetValue(key, out var stat))
             {
+                if( (stat.Value + amount) > 10 && Flags.AffectionReady == true)
+                {
+                    _mainWindow.Affection.AddAffectionValue(stat.Value + amount - 10);
+                    Flags.AffectionReady = false;
+                    Console.WriteLine("Attempting to increase affection!");
+                    Console.WriteLine("New Affection: " + _mainWindow.Affection.AffectionValue.ToString());
+                }
+
                 int newValue = Math.Clamp(stat.Value + amount, 0, Stat.MaxValue);
                 stat.Value = newValue;
                 SaveStatsToFile();
@@ -50,7 +59,7 @@ namespace PocketCat.StaticGame.Stats
         }
 
         // Save stats to a file
-        private static void SaveStatsToFile()
+        public static void SaveStatsToFile()
         {
             using (StreamWriter writer = new StreamWriter(_statsFilePath))
             {
@@ -58,11 +67,12 @@ namespace PocketCat.StaticGame.Stats
                 {
                     writer.WriteLine($"{kvp.Key}:{kvp.Value.Value}");
                 }
+                writer.WriteLine("Affection:" + _mainWindow.AffectionBoxText);
             }
         }
 
         // Load stats from a file
-        private static void LoadStatsFromFile()
+        public static void LoadStatsFromFile()
         {
             if (!File.Exists(_statsFilePath)) return;
 
@@ -76,6 +86,14 @@ namespace PocketCat.StaticGame.Stats
                     {
                         _statDictionary[parts[0]].Value = Math.Clamp(value, 0, Stat.MaxValue);
                     }
+                }
+                if (parts.Length == 2 && line.Contains("Affection"))
+                {
+                    if (int.TryParse(parts[1], out int value))
+                    {
+                        _mainWindow.Affection.AffectionValue = value;
+                    }
+
                 }
             }
         }

@@ -7,41 +7,40 @@
             Name = "Sherlock",
             Pronouns = "He/Him/His",
             HungerName = "Hunger",
-            AffectionName = "Affection",
+            HappinessName = "Happiness",
             EnergyName = "Energy",
             ButtonControl = new Dictionary<string, string>
             {
                 { "Play", "" },
                 { "Feed", "" },
                 { "Pet", "" },
-                { "Sleep", "" },
+                { "Shop", "" },
             },
             FeedControl = new Dictionary<string, string>
             {
-                { "Dry Food", "Hunger: 1; Affection: 0; Energy: -1; #NAME# munches eagerly on the dry food but doesn't look fully satisfied." },
-                { "Wet Food", "Hunger: 2; Affection: 1; Energy: 0; #NAME# scarfs down the wet food eagerly." },
-                { "Fish", "Hunger: 1; Affection: 2; Energy: 1; #NAME# sniffs the fish momentarily and then chows down!" },
-                { "Back", "Hunger: 0; Affection: 0; Energy: 0; Back." },
+                { "Dry Food", "Hunger: 3; Happiness: 0; Energy: 0; #NAME# munches on the dry food but doesn't look fully satisfied." },
+                { "Wet Food", "Hunger: 4; Happiness: 1; Energy: 0; #NAME# scarfs down the wet food eagerly." },
+                { "Fish", "Hunger: 5; Happiness: 2; Energy: 1; #NAME# sniffs the fish momentarily and then chows down!" },
+                { "Back", "Hunger: 0; Happiness: 0; Energy: 0; Back." },
             },
             PlayControl = new Dictionary<string, string>
             {
-                { "Toy Mouse", "Hunger: -1; Affection: 1; Energy: -1; #NAME# stares curiously at the toy mouse. #PRONOUNONE# doesn't seem to want to hurt it." },
-                { "Catnip", "Hunger: -1; Affection: 2; Energy: 1; #NAME# stuffs #PRONOUNTHREELOWER# little face with catnip. #PRONOUNONE# seems to be enjoying #PRONOUNTWOLOWER#self." },
-                { "Box", "Hunger: -1; Affection: 1; Energy: -1; #NAME# climbs into the box. #PRONOUNONE# seems to be enjoying #PRONOUNTWOLOWER#self!" },
-                { "Back", "Hunger: 0; Affection: 0; Energy: 0; Back." },
+                { "Toy Mouse", "Hunger: -1; Happiness: 2; Energy: 0; #NAME# stares curiously at the toy mouse. #PRONOUNONE# doesn't seem to want to hurt it." },
+                { "Catnip", "Hunger: -2; Happiness: 3; Energy: 4; #NAME# stuffs #PRONOUNTHREELOWER# little face with catnip. #PRONOUNONE# seems to be enjoying #PRONOUNTWOLOWER#self." },
+                { "Box", "Hunger: 0; Happiness: 1; Energy: -1; #NAME# climbs into the box. #PRONOUNONE# seems to be enjoying #PRONOUNTWOLOWER#self!" },
+                { "Back", "Hunger: 0; Happiness: 0; Energy: 0; Back." },
             },
             SleepControl = new Dictionary<string, string>
             {
-                { "Cat Bed", "Hunger: 0; Affection: 1; Energy: 1; #NAME# falls asleep in the cat bed peacefully." },
-                { "Bed Pillow", "Hunger: 0; Affection: 2; Energy: 1; #NAME# seems to really enjoy your pillow." },
-                { "Heated Bed", "Hunger: 0; Affection: 3; Energy: 2; #NAME# curls up warmly on the heated bed." },
-                { "Back", "Hunger: 0; Affection: 0; Energy: 0; Back." },
+                { "Cat Bed", "Hunger: 0; Happiness: 1; Energy: 1; #NAME# falls asleep in the cat bed peacefully." },
+                { "Bed Pillow", "Hunger: 0; Happiness: 2; Energy: 1; #NAME# seems to really enjoy your pillow." },
+                { "Heated Bed", "Hunger: 0; Happiness: 3; Energy: 2; #NAME# curls up warmly on the heated bed." },
+                { "Back", "Hunger: 0; Happiness: 0; Energy: 0; Back." },
             },
             Extra = new List<string>
             {
                 "#NAME# eyes you shyly...",
                 "#NAME# seems interested in your mouse cursor.",
-                "#NAME# looks visibly bored.",
                 "Meow?",
                 "#NAME# looks like #PRONOUNONE# wants to be your friend.",
                 "#NAME# catches your gaze and begins to purr.",
@@ -52,14 +51,13 @@
             },
             ExtraBored = new List<string>
             {
-                "#NAME# looks visibly bored.",
+                "#NAME# doesn't seem to want pets right now.",
                 "Meow?",
-                "Mrrrow?",
                 ".......",
             },
             ExtraAnnoyed = new List<string>
             {
-                "#NAME# flicked #PRONOUNTHREE# tail in annoyance.",
+                "#NAME# flicks #PRONOUNTHREELOWER# tail in annoyance.",
                 "Maybe it's time to stop petting #NAME# and give #PRONOUNONE# some space.",
                 "................             \n#NAME# looks annoyed.",
             },
@@ -103,7 +101,7 @@
                 "#NAME# woke up!",
 
             },
-            HighAffectionIdle = new List<string>
+            HighHappinessIdle = new List<string>
             {
                 "#NAME# seems to enjoy your company.",
                 "#NAME# rubs up against your leg.",
@@ -111,13 +109,13 @@
                 "Have you considered unlimited cuddles?",
                 "#NAME# stares in your direction with love in #PRONOUNTHREELOWER# eyes.",
             },
-            MidAffectionIdle = new List<string>
+            MidHappinessIdle = new List<string>
             {
                 "#NAME# rubs up against your leg.",
                 "#NAME# seems well entertained.",
                 "You catch #NAME# staring at you.",
             },
-            LowAffectionIdle = new List<string>
+            LowHappinessIdle = new List<string>
             {
                 "#NAME# looks bored.",
                 "#NAME# looks your way cautiously. #PRONOUNONE# seems unsure.",
@@ -144,7 +142,7 @@
 
         // Shortcut properties for bar names
         public static string HungerName => DataModel.HungerName;
-        public static string AffectionName => DataModel.AffectionName;
+        public static string HappinessName => DataModel.HappinessName;
         public static string EnergyName => DataModel.EnergyName;
 
         // Shortcut properties for other fields
@@ -161,9 +159,9 @@
         public static List<string> Tired => DataModel.Tired;
         public static List<string> Sleeping => DataModel.Sleeping;
         public static List<string> Woke => DataModel.Woke;
-        public static List<string> HighAffectionIdle => DataModel.HighAffectionIdle;
-        public static List<string> MidAffectionIdle => DataModel.MidAffectionIdle;
-        public static List<string> LowAffectionIdle => DataModel.LowAffectionIdle;
+        public static List<string> HighHappinessIdle => DataModel.HighHappinessIdle;
+        public static List<string> MidHappinessIdle => DataModel.MidHappinessIdle;
+        public static List<string> LowHappinessIdle => DataModel.LowHappinessIdle;
         public static Dictionary<string, string> StatusMessages => DataModel.StatusMessages;
 
         // Getters for ObjectDataProvider

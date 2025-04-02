@@ -1,7 +1,9 @@
 ﻿using System;
 using System.IO;
+using System.Timers;
 using System.Windows.Threading;
 using PocketCat.Controls;
+using PocketCat.StaticGame.Items;
 using PocketCat.StaticGame.Stats;
 
 namespace PocketCat.StaticGame
@@ -43,11 +45,11 @@ namespace PocketCat.StaticGame
         {
             int hungerLevel = StatSheet.GetStat("Hunger").Value;
             // 50% chance to reduce hunger level
-            if (_random.NextDouble() <= 0.5)
+            if (_random.NextDouble() <= 1)
             {
                 if (hungerLevel > 0) // Prevent hunger level from going below zero
                 {
-                    hungerLevel--;
+                    //hungerLevel--;
                     HungerLevelChanged?.Invoke(hungerLevel); // Notify subscribers
                     Console.WriteLine($"Hunger level decreased! Current hunger: {hungerLevel}");
                 }
@@ -199,7 +201,7 @@ namespace PocketCat.StaticGame
         
         public static async Task RunContinuousTimerAsync()
         {
-            await Task.Delay(TimeSpan.FromMinutes(_appSettings.SleepInterval), _timerCancellationTokenSource.Token);
+            await Task.Delay(TimeSpan.FromMinutes(_appSettings.TimeInterval), _timerCancellationTokenSource.Token);
             while (!_timerCancellationTokenSource.IsCancellationRequested) // Loop until cancellation is requested
             {
                 try
@@ -214,7 +216,7 @@ namespace PocketCat.StaticGame
                 // Wait for 10 minutes unless canceled
                 try
                 {
-                    await Task.Delay(TimeSpan.FromMinutes(_appSettings.SleepInterval), _timerCancellationTokenSource.Token);
+                    await Task.Delay(TimeSpan.FromMinutes(_appSettings.TimeInterval), _timerCancellationTokenSource.Token);
                 }
                 catch (TaskCanceledException)
                 {
@@ -225,96 +227,141 @@ namespace PocketCat.StaticGame
         }
         private static async Task HandleTenMinuteTickAsync()
         {
-            if(_mainWindow == null || States.CurrentState == "Sleeping")
+            if (_mainWindow == null || States.CurrentState == "Sleeping" || Flags.IsSleeping)
             {
+                Console.WriteLine("Skipping timer tick while sleeping or MainWindow is null.");
                 return;
             }
             int hungerIncrement = 0;
-            var blinkTasks = new List<Task>();
             // Decrement hunger based on probabilities
             double randomValue = _random.NextDouble();
-            if (randomValue <= 0.25)
-            {
-                hungerIncrement -= 0;
-            }
-            else if (randomValue <= 0.8)
-            {
-                hungerIncrement -= 1;
-            }
-            else if (randomValue <= 1.0)
-            {
-                hungerIncrement -= 2;
-            }
-
             hungerIncrement = Math.Max(hungerIncrement, 0);
-
             HungerLevelChanged?.Invoke(hungerIncrement);
             Console.WriteLine($"Hunger updated by: {hungerIncrement}");
-            int finalHunger = 0;
-            int finalAffection = 0;
-            int finalEnergy = 0;
+            int finalHunger = -1;
+            int finalHappiness = 0;
+            int finalEnergy = -1;
             // Reduce affection if hunger is under 5
-            if (_random.NextDouble() <= 0.5)
+            if (StatSheet.GetStat("Hunger").Value < 1)
+                finalHappiness = -1;
+            int happinessLevel = StatSheet.GetStat("Happiness").Value;
+            if (happinessLevel > 0 && StatSheet.GetStat("Hunger").Value == 0)
             {
-                int startIndex = 0;
-                int endIndex = 0;
-                int hungerLevel = StatSheet.GetStat("Hunger").Value;
-                if (hungerLevel > 0 && _random.NextDouble() <= 0.5)
-                {
-                    finalHunger = hungerIncrement;
-                    startIndex = Math.Max(hungerLevel - hungerIncrement, 0); // Starting point after decrement
-                    endIndex = hungerLevel - hungerIncrement; // Ending point of affected bars
-                    if (startIndex <= endIndex) // Ensure valid range
-                    {
-                        _mainWindow.HungerBar.UpdateBlinkStates(startIndex, endIndex, -1); // State = -1 for decrement
-                        blinkTasks.Add(_mainWindow.HungerBar.HandleBlinkingAsync(startIndex, endIndex, true)); // isDecrementing = true
-                    }
-                }
-
-                int affectionLevel = StatSheet.GetStat("Affection").Value;
-                if (affectionLevel > 0 && _random.NextDouble() <= 0.5 && (StatSheet.GetStat("Energy").Value == 0 || StatSheet.GetStat("Hunger").Value == 0))
-                {
-                    startIndex = Math.Max(affectionLevel - 1, 0); // Starting point after decrement
-                    endIndex = affectionLevel - 1; // Ending point of affected bars
-                    if (startIndex <= endIndex) // Ensure valid range
-                    {
-                        _mainWindow.AffectionBar.UpdateBlinkStates(startIndex, endIndex, -1); // State = -1 for decrement
-                        blinkTasks.Add(_mainWindow.AffectionBar.HandleBlinkingAsync(startIndex, endIndex, true)); // isDecrementing = true
-                    }
-                    affectionLevel -= 1;
-                    finalAffection = -1;
-                    Console.WriteLine($"Affection decreased: {affectionLevel}");
-                }
-
+                finalHappiness = -1;
+                Console.WriteLine($"Happiness decreasing: -1");
             }
-
-            // 25% chance to decrement energy
-            if (_random.NextDouble() <= 0.75)
+            else if (happinessLevel == 0)
             {
-                int energyLevel = StatSheet.GetStat("Energy").Value;
-
-                if (energyLevel > 0)
-                {
-
-                    int currentEnergy = StatSheet.GetStat("Energy").Value;
-                    int startIndex = Math.Max(currentEnergy - 1, 0); // Starting point after decrement
-                    int endIndex = currentEnergy - 1; // Ending point of affected bars
-                    if (startIndex <= endIndex) // Ensure valid range
-                    {
-                        _mainWindow.EnergyBar.UpdateBlinkStates(startIndex, endIndex, -1); // State = -1 for decrement
-                        blinkTasks.Add(_mainWindow.EnergyBar.HandleBlinkingAsync(startIndex, endIndex, true)); // isDecrementing = true
-                    }
-                    energyLevel -= 1;
-
-                    Console.WriteLine($"Energy decreased: {energyLevel}");
-                    finalEnergy = -1;
-                }
+                _mainWindow.Affection.AddAffectionValue(-1);
             }
             // Wait for all blinking tasks to complete
+            List<Task> blinkTasks = _mainWindow.HandleAllBlinkTasks(finalEnergy, finalHappiness, finalEnergy);
+            await BlinkBarReady();
             await Task.WhenAll(blinkTasks);
             StatSheet.UpdateStat("Energy", finalEnergy);
-            StatSheet.UpdateStat("Affection", finalAffection);
+            StatSheet.UpdateStat("Happiness", finalHappiness);
             StatSheet.UpdateStat("Hunger", finalHunger); // Update asynchronously
+            _mainWindow.Flags.BlinkLock = false;
+            _mainWindow.Flags.ButtonLock = false;
+            await _mainWindow.RefreshBars();
+        }
+
+        public static async Task<bool> BlinkBarReady()
+        {
+            if (!_mainWindow.Flags.BlinkLock)
+                return true;
+            int i = 0;
+            while (_mainWindow.Flags.BlinkLock && i < 5)
+            {
+                await Task.Delay(1000);
+                i++;
+            }
+            return !_mainWindow.Flags.BlinkLock;
+        }
+
+        private static System.Timers.Timer _affectionReadyTimer;
+
+        public static void StartAffectionReadyTimer()
+        {
+            // Create a timer with a 30-minute interval (in milliseconds).
+            _affectionReadyTimer = new System.Timers.Timer(_appSettings.TimeInterval * 60 * 1000);
+            _affectionReadyTimer.Elapsed += OnAffectionReadyTimerElapsed;
+            _affectionReadyTimer.AutoReset = true; // Ensures the timer repeats.
+            _affectionReadyTimer.Enabled = true; // Starts the timer.
+        }
+
+        private static void OnAffectionReadyTimerElapsed(object sender, ElapsedEventArgs e)
+        {
+            // Flip the flag to true.
+            Flags.AffectionReady = true;
+        }
+
+        public static void StopAffectionReadyTimer()
+        {
+            _affectionReadyTimer?.Stop();
+        }
+
+        private static System.Timers.Timer _statDecreaseTimer;
+
+        public static void StartStatDecreaseTimer()
+        {
+            // Create a timer with a 30-minute interval (in milliseconds).
+            _statDecreaseTimer = new System.Timers.Timer(10 * 60 * 1000);
+            _statDecreaseTimer.Elapsed += OnStatDecreaseElapsed;
+            _statDecreaseTimer.AutoReset = true; // Ensures the timer repeats.
+            _statDecreaseTimer.Enabled = true; // Starts the timer.
+        }
+
+        private static void OnStatDecreaseElapsed(object sender, ElapsedEventArgs e)
+        {
+            // Flip the flag to true.
+            Flags.StatDecreaseReady = true;
+        }
+
+        public static void StopStatDecreaseTimer()
+        {
+            _statDecreaseTimer?.Stop();
+        }
+
+        private static System.Timers.Timer _dailyCheckTimer;
+        private static DateTime _currentDate;
+        private static Money _moneyInstance;
+
+        // Initialize Time tracking
+        public static void InitializeMoney(Money money)
+        {
+            _moneyInstance = money;
+            _currentDate = DateTime.Now.Date; // Set the initial date
+
+            // Set up the timer to check every minute (can adjust as needed)
+            _dailyCheckTimer = new System.Timers.Timer(60); // 10 minute interval
+            _dailyCheckTimer.Elapsed += DailyCheck;
+            _dailyCheckTimer.AutoReset = true;
+            _dailyCheckTimer.Start();
+
+            Console.WriteLine("Time tracker initialized. Watching for day changes...");
+        }
+
+        // Timer's Elapsed event handler
+        private static void DailyCheck(object sender, ElapsedEventArgs e)
+        {
+            DateTime today = DateTime.Now.Date;
+            if (today != _moneyInstance.LastPayDay)
+            {
+                _currentDate = today; // Update the current date
+                Console.WriteLine($"Day has changed to {today:yyyy-MM-dd}. Running daily payout...");
+
+                // Trigger Money's daily payout
+                _moneyInstance.CheckAndRunDailyPayout();
+            }
+        }
+
+        // Clean up resources
+        public static void Stop()
+        {
+            _dailyCheckTimer?.Stop();
+            _dailyCheckTimer?.Dispose();
+            Console.WriteLine("Time tracker stopped.");
         }
     }
 }

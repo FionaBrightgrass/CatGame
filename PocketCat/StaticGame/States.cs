@@ -24,22 +24,10 @@ namespace PocketCat.StaticGame
                         _currentState = value;
                         Console.WriteLine($"CurrentState changed to: {_currentState}");
                         OnStateChanged?.Invoke(_currentState); // Notify subscribers
-
-                        // Start or stop the state reset task based on the new state
-                        if (_currentState != "Idle" && _currentState != "Sleeping" && _currentState != "Tired")
-                        {
-                            if(_currentState == "Hungry")
-                                StartStateResetTask("Hungry");
-                            else
-                                StartStateResetTask(previousState);
-                        }
-                        else
-                        {
-                            StopStateResetTask();
-                        }
+                        StartStateResetTask(previousState);
                     }
                 }
-                else if (_currentState != "Idle" && _currentState != "Sleeping" && _currentState != "Tired")
+                else
                 {
                     Console.WriteLine($"Invalid state: {value}. Defaulting to 'Idle'.");
                     _currentState = "Idle"; // Set to Idle if invalid
@@ -64,7 +52,7 @@ namespace PocketCat.StaticGame
             { "Catnip", new int[] { 844, 4, 150 } },      // Toy Mouse + 140px
             { "Box", new int[] { 984, 8, 150 } },     // Catnip + 140px
             { "Tired", new int[] { 1124, 10, 150 }  },// Box + 140px
-            { "Hungry", new int[] { 1124, 10, 150 }  }// Box + 140px
+            { "Hungry", new int[] { 1264, 8, 150 }  }// Box + 140px
         };
 
 
@@ -81,6 +69,8 @@ namespace PocketCat.StaticGame
 
         private static async void StartStateResetTask(string initialTrackedState)
         {
+            if (States.CurrentState == "Sleeping" || Flags.IsSleeping)
+                return;
             // Cancel any existing reset tasks
             StopStateResetTask();
 
@@ -118,11 +108,11 @@ namespace PocketCat.StaticGame
         public static void ResetToIdle()
         {
             StopStateResetTask(); // Stop any ongoing reset tasks
-            if (Flags.IsSleeping)
+            if (Flags.IsSleeping || States.CurrentState == "Sleeping" || (StatSheet.GetStat("Energy").Value < 1))
                 CurrentState = "Sleeping";
-            else if (StatSheet.GetStat("Energy").Value < 3)
+            else if (StatSheet.GetStat("Energy").Value <= 3)
                 CurrentState = "Tired";
-            else if (StatSheet.GetStat("Hunger").Value < 3)
+            else if (StatSheet.GetStat("Hunger").Value <= 3)
                 CurrentState = "Hungry";
             else
                 CurrentState = "Idle"; // Reset the state to Idle

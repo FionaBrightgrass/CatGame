@@ -13,6 +13,9 @@
     <Compile Update="Controls\HeartContainer.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Controls\HoverBox.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Controls\Windows\SettingsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -42,6 +45,15 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\HeartContainer.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\HoverBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Windows\Inventory\Toys.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Windows\Inventory\Food.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\Windows\SettingsWindow.xaml">

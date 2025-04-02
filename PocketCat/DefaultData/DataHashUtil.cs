@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace PocketCat.DefaultData
 {
-    public static class DataHashUtility
+    public static class DataUtility
     {
         public static string GenerateCombinedData()
         {

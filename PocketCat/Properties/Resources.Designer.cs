@@ -63,9 +63,49 @@ namespace PocketCat.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] Box {
+            get {
+                object obj = ResourceManager.GetObject("Box", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] CatIcon {
             get {
                 object obj = ResourceManager.GetObject("CatIcon", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Catnip {
+            get {
+                object obj = ResourceManager.GetObject("Catnip", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Dry_Food {
+            get {
+                object obj = ResourceManager.GetObject("Dry Food", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Fish {
+            get {
+                object obj = ResourceManager.GetObject("Fish", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -96,6 +136,26 @@ namespace PocketCat.Properties {
         internal static byte[] SpriteSheet {
             get {
                 object obj = ResourceManager.GetObject("SpriteSheet", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Toy_Mouse {
+            get {
+                object obj = ResourceManager.GetObject("Toy Mouse", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Wet_Food {
+            get {
+                object obj = ResourceManager.GetObject("Wet Food", resourceCulture);
                 return ((byte[])(obj));
             }
         }

@@ -8,8 +8,9 @@ namespace PocketCat.Controls.Windows.Shop
     {
         public BitmapImage Image { get; set; }
         public string Name { get; set; }
-        public int Price { get; set; }
-        public string FormattedPrice => $"${Price}";
+        public double Price { get; set; }
+        public int Quantity { get; set; }
+        public string FormattedPrice => $"${Price:0.00}";
         public Brush BackgroundBrush { get; set; }
     }
 

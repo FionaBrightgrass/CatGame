@@ -7,13 +7,13 @@ namespace PocketCat.StaticGame.Items
     public class Money : INotifyPropertyChanged
     {
         private readonly string ItemsFile = Globals.AppWide.ApplicationData + "/items.txt";
-        private DateTime LastPayDay;
+        public DateTime LastPayDay;
         public int Pay = 15;
-        private int _amount = 10;
+        private double _amount = 10;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public int Amount
+        public double Amount
         {
             get => _amount;
             set
@@ -26,15 +26,39 @@ namespace PocketCat.StaticGame.Items
                 }
             }
         }
-        public string FormattedAmount => $"${Amount}";
+        public string FormattedAmount => $"Balance: {Amount:F2}";
         public Money()
         {
             LoadItems(); // Initialize from file
+            Time.InitializeMoney(this);
         }
 
-        public void AddMoney(int amount)
+        public void AddMoney(double amount)
         {
             Amount += amount;
+            UpdateMoneyInIniFile();
+        }
+        public void SubtractMoney(double amount)
+        {
+            Amount -= amount;
+            UpdateMoneyInIniFile();
+        }
+
+        private void UpdateMoneyInIniFile()
+        {
+            string[] lines = File.ReadAllLines(ItemsFile);
+
+            for (int i = 0; i < lines.Length; i++)
+            {
+                if (lines[i].StartsWith("Money:"))
+                {
+                    lines[i] = $"Money:{Amount}"; // Replace with the updated Amount
+                    break;
+                }
+            }
+
+            File.WriteAllLines(ItemsFile, lines); // Save the updated lines back to the file
+            Console.WriteLine($"Updated Money in file: {Amount}");
         }
 
         public void CheckAndRunDailyPayout()
@@ -43,6 +67,7 @@ namespace PocketCat.StaticGame.Items
 
             if (LastPayDay != today)
             {
+                Console.WriteLine("Adding " + Pay.ToString() + " to current wallet");
                 AddMoney(Pay); // Add daily payout
                 LastPayDay = today; // Update LastPayDate
                 SaveLastPayDay(); // Persist changes
@@ -59,12 +84,10 @@ namespace PocketCat.StaticGame.Items
             if (!File.Exists(ItemsFile))
             {
                 File.Create(ItemsFile).Close();
-                File.WriteAllLines(ItemsFile, new string[] { "Money:10", $"LastPayDate:{DateTime.Now:yyyy-MM-dd}" });
+                File.WriteAllLines(ItemsFile, new string[] { "Money:10.00", $"LastPayDate:{DateTime.Now:yyyy-MM-dd}" });
                 LastPayDay = DateTime.Now.Date;
-                if(!File.Exists(ItemsFile)){
-                    Console.WriteLine($"File {ItemsFile} not found. Creating a new file.");
-                    return;
-                }
+                Amount = 10.00; // Default value
+                return;
             }
 
             string[] lines = File.ReadAllLines(ItemsFile);
@@ -73,15 +96,15 @@ namespace PocketCat.StaticGame.Items
             {
                 if (line.StartsWith("Money:"))
                 {
-                    string moneyValue = line.Substring(6).Trim();
-                    if (int.TryParse(moneyValue, out int parsedMoney))
+                    string moneyValue = line.Substring(6).Trim(); // Extract the money value
+                    if (double.TryParse(moneyValue, out double parsedMoney))
                     {
-                        Amount = parsedMoney;
+                        Amount = parsedMoney; // Set the Amount to the parsed value
                     }
                 }
                 else if (line.StartsWith("LastPayDate:"))
                 {
-                    string dateValue = line.Substring(12).Trim();
+                    string dateValue = line.Substring(12).Trim(); // Extract the LastPayDate value
                     if (DateTime.TryParseExact(dateValue, "yyyy-MM-dd", null, System.Globalization.DateTimeStyles.None, out DateTime parsedDate))
                     {
                         LastPayDay = parsedDate;
@@ -91,6 +114,7 @@ namespace PocketCat.StaticGame.Items
 
             Console.WriteLine($"Loaded Money: {Amount}, LastPayDate: {LastPayDay:yyyy-MM-dd}");
         }
+
 
         public void SaveLastPayDay()
         {

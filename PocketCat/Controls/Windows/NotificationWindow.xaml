@@ -18,7 +18,7 @@
 
     <Border BorderBrush="{Binding BorderColorBrush, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}" 
             BorderThickness="2" CornerRadius="5" Margin="8">
-        <Grid Background="{Binding WindowColorBrush, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}" Opacity="0.9" Margin="0">
+        <Grid Background="{Binding WindowColorBrush, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}" Opacity="0.85" Margin="0">
             <StackPanel Margin="8">
                 <TextBlock x:Name="NotificationTextBlock" Text="" 
                            HorizontalAlignment="Center" VerticalAlignment="Center" 

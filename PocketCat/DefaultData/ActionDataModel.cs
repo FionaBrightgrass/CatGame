@@ -6,7 +6,7 @@
     public string Name { get; set; }
     public string Pronouns { get; set; }
     public string HungerName { get; set; } = "Hunger";
-    public string AffectionName { get; set; } = "Affection";
+    public string HappinessName { get; set; } = "Happiness";
     public string EnergyName { get; set; } = "Energy";
     public Dictionary<string, string> ButtonControl { get; set; }
     public Dictionary<string, string> FeedControl { get; set; }
@@ -21,9 +21,9 @@
     public List<string> Tired { get; set; }
     public List<string> Sleeping { get; set; }
     public List<string> Woke { get; set; }
-    public List<string> HighAffectionIdle { get; set; }
-    public List<string> MidAffectionIdle { get; set; }
-    public List<string> LowAffectionIdle { get; set; }
+    public List<string> HighHappinessIdle { get; set; }
+    public List<string> MidHappinessIdle { get; set; }
+    public List<string> LowHappinessIdle { get; set; }
     public Dictionary<string, string> StatusMessages { get; set; }
     public int PlayStoryIndex { get; set; }
 }

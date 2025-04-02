@@ -19,7 +19,7 @@
         BorderThickness="0,2,2,2" CornerRadius="0,5,5,0" Margin="0">
         <Border.Background>
             <SolidColorBrush Color="{Binding WindowColorBrush.Color, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}" 
-                         Opacity="0.8" />
+                         Opacity="0.85" />
         </Border.Background>
         <Grid Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="303">
             <StackPanel>
@@ -132,7 +132,7 @@ Width="100" FontFamily="Unispace" FontSize="14">
                                         <TextBox.Text>
                                             <Binding Path="TimeInterval" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
                                                 <Binding.ValidationRules>
-                                                    <local:IntegerValidationRule Min="5" Max="60" />
+                                                    <local:IntegerValidationRule Min="1" Max="60" />
                                                 </Binding.ValidationRules>
                                             </Binding>
                                         </TextBox.Text>

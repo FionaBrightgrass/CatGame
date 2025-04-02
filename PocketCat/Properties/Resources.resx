@@ -118,8 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Box" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\Box.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="CatIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\CatIcon.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>Images\CatIcon.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Catnip" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\Catnip.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Dry Food" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\Dry Food.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Fish" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\Fish.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Heart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\Heart.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -129,5 +141,11 @@
   </data>
   <data name="SpriteSheet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\SpriteSheet.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Toy Mouse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\Toy Mouse.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Wet Food" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\Wet Food.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

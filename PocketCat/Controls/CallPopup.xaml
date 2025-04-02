@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PocketCat.Controls"
         mc:Ignorable="d"
-        Title="CallWindow" Height="64" Width="400" WindowStyle="none" AllowsTransparency="True" Opacity="0.8" Background="Black">
+        Title="CallWindow" Height="64" Width="400" WindowStyle="none" AllowsTransparency="True" Opacity="0.85" Background="Black">
     <Border Background="Transparent" 
             BorderBrush="Transparent" 
             BorderThickness="0" 
