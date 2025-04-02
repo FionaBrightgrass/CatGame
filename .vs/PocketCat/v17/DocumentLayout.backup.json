@@ -1,0 +1,1129 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\PocketCat\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\defaultdata\\actiondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\defaultdata\\actiondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\windows\\inventory\\itemactiondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\windows\\inventory\\itemactiondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\windows\\inventory\\toys.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\windows\\inventory\\toys.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\staticgame\\items\\items.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\staticgame\\items\\items.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\staticgame\\sharedinventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\staticgame\\sharedinventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\windows\\inventory\\foodactiondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\windows\\inventory\\foodactiondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\windows\\inventory\\food.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\windows\\inventory\\food.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\pocketcat.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\pocketcat.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\windows\\inventory\\inventoryitemviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\windows\\inventory\\inventoryitemviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\windows\\shop\\shop.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\windows\\shop\\shop.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\windows\\inventory\\toys.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\windows\\inventory\\toys.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\windows\\shop\\shopitemviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\windows\\shop\\shopitemviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\windows\\inventory\\food.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\windows\\inventory\\food.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\properties\\resources.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\properties\\resources.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\windows\\shop\\shopitems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\windows\\shop\\shopitems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\windows\\shop\\shopviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\windows\\shop\\shopviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\windows\\shop\\shop.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\windows\\shop\\shop.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\windows\\settingswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\windows\\settingswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\staticgame\\time.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\staticgame\\time.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\heart.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\heart.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\staticgame\\flags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\staticgame\\flags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\staticgame\\states.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\staticgame\\states.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\defaultdata\\actiondatamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\defaultdata\\actiondatamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\uidictionary\\globalstyles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\uidictionary\\globalstyles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\staticgame\\items\\affection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\staticgame\\items\\affection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\PocketCat\\PocketCat\\obj\\Debug\\net8.0-windows\\Controls\\Windows\\Inventory\\Food.g.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PocketCat\\obj\\Debug\\net8.0-windows\\Controls\\Windows\\Inventory\\Food.g.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\staticgame\\stats\\statsheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\staticgame\\stats\\statsheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\defaultdata\\actiondataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\defaultdata\\actiondataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\staticgame\\items\\money.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\staticgame\\items\\money.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\statbar.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\statbar.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\hoverbox.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\hoverbox.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\hoverbox.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\hoverbox.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\heartcontainer.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\heartcontainer.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\windows\\notificationwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\windows\\notificationwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\callpopup.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\callpopup.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\staticgame\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\staticgame\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\staticgame\\stats\\stat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\staticgame\\stats\\stat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\windows\\settingswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\windows\\settingswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\pocketcat.csproj.backup.tmp||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\pocketcat.csproj.backup.tmp||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\pocketcat.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\pocketcat.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\PocketCat\\PocketCat\\obj\\Debug\\net8.0-windows\\MainWindow.g.i.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PocketCat\\obj\\Debug\\net8.0-windows\\MainWindow.g.i.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\windows\\notificationwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\windows\\notificationwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\spritecontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\spritecontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|D:\\PocketCat\\pocketcat\\properties\\settings.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\properties\\settings.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\actiontext.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\actiontext.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\defaultdata\\datahashutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\defaultdata\\datahashutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\defaultdata\\defaultsheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\defaultdata\\defaultsheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\defaultdata\\hashencryptutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\defaultdata\\hashencryptutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\lvl99\\AppData\\Local\\Temp\\.vsdbgsrc\\fb15084c48174bff3023217d1ad58e803e1e4322708722f333707ce4bd465108\\ItemCollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\actiontext.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\actiontext.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\defaultdata\\customsheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\defaultdata\\customsheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\heartcontainer.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\heartcontainer.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\PocketCat\\PocketCat\\obj\\Debug\\net8.0-windows\\MainWindow.g.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PocketCat\\obj\\Debug\\net8.0-windows\\MainWindow.g.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\globals\\appwide.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\globals\\appwide.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\spritecontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\spritecontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\integervalidationrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\integervalidationrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\statbar.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\statbar.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\PocketCat\\PocketCat\\obj\\Debug\\net8.0-windows\\App.g.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PocketCat\\obj\\Debug\\net8.0-windows\\App.g.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\catsystemtray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\catsystemtray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|d:\\pocketcat\\pocketcat\\controls\\callpopup.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63107673-BAFB-4DBE-8ABD-847869DAFBF0}|PocketCat\\PocketCat.csproj|solutionrelative:pocketcat\\controls\\callpopup.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\lvl99\\AppData\\Local\\Temp\\.vsdbgsrc\\6aa8dfe6dce7647690db27e2d44efd3bdfeed3cfaad2ff4a1195b1c962d31917\\XamlReader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\PocketCat\\PocketCat\\obj\\Debug\\net8.0-windows\\Controls\\Statbar.g.i.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PocketCat\\obj\\Debug\\net8.0-windows\\Controls\\Statbar.g.i.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 59,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "HoverBox.xaml.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\HoverBox.xaml.cs",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\HoverBox.xaml.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\HoverBox.xaml.cs",
+              "RelativeToolTip": "PocketCat\\Controls\\HoverBox.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T14:09:44.447Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SharedInventory.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\StaticGame\\SharedInventory.cs",
+              "RelativeDocumentMoniker": "PocketCat\\StaticGame\\SharedInventory.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\StaticGame\\SharedInventory.cs",
+              "RelativeToolTip": "PocketCat\\StaticGame\\SharedInventory.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAowBoAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T19:14:27.861Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Toys.xaml.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\Inventory\\Toys.xaml.cs",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\Windows\\Inventory\\Toys.xaml.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\Inventory\\Toys.xaml.cs",
+              "RelativeToolTip": "PocketCat\\Controls\\Windows\\Inventory\\Toys.xaml.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAA7wE0AAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T17:57:51.948Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Toys.xaml",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\Inventory\\Toys.xaml",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\Windows\\Inventory\\Toys.xaml",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\Inventory\\Toys.xaml",
+              "RelativeToolTip": "PocketCat\\Controls\\Windows\\Inventory\\Toys.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-02T17:56:23.067Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FoodActionData.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\Inventory\\FoodActionData.cs",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\Windows\\Inventory\\FoodActionData.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\Inventory\\FoodActionData.cs",
+              "RelativeToolTip": "PocketCat\\Controls\\Windows\\Inventory\\FoodActionData.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAmwBAAAACPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T12:58:25.573Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ItemActionData.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\Inventory\\ItemActionData.cs",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\Windows\\Inventory\\ItemActionData.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\Inventory\\ItemActionData.cs",
+              "RelativeToolTip": "PocketCat\\Controls\\Windows\\Inventory\\ItemActionData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAC4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T12:56:43.286Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Food.g.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\obj\\Debug\\net8.0-windows\\Controls\\Windows\\Inventory\\Food.g.cs",
+              "RelativeDocumentMoniker": "PocketCat\\obj\\Debug\\net8.0-windows\\Controls\\Windows\\Inventory\\Food.g.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\obj\\Debug\\net8.0-windows\\Controls\\Windows\\Inventory\\Food.g.cs",
+              "RelativeToolTip": "PocketCat\\obj\\Debug\\net8.0-windows\\Controls\\Windows\\Inventory\\Food.g.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAIAwwCgAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T12:35:05.592Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "InventoryItemViewModel.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\Inventory\\InventoryItemViewModel.cs",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\Windows\\Inventory\\InventoryItemViewModel.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\Inventory\\InventoryItemViewModel.cs",
+              "RelativeToolTip": "PocketCat\\Controls\\Windows\\Inventory\\InventoryItemViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T12:29:19.268Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Food.xaml.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\Inventory\\Food.xaml.cs",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\Windows\\Inventory\\Food.xaml.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\Inventory\\Food.xaml.cs",
+              "RelativeToolTip": "PocketCat\\Controls\\Windows\\Inventory\\Food.xaml.cs",
+              "ViewState": "AgIAAIUAAAAAAAAAAAAAwJEAAACEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T12:20:24.952Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Food.xaml",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\Inventory\\Food.xaml",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\Windows\\Inventory\\Food.xaml",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\Inventory\\Food.xaml",
+              "RelativeToolTip": "PocketCat\\Controls\\Windows\\Inventory\\Food.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-02T12:20:03.326Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Items.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\StaticGame\\Items\\Items.cs",
+              "RelativeDocumentMoniker": "PocketCat\\StaticGame\\Items\\Items.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\StaticGame\\Items\\Items.cs",
+              "RelativeToolTip": "PocketCat\\StaticGame\\Items\\Items.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T18:56:04.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Heart.png",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Heart.png",
+              "RelativeDocumentMoniker": "PocketCat\\Heart.png",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Heart.png",
+              "RelativeToolTip": "PocketCat\\Heart.png",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2025-04-01T14:19:46.684Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "HoverBox.xaml",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\HoverBox.xaml",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\HoverBox.xaml",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\HoverBox.xaml",
+              "RelativeToolTip": "PocketCat\\Controls\\HoverBox.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-01T14:09:29.089Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Affection.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\StaticGame\\Items\\Affection.cs",
+              "RelativeDocumentMoniker": "PocketCat\\StaticGame\\Items\\Affection.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\StaticGame\\Items\\Affection.cs",
+              "RelativeToolTip": "PocketCat\\StaticGame\\Items\\Affection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T01:26:45.878Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "ItemCollection.cs",
+              "DocumentMoniker": "C:\\Users\\lvl99\\AppData\\Local\\Temp\\.vsdbgsrc\\fb15084c48174bff3023217d1ad58e803e1e4322708722f333707ce4bd465108\\ItemCollection.cs",
+              "ToolTip": "C:\\Users\\lvl99\\AppData\\Local\\Temp\\.vsdbgsrc\\fb15084c48174bff3023217d1ad58e803e1e4322708722f333707ce4bd465108\\ItemCollection.cs [Read Only]",
+              "ViewState": "AgIAAE8FAAAAAAAAAAAlwFAFAABBAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-29T13:23:20.463Z",
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ShopItems.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\Shop\\ShopItems.cs",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\Windows\\Shop\\ShopItems.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\Shop\\ShopItems.cs",
+              "RelativeToolTip": "PocketCat\\Controls\\Windows\\Shop\\ShopItems.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAowE8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-29T11:53:29.86Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ShopViewModel.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\Shop\\ShopViewModel.cs",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\Windows\\Shop\\ShopViewModel.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\Shop\\ShopViewModel.cs",
+              "RelativeToolTip": "PocketCat\\Controls\\Windows\\Shop\\ShopViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-29T11:50:27.803Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ShopItemViewModel.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\Shop\\ShopItemViewModel.cs",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\Windows\\Shop\\ShopItemViewModel.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\Shop\\ShopItemViewModel.cs",
+              "RelativeToolTip": "PocketCat\\Controls\\Windows\\Shop\\ShopItemViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-29T11:48:57.588Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "MainWindow.g.i.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\obj\\Debug\\net8.0-windows\\MainWindow.g.i.cs",
+              "RelativeDocumentMoniker": "PocketCat\\obj\\Debug\\net8.0-windows\\MainWindow.g.i.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\obj\\Debug\\net8.0-windows\\MainWindow.g.i.cs",
+              "RelativeToolTip": "PocketCat\\obj\\Debug\\net8.0-windows\\MainWindow.g.i.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAADwv3EAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T21:51:22.668Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Money.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\StaticGame\\Items\\Money.cs",
+              "RelativeDocumentMoniker": "PocketCat\\StaticGame\\Items\\Money.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\StaticGame\\Items\\Money.cs",
+              "RelativeToolTip": "PocketCat\\StaticGame\\Items\\Money.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABwAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T12:27:37.389Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "NotificationWindow.xaml.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\NotificationWindow.xaml.cs",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\Windows\\NotificationWindow.xaml.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\NotificationWindow.xaml.cs",
+              "RelativeToolTip": "PocketCat\\Controls\\Windows\\NotificationWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T16:25:28.271Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "NotificationWindow.xaml",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\NotificationWindow.xaml",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\Windows\\NotificationWindow.xaml",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\NotificationWindow.xaml",
+              "RelativeToolTip": "PocketCat\\Controls\\Windows\\NotificationWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-27T16:23:03.39Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Flags.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\StaticGame\\Flags.cs",
+              "RelativeDocumentMoniker": "PocketCat\\StaticGame\\Flags.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\StaticGame\\Flags.cs",
+              "RelativeToolTip": "PocketCat\\StaticGame\\Flags.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T16:04:52.697Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "MainWindow.g.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\obj\\Debug\\net8.0-windows\\MainWindow.g.cs",
+              "RelativeDocumentMoniker": "PocketCat\\obj\\Debug\\net8.0-windows\\MainWindow.g.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\obj\\Debug\\net8.0-windows\\MainWindow.g.cs",
+              "RelativeToolTip": "PocketCat\\obj\\Debug\\net8.0-windows\\MainWindow.g.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T15:52:16.903Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Shop.xaml.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\Shop\\Shop.xaml.cs",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\Windows\\Shop\\Shop.xaml.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\Shop\\Shop.xaml.cs",
+              "RelativeToolTip": "PocketCat\\Controls\\Windows\\Shop\\Shop.xaml.cs",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAAwIoAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T15:48:36.399Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Shop.xaml",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\Shop\\Shop.xaml",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\Windows\\Shop\\Shop.xaml",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\Shop\\Shop.xaml",
+              "RelativeToolTip": "PocketCat\\Controls\\Windows\\Shop\\Shop.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-26T15:47:35.51Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "PocketCat.csproj.Backup.tmp",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\PocketCat.csproj.Backup.tmp",
+              "RelativeDocumentMoniker": "PocketCat\\PocketCat.csproj.Backup.tmp",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\PocketCat.csproj.Backup.tmp",
+              "RelativeToolTip": "PocketCat\\PocketCat.csproj.Backup.tmp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-26T06:15:45.537Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "HeartContainer.xaml.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\HeartContainer.xaml.cs",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\HeartContainer.xaml.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\HeartContainer.xaml.cs",
+              "RelativeToolTip": "PocketCat\\Controls\\HeartContainer.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T19:40:22.399Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "HeartContainer.xaml",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\HeartContainer.xaml",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\HeartContainer.xaml",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\HeartContainer.xaml",
+              "RelativeToolTip": "PocketCat\\Controls\\HeartContainer.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-25T19:38:21.257Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "ActionDataService.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\DefaultData\\ActionDataService.cs",
+              "RelativeDocumentMoniker": "PocketCat\\DefaultData\\ActionDataService.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\DefaultData\\ActionDataService.cs",
+              "RelativeToolTip": "PocketCat\\DefaultData\\ActionDataService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T18:43:06.86Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "StatSheet.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\StaticGame\\Stats\\StatSheet.cs",
+              "RelativeDocumentMoniker": "PocketCat\\StaticGame\\Stats\\StatSheet.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\StaticGame\\Stats\\StatSheet.cs",
+              "RelativeToolTip": "PocketCat\\StaticGame\\Stats\\StatSheet.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwCYAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T20:46:46.378Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "Stat.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\StaticGame\\Stats\\Stat.cs",
+              "RelativeDocumentMoniker": "PocketCat\\StaticGame\\Stats\\Stat.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\StaticGame\\Stats\\Stat.cs",
+              "RelativeToolTip": "PocketCat\\StaticGame\\Stats\\Stat.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAowCEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T20:46:33.428Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "States.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\StaticGame\\States.cs",
+              "RelativeDocumentMoniker": "PocketCat\\StaticGame\\States.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\StaticGame\\States.cs",
+              "RelativeToolTip": "PocketCat\\StaticGame\\States.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwCsAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T20:49:56.648Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Time.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\StaticGame\\Time.cs",
+              "RelativeDocumentMoniker": "PocketCat\\StaticGame\\Time.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\StaticGame\\Time.cs",
+              "RelativeToolTip": "PocketCat\\StaticGame\\Time.cs",
+              "ViewState": "AgIAAM8AAAAAAAAAAAASwGIBAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T20:11:41.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Resources.resx",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Properties\\Resources.resx",
+              "RelativeDocumentMoniker": "PocketCat\\Properties\\Resources.resx",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Properties\\Resources.resx",
+              "RelativeToolTip": "PocketCat\\Properties\\Resources.resx",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAAAIcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-03-23T12:13:36.826Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "SpriteControl.xaml.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\SpriteControl.xaml.cs",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\SpriteControl.xaml.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\SpriteControl.xaml.cs",
+              "RelativeToolTip": "PocketCat\\Controls\\SpriteControl.xaml.cs",
+              "ViewState": "AgIAAMMBAAAAAAAAAIAwwMABAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T12:02:15.828Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "SpriteControl.xaml",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\SpriteControl.xaml",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\SpriteControl.xaml",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\SpriteControl.xaml",
+              "RelativeToolTip": "PocketCat\\Controls\\SpriteControl.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-23T12:02:13.46Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "ActionText.xaml.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\ActionText.xaml.cs",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\ActionText.xaml.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\ActionText.xaml.cs",
+              "RelativeToolTip": "PocketCat\\Controls\\ActionText.xaml.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAqwBwAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T15:11:40.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "ActionText.xaml",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\ActionText.xaml",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\ActionText.xaml",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\ActionText.xaml",
+              "RelativeToolTip": "PocketCat\\Controls\\ActionText.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-21T15:11:23.278Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "IntegerValidationRule.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\IntegerValidationRule.cs",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\IntegerValidationRule.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\IntegerValidationRule.cs",
+              "RelativeToolTip": "PocketCat\\Controls\\IntegerValidationRule.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T22:47:30.193Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PocketCat",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\PocketCat.csproj",
+              "RelativeDocumentMoniker": "PocketCat\\PocketCat.csproj",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\PocketCat.csproj",
+              "RelativeToolTip": "PocketCat\\PocketCat.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-20T17:48:00.717Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ActionData.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\DefaultData\\ActionData.cs",
+              "RelativeDocumentMoniker": "PocketCat\\DefaultData\\ActionData.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\DefaultData\\ActionData.cs",
+              "RelativeToolTip": "PocketCat\\DefaultData\\ActionData.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAQwAwAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T18:02:02.385Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ActionDataModel.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\DefaultData\\ActionDataModel.cs",
+              "RelativeDocumentMoniker": "PocketCat\\DefaultData\\ActionDataModel.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\DefaultData\\ActionDataModel.cs",
+              "RelativeToolTip": "PocketCat\\DefaultData\\ActionDataModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAA6wAgAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T18:01:40.366Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "XamlReader.cs",
+              "DocumentMoniker": "C:\\Users\\lvl99\\AppData\\Local\\Temp\\.vsdbgsrc\\6aa8dfe6dce7647690db27e2d44efd3bdfeed3cfaad2ff4a1195b1c962d31917\\XamlReader.cs",
+              "ToolTip": "C:\\Users\\lvl99\\AppData\\Local\\Temp\\.vsdbgsrc\\6aa8dfe6dce7647690db27e2d44efd3bdfeed3cfaad2ff4a1195b1c962d31917\\XamlReader.cs",
+              "ViewState": "AgIAAGkBAAAAAAAAAAAcwJABAAACAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T22:44:54.074Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "AppSettings.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\AppSettings.cs",
+              "RelativeDocumentMoniker": "PocketCat\\AppSettings.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\AppSettings.cs",
+              "RelativeToolTip": "PocketCat\\AppSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG0BAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T21:45:03.832Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "CustomSheet.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\DefaultData\\CustomSheet.cs",
+              "RelativeDocumentMoniker": "PocketCat\\DefaultData\\CustomSheet.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\DefaultData\\CustomSheet.cs",
+              "RelativeToolTip": "PocketCat\\DefaultData\\CustomSheet.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T17:42:29.086Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "HashEncryptUtil.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\DefaultData\\HashEncryptUtil.cs",
+              "RelativeDocumentMoniker": "PocketCat\\DefaultData\\HashEncryptUtil.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\DefaultData\\HashEncryptUtil.cs",
+              "RelativeToolTip": "PocketCat\\DefaultData\\HashEncryptUtil.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T16:43:25.5Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "DataHashUtil.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\DefaultData\\DataHashUtil.cs",
+              "RelativeDocumentMoniker": "PocketCat\\DefaultData\\DataHashUtil.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\DefaultData\\DataHashUtil.cs",
+              "RelativeToolTip": "PocketCat\\DefaultData\\DataHashUtil.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAowEAAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T16:02:25.274Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "CallPopup.xaml",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\CallPopup.xaml",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\CallPopup.xaml",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\CallPopup.xaml",
+              "RelativeToolTip": "PocketCat\\Controls\\CallPopup.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-18T13:03:50.523Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "CallPopup.xaml.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\CallPopup.xaml.cs",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\CallPopup.xaml.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\CallPopup.xaml.cs",
+              "RelativeToolTip": "PocketCat\\Controls\\CallPopup.xaml.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAIwC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T12:57:57.03Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "CatSystemTray.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\CatSystemTray.cs",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\CatSystemTray.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\CatSystemTray.cs",
+              "RelativeToolTip": "PocketCat\\Controls\\CatSystemTray.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T13:03:46.757Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "SettingsWindow.xaml.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\SettingsWindow.xaml.cs",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\Windows\\SettingsWindow.xaml.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\SettingsWindow.xaml.cs",
+              "RelativeToolTip": "PocketCat\\Controls\\Windows\\SettingsWindow.xaml.cs",
+              "ViewState": "AgIAAKoAAAAAAAAAAAAswG4AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T04:15:51.506Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "DefaultSheet.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\DefaultData\\DefaultSheet.cs",
+              "RelativeDocumentMoniker": "PocketCat\\DefaultData\\DefaultSheet.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\DefaultData\\DefaultSheet.cs",
+              "RelativeToolTip": "PocketCat\\DefaultData\\DefaultSheet.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T01:33:19.119Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "PocketCat.csproj",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\PocketCat.csproj",
+              "RelativeDocumentMoniker": "PocketCat\\PocketCat.csproj",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\PocketCat.csproj",
+              "RelativeToolTip": "PocketCat\\PocketCat.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-18T01:32:29.378Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "AssemblyInfo.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "PocketCat\\AssemblyInfo.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\AssemblyInfo.cs",
+              "RelativeToolTip": "PocketCat\\AssemblyInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T23:41:11.588Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "Statbar.g.i.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\obj\\Debug\\net8.0-windows\\Controls\\Statbar.g.i.cs",
+              "RelativeDocumentMoniker": "PocketCat\\obj\\Debug\\net8.0-windows\\Controls\\Statbar.g.i.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\obj\\Debug\\net8.0-windows\\Controls\\Statbar.g.i.cs",
+              "RelativeToolTip": "PocketCat\\obj\\Debug\\net8.0-windows\\Controls\\Statbar.g.i.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAqwCkAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T18:06:15.211Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Statbar.xaml.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\Statbar.xaml.cs",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\Statbar.xaml.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\Statbar.xaml.cs",
+              "RelativeToolTip": "PocketCat\\Controls\\Statbar.xaml.cs",
+              "ViewState": "AgIAAKEAAAAAAAAAAAAswMoAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T18:04:57.557Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "Statbar.xaml",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\Statbar.xaml",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\Statbar.xaml",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\Statbar.xaml",
+              "RelativeToolTip": "PocketCat\\Controls\\Statbar.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-17T18:04:47.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "PocketCat\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\MainWindow.xaml.cs",
+              "RelativeToolTip": "PocketCat\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAJMBAAAAAAAAAAAswLYBAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T12:27:16.366Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "AppWide.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Globals\\AppWide.cs",
+              "RelativeDocumentMoniker": "PocketCat\\Globals\\AppWide.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Globals\\AppWide.cs",
+              "RelativeToolTip": "PocketCat\\Globals\\AppWide.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T12:11:48.675Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "Stats.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\StaticGame\\Stats.cs",
+              "RelativeDocumentMoniker": "PocketCat\\StaticGame\\Stats.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\StaticGame\\Stats.cs",
+              "RelativeToolTip": "PocketCat\\StaticGame\\Stats.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T12:09:36.158Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "App.g.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\obj\\Debug\\net8.0-windows\\App.g.cs",
+              "RelativeDocumentMoniker": "PocketCat\\obj\\Debug\\net8.0-windows\\App.g.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\obj\\Debug\\net8.0-windows\\App.g.cs",
+              "RelativeToolTip": "PocketCat\\obj\\Debug\\net8.0-windows\\App.g.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T03:18:48.546Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "PocketCat\\MainWindow.xaml",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\MainWindow.xaml",
+              "RelativeToolTip": "PocketCat\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-16T02:00:49.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\App.xaml",
+              "RelativeDocumentMoniker": "PocketCat\\App.xaml",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\App.xaml",
+              "RelativeToolTip": "PocketCat\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-16T01:53:55.754Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\App.xaml.cs",
+              "RelativeDocumentMoniker": "PocketCat\\App.xaml.cs",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\App.xaml.cs",
+              "RelativeToolTip": "PocketCat\\App.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T01:53:53.933Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "SettingsWindow.xaml",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\SettingsWindow.xaml",
+              "RelativeDocumentMoniker": "PocketCat\\Controls\\Windows\\SettingsWindow.xaml",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Controls\\Windows\\SettingsWindow.xaml",
+              "RelativeToolTip": "PocketCat\\Controls\\Windows\\SettingsWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-16T01:49:23.893Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "GlobalStyles.xaml",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\UIDictionary\\GlobalStyles.xaml",
+              "RelativeDocumentMoniker": "PocketCat\\UIDictionary\\GlobalStyles.xaml",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\UIDictionary\\GlobalStyles.xaml",
+              "RelativeToolTip": "PocketCat\\UIDictionary\\GlobalStyles.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-16T01:20:54.863Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "Settings.settings",
+              "DocumentMoniker": "D:\\PocketCat\\PocketCat\\Properties\\Settings.settings",
+              "RelativeDocumentMoniker": "PocketCat\\Properties\\Settings.settings",
+              "ToolTip": "D:\\PocketCat\\PocketCat\\Properties\\Settings.settings",
+              "RelativeToolTip": "PocketCat\\Properties\\Settings.settings",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002767|",
+              "WhenOpened": "2025-03-30T17:57:37.34Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

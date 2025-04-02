@@ -1,0 +1,122 @@
+﻿<Window x:Class="PocketCat.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PocketCat"
+        xmlns:controls="clr-namespace:PocketCat.Controls"
+        xmlns:datatables="clr-namespace:PocketCat.DefaultData"
+        xmlns:items="clr-namespace:PocketCat.StaticGame.Items"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="330" 
+        WindowStyle="None" AllowsTransparency="True" Opacity="1" MouseDown="Window_MouseDown">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="UIDictionary/GlobalStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <ObjectDataProvider x:Key="ButtonTableProvider" ObjectType="{x:Type datatables:ActionData}" MethodName="GetButtonControl" />
+            <ObjectDataProvider x:Key="FoodTableProvider" ObjectType="{x:Type datatables:ActionData}" MethodName="GetFeedControl" />
+            <ObjectDataProvider x:Key="PlayTableProvider" ObjectType="{x:Type datatables:ActionData}" MethodName="GetPlayControl" />
+            <ObjectDataProvider x:Key="SleepTableProvider" ObjectType="{x:Type datatables:ActionData}" MethodName="GetSleepControl" />
+            <ObjectDataProvider x:Key="HungerNameProvider" ObjectType="{x:Type datatables:ActionData}" MethodName="get_HungerName" />
+            <ObjectDataProvider x:Key="HappinessNameProvider" ObjectType="{x:Type datatables:ActionData}" MethodName="get_HappinessName" />
+            <ObjectDataProvider x:Key="EnergyNameProvider" ObjectType="{x:Type datatables:ActionData}" MethodName="get_EnergyName" />
+        </ResourceDictionary>
+    </Window.Resources>
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" ResizeBorderThickness="5" />
+    </WindowChrome.WindowChrome>
+
+    <!-- Semi-transparent background for the window -->
+    <Window.Background>
+        <SolidColorBrush Color="Transparent"/>
+        <!-- Adjust color and opacity as needed -->
+    </Window.Background>
+    <Border x:Name="MainBorder" BorderBrush="{Binding BorderColorBrush, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}" 
+        BorderThickness="2" CornerRadius="5" Margin="0">
+        <Border.Background>
+            <SolidColorBrush Color="{Binding WindowColorBrush.Color, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}" 
+                         Opacity="0.85" />
+        </Border.Background>
+        <Grid Background="Transparent" Margin="0">
+            <StackPanel Background="Transparent">
+                <DockPanel Height="40" Width="Auto" HorizontalAlignment="Stretch">
+                    <DockPanel HorizontalAlignment="Left" Width="120">
+                        <Image x:Name="HeartIMG" Source="/Heart.png" Height="20" Width="20" Margin="8" 
+           HorizontalAlignment="Left" VerticalAlignment="Bottom"
+           MouseEnter="HeartIMG_MouseEnter" MouseLeave="HeartIMG_MouseLeave"/>
+                        <TextBox x:Name="AffectionBox" Text="0"
+         HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="60" Height="24"
+         FontFamily="Unispace" FontSize="14" Background="Transparent" IsHitTestVisible="False"
+         Foreground="{Binding TextColorBrush, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" Margin="-2,0,0,1" />
+
+                    </DockPanel>
+                    <DockPanel HorizontalAlignment="Right">
+                        <Button x:Name="HideUI_Button" Click="HideUI" Style="{StaticResource SharpButtonStyle}" HorizontalAlignment="Right">
+                            <TextBlock Text="👁" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                        </Button>
+                        <Button x:Name="Settings_Button" Click="OpenSettings" Style="{StaticResource SharpButtonStyle}" HorizontalAlignment="Right">
+                            <TextBlock Text="..." Margin="0,0,0,6"  VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
+                        </Button>
+                        <Button x:Name="Close_Button" Click="CloseWindow" Style="{StaticResource SharpButtonStyle}" HorizontalAlignment="Right" >
+                            <TextBlock Text="x" HorizontalAlignment="Right"></TextBlock>
+                        </Button>
+                    </DockPanel>
+                    
+                </DockPanel>
+                <DockPanel Margin="100,26,0,0" Height="152" VerticalAlignment="Center">
+                    <controls:SpriteControl MouseDoubleClick="SpriteControl_MouseDoubleClick"></controls:SpriteControl>
+                </DockPanel>
+                <controls:ActionText x:Name="ActionText" Text="" FontFamily="Unispace" FontSize="12" Height="56" Margin="8,0,8,0" TextWrapping="Wrap" Opacity="1" Foreground="{Binding TextColorText, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}"></controls:ActionText>
+                <DockPanel Height="50" Width="Auto" HorizontalAlignment="Left">
+                    <DockPanel>
+                        <controls:Statbar x:Name="HappinessBar" Margin="4" HeaderText="{Binding Source={StaticResource HappinessNameProvider}}" HorizontalAlignment="Left" Foreground="{Binding TextColorText, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}" />
+                       </DockPanel>
+                    <DockPanel>
+                        <controls:Statbar x:Name="HungerBar" Margin="4" HeaderText="{Binding Source={StaticResource HungerNameProvider}}" HorizontalAlignment="Left" Foreground="{Binding TextColorText, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}" />
+                    </DockPanel>
+                    <DockPanel>
+                        <controls:Statbar x:Name="EnergyBar" Margin="4" HeaderText="{Binding Source={StaticResource EnergyNameProvider}}" HorizontalAlignment="Left" Foreground="{Binding TextColorText, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}" />
+                    </DockPanel>
+                </DockPanel>
+            </StackPanel>
+            <DockPanel x:Name="MainControl" LastChildFill="True" VerticalAlignment="Top" Height="130" Margin="0,322,0,0">
+                <!--MainWindow-->
+                <ItemsControl Margin="-2,0,0,0" x:Name="ButtonControl" ItemsSource="{Binding Source={StaticResource ButtonTableProvider}}" Visibility="Visible" Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Window}}" Height="120" HorizontalAlignment="Stretch">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="2" Rows="2" Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button Content="{Binding Key}"  
+                                Tag="{Binding Key}" 
+                                Style="{StaticResource FullWidthButtonStyle}" 
+                                HorizontalAlignment="Stretch"
+                                Click="MainButton_Click" Margin="0,0,0,-4"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <ItemsControl Margin="0" x:Name="SleepControl"  ItemsSource="{Binding Source={StaticResource SleepTableProvider}}" Visibility="Collapsed" Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Window}}" Height="120" HorizontalAlignment="Stretch">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="2" Rows="2" Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button Content="{Binding Key}"  
+                    Tag="{Binding Key}" 
+                    Style="{StaticResource FullWidthButtonStyle}" 
+                    HorizontalAlignment="Stretch"
+                    Click="SleepButton_Click" Margin="0,0,0,-4"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+            </DockPanel>
+        </Grid>
+    </Border>
+</Window>

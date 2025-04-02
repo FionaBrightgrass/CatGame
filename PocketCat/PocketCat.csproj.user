@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Controls\CallPopup.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\HeartContainer.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\HoverBox.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Windows\SettingsWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Windows\Shop\Shop.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Statbar.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\ActionText.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\SpriteControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Windows\NotificationWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Controls\CallPopup.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\HeartContainer.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\HoverBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Windows\Inventory\Toys.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Windows\Inventory\Food.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Windows\SettingsWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Windows\Shop\Shop.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Statbar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\ActionText.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\SpriteControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Windows\NotificationWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UIDictionary\GlobalStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
