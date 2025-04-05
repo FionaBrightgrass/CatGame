@@ -42,7 +42,7 @@
             <StackPanel>
                 <DockPanel Height="40" HorizontalAlignment="Stretch" VerticalAlignment="Top">
                     <DockPanel HorizontalAlignment="Left" Margin="12,12,0,0">
-                        <TextBlock Text="Food Inventory" FontFamily="Unispace" FontSize="22" Foreground="{Binding TextColorText, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock Text="Food" FontFamily="Unispace" FontSize="22" Foreground="{Binding TextColorText, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}"/>
                     </DockPanel>
 
                     <DockPanel HorizontalAlignment="Right">

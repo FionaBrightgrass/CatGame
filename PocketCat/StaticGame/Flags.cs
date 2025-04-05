@@ -102,6 +102,24 @@ namespace PocketCat.StaticGame
                 }
             }
         }
+        private static bool _tipReady = true; //MainWindow.await RefreshBars() will unlock
+        public static bool TipReady
+        {
+            get => _tipReady;
+            set
+            {
+                if (_tipReady != value)
+                {
+                    _tipReady = value;
+                    Console.WriteLine($"AffectionReady flag changed to: {_tipReady}");
+                }
+                if (_tipReady == false)
+                {
+                    Time.StopTipReadyTimer();
+                    Time.StartTipReadyTimer();
+                }
+            }
+        }
         private static bool _statDecreaseReady = false; //MainWindow.await RefreshBars() will unlock
         public static bool StatDecreaseReady
         {

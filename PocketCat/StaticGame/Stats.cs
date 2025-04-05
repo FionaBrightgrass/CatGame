@@ -78,6 +78,7 @@ namespace PocketCat.StaticGame
                 {
                     sw.WriteLine($"{kvp.Key}:{kvp.Value}");
                 }
+                sw.Close();
             }
         }
 
@@ -89,6 +90,7 @@ namespace PocketCat.StaticGame
                 {
                     sw.WriteLine($"{kvp.Key}:0");
                 }
+                sw.Close();
             }
         }
     }

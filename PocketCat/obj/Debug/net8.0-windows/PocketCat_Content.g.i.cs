@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("audio/gold.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("audio/gold.wav")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("properties/resources/caticon.ico")]
 
 

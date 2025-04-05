@@ -68,6 +68,7 @@ namespace PocketCat.StaticGame.Stats
                     writer.WriteLine($"{kvp.Key}:{kvp.Value.Value}");
                 }
                 writer.WriteLine("Affection:" + _mainWindow.AffectionBoxText);
+                writer.Close();
             }
         }
 

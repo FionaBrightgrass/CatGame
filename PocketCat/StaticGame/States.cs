@@ -67,7 +67,7 @@ namespace PocketCat.StaticGame
             return new int[] {-1, 8}; // Return -1 for invalid states
         }
 
-        private static async void StartStateResetTask(string initialTrackedState)
+        public static async void StartStateResetTask(string initialTrackedState)
         {
             if (States.CurrentState == "Sleeping" || Flags.IsSleeping)
                 return;
@@ -83,7 +83,7 @@ namespace PocketCat.StaticGame
                 Console.WriteLine($"State reset task started for state: {initialTrackedState}");
 
                 // Wait asynchronously for 10 seconds (or cancel if the token is triggered)
-                await Task.Delay(TimeSpan.FromSeconds(10), token);
+                await Task.Delay(TimeSpan.FromSeconds(6), token);
                 // Otherwise, reset the state to "Idle"
                 ResetToIdle();
             }
@@ -110,7 +110,7 @@ namespace PocketCat.StaticGame
             StopStateResetTask(); // Stop any ongoing reset tasks
             if (Flags.IsSleeping || States.CurrentState == "Sleeping" || (StatSheet.GetStat("Energy").Value < 1))
                 CurrentState = "Sleeping";
-            else if (StatSheet.GetStat("Energy").Value <= 3)
+            else if (StatSheet.GetStat("Energy").Value <= 2)
                 CurrentState = "Tired";
             else if (StatSheet.GetStat("Hunger").Value <= 3)
                 CurrentState = "Hungry";

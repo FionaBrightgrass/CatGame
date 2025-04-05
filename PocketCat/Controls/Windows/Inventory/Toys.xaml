@@ -42,7 +42,7 @@
             <StackPanel>
                 <DockPanel Height="40" HorizontalAlignment="Stretch" VerticalAlignment="Top">
                     <DockPanel HorizontalAlignment="Left" Margin="12,12,0,0">
-                        <TextBlock Text="Food Inventory" FontFamily="Unispace" FontSize="22" Foreground="{Binding TextColorText, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock Text="Items" FontFamily="Unispace" FontSize="22" Foreground="{Binding TextColorText, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}"/>
                     </DockPanel>
 
                     <DockPanel HorizontalAlignment="Right">
@@ -74,7 +74,7 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                         <DataGridTextColumn x:Name="Name" Header=" " Binding="{Binding Name}" Width="180" Foreground="{Binding TextColorBrush, Source={StaticResource AppSettings}}" IsReadOnly="True" CellStyle="{StaticResource ShopDataGridCell}" FontFamily="Unispace"/>
-                        <DataGridTextColumn x:Name="Quantity" Header="Quantity" Binding="{Binding Quantity}" Width="80" Foreground="{Binding TextColorBrush, Source={StaticResource AppSettings}}" IsReadOnly="True" CellStyle="{StaticResource ShopDataGridCell}" FontFamily="Unispace" FontSize="14"/>
+                        <DataGridTextColumn x:Name="Quantity" Header="Quantity" Binding="{Binding Quantity}" Width="80" Foreground="{Binding TextColorBrush, Source={StaticResource AppSettings}}" IsReadOnly="True" CellStyle="{StaticResource ShopDataGridCell}" FontFamily="Unispace" FontSize="12"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
