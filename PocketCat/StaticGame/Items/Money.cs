@@ -6,7 +6,7 @@ namespace PocketCat.StaticGame.Items
 {
     public class Money : INotifyPropertyChanged
     {
-        private readonly string ItemsFile = Globals.AppWide.ApplicationData + "/items.txt";
+        private readonly string MoneyFile = Globals.AppWide.ApplicationData + "/money.txt";
         public DateTime LastPayDay;
         public int Pay = 15;
         private double _amount = 10;
@@ -29,7 +29,7 @@ namespace PocketCat.StaticGame.Items
         public string FormattedAmount => $"Balance: {Amount:F2}";
         public Money()
         {
-            LoadItems(); // Initialize from file
+            LoadMoney(); // Initialize from file
             Time.InitializeMoney(this);
         }
 
@@ -46,18 +46,24 @@ namespace PocketCat.StaticGame.Items
 
         private void UpdateMoneyInIniFile()
         {
-            string[] lines = File.ReadAllLines(ItemsFile);
-
+            string[] lines = File.ReadAllLines(MoneyFile);
+            bool moneyFound = false;
             for (int i = 0; i < lines.Length; i++)
             {
                 if (lines[i].StartsWith("Money:"))
                 {
                     lines[i] = $"Money:{Amount}"; // Replace with the updated Amount
+                    moneyFound = true;
                     break;
                 }
             }
+            if (!moneyFound)
+            {
+                string amt = _amount.ToString();
+                File.AppendText("\nMoney:" + amt.Trim());
+            }
 
-            File.WriteAllLines(ItemsFile, lines); // Save the updated lines back to the file
+            File.WriteAllLines(MoneyFile, lines); // Save the updated lines back to the file
             Console.WriteLine($"Updated Money in file: {Amount}");
         }
 
@@ -79,18 +85,18 @@ namespace PocketCat.StaticGame.Items
             return $"${Amount}";
         }
 
-        private void LoadItems()
+        private void LoadMoney()
         {
-            if (!File.Exists(ItemsFile))
+            if (!File.Exists(MoneyFile))
             {
-                File.Create(ItemsFile).Close();
-                File.WriteAllLines(ItemsFile, new string[] { "Money:10.00", $"LastPayDate:{DateTime.Now:yyyy-MM-dd}" });
+                File.Create(MoneyFile).Close();
+                File.WriteAllLines(MoneyFile, new string[] { "Money:10.00", $"LastPayDate:{DateTime.Now:yyyy-MM-dd}" });
                 LastPayDay = DateTime.Now.Date;
                 Amount = 10.00; // Default value
                 return;
             }
 
-            string[] lines = File.ReadAllLines(ItemsFile);
+            string[] lines = File.ReadAllLines(MoneyFile);
 
             foreach (var line in lines)
             {
@@ -118,7 +124,7 @@ namespace PocketCat.StaticGame.Items
 
         public void SaveLastPayDay()
         {
-            string[] lines = File.ReadAllLines(ItemsFile);
+            string[] lines = File.ReadAllLines(MoneyFile);
 
             for (int i = 0; i < lines.Length; i++)
             {
@@ -129,7 +135,7 @@ namespace PocketCat.StaticGame.Items
                 }
             }
 
-            File.WriteAllLines(ItemsFile, lines);
+            File.WriteAllLines(MoneyFile, lines);
             Console.WriteLine($"Updated LastPayDate in file: {LastPayDay:yyyy-MM-dd}");
         }
 

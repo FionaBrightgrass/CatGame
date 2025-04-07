@@ -33,6 +33,13 @@ namespace PocketCat.Controls.Windows.Inventory
             InitializeToyInventory();
             PopulateDataGrid();
             BindWindowToMainWindow(mainWindow);
+            mainWindow.AppSettings.PropertyChanged += AppSettings_PropertyChanged;
+        }
+
+        private void AppSettings_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            InvalidateVisual();
+            UpdateLayout();
         }
 
         private void BindWindowToMainWindow(MainWindow mainWindow)
@@ -285,7 +292,7 @@ namespace PocketCat.Controls.Windows.Inventory
 
         private void CloseWindow(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            this.Visibility = Visibility.Collapsed;
         }
     }
 }

@@ -22,9 +22,6 @@
             <!-- Money Instance Resource -->
             <items:Money x:Key="MoneyInstance" />
 
-            <!-- Other Resources -->
-            <appSettings:AppSettings x:Key="AppSettings" />
-
             <!-- Row Style for Background Binding -->
             <Style x:Key="DynamicRowStyle" TargetType="DataGridRow">
                 <Setter Property="Background" Value="Transparent" />
@@ -43,11 +40,11 @@
             </Style>
         </ResourceDictionary>
     </Window.Resources>
-
-    <Border BorderBrush="{Binding BorderColorBrush, Source={StaticResource AppSettings}}" 
-            BorderThickness="2" CornerRadius="5" Margin="0">
+    <Border x:Name="MainBorder" BorderBrush="{Binding BorderColorBrush, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}" 
+        BorderThickness="0,2,2,2" CornerRadius="0,5,5,0" Margin="0">
         <Border.Background>
-            <SolidColorBrush Color="{Binding WindowColorBrush.Color, Source={StaticResource AppSettings}}" Opacity="0.85" />
+            <SolidColorBrush Color="{Binding WindowColorBrush.Color, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}" 
+                         Opacity="0.85" />
         </Border.Background>
         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="MainGrid">
             <StackPanel>

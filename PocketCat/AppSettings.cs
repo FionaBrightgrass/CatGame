@@ -133,6 +133,7 @@ namespace PocketCat
                 writer.WriteLine("EyeColor:" + _eyeColor);
                 writer.WriteLine("SleepInterval:" + _sleepInterval); // Use the current value of SleepInterval
                 writer.WriteLine("TimeInterval:" + _timeInterval); // Use the current value of SleepInterval
+                writer.Close();
             }
         }
 
@@ -508,5 +509,8 @@ namespace PocketCat
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        private string jwtToken = "";
+
     }
 }

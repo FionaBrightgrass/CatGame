@@ -16,6 +16,8 @@ using PocketCat.Controls.Windows;
 using PocketCat.StaticGame.Items;
 using System.Reflection.Metadata;
 using PocketCat.Controls.Windows.Inventory;
+using PocketCat.StreamElements;
+using System.IO;
 
 namespace PocketCat
 {
@@ -24,11 +26,13 @@ namespace PocketCat
     /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
-        private AppSettings AppSettings = new AppSettings();
+        NotificationWindow notification;
+        public AppSettings AppSettings = new AppSettings();
         private SettingsWindow SettingsWindow;
         private FoodWindow FoodWindow;
         private ToyWindow ToyWindow;
-        private Shop ShopWindow;
+        public Shop ShopWindow;
+        private StreamElementsClient StreamElements;
         public Flags Flags = new Flags();
         private string _affectionBoxText = "0";
         private HoverBox _hoverBox;
@@ -64,9 +68,11 @@ namespace PocketCat
             Time._mainWindow = this;
             Time.RunContinuousTimerAsync();
             Time.StartAffectionReadyTimer();
+            Time.StartTipReadyTimer();
             Time.StartStatDecreaseTimer();
             States.ResetToIdle();
             States.OnStateChanged += HandleStateChanged;
+            notification = new NotificationWindow(this);
             Flags.FlagsChanged += () =>
             {
                 UpdateTransparencyBasedOnFlags(); // Call the method to adjust transparency
@@ -90,14 +96,16 @@ namespace PocketCat
 
             ShopWindow = new Shop(this);
             ShopWindow.Hide();
+            StreamElements = new StreamElementsClient(this);
+            _ = Task.Run(() => StreamElements.ConnectAsync());
+
             FoodWindow = new FoodWindow(this);
             FoodWindow.Hide();
             ToyWindow = new ToyWindow(this);
             ToyWindow.Hide();
             // Initialize the Settings window
-            SettingsWindow = new SettingsWindow(AppSettings, this);
+            SettingsWindow = new SettingsWindow(AppSettings, this, StreamElements);
             SettingsWindow.Visibility = Visibility.Hidden;
-
             // Assign BlinkBarCallback dynamically within each Stat
             foreach (var statKey in new[] { "Hunger", "Happiness", "Energy" })
             {
@@ -178,21 +186,14 @@ namespace PocketCat
             }
         }
 
-        private void CloseWindow(object sender, RoutedEventArgs e)
-        {
-            SettingsWindow.Close();
-            ShopWindow.Close();
-            Application.Current.Shutdown();
-            this.Close();
-            
-        }
+
 
         private void HideUI(object sender, RoutedEventArgs e)
         {
             MainBorder.BorderThickness = new Thickness(0);
             MainBorder.Background.Opacity = 0;
             // Show the NotificationWindow
-            NotificationWindow notification = new NotificationWindow(this);
+
             notification.SetNotificationText("To show the UI in the future, you can simply double-click your pet.");
             notification.WindowStartupLocation = WindowStartupLocation.Manual;
             notification.Left = this.Left + (this.Width - notification.Width) / 2;
@@ -200,7 +201,6 @@ namespace PocketCat
             // Subscribe to NotificationWindow events
             notification.ContinueClicked += ExecuteHideUI; // Call ExecuteHideUI only if Continue is clicked
             notification.CancelClicked += ShowUI; // Handle cancellation
-
             notification.Owner = this; // Optional, sets MainWindow as owner
             notification.ShowDialog(); // Show as modal dialog
         }
@@ -213,7 +213,6 @@ namespace PocketCat
             Close_Button.Visibility = Visibility.Collapsed;
             Settings_Button.Visibility = Visibility.Collapsed;
             HideUI_Button.Visibility = Visibility.Collapsed;
-
             ActionText.Visibility = Visibility.Visible;
             HappinessBar.Visibility = Visibility.Visible;
             HungerBar.Visibility = Visibility.Visible;
@@ -225,7 +224,8 @@ namespace PocketCat
             // Hide other UI components
             SettingsWindow.Visibility = Visibility.Hidden;
             ShopWindow.Visibility = Visibility.Hidden;
-
+            FoodWindow.Visibility = Visibility.Hidden;
+            ToyWindow.Visibility = Visibility.Hidden;
             // Update the UIHidden flag
             Flags.UIHidden = true;
 
@@ -270,24 +270,30 @@ namespace PocketCat
 
         private void OpenSettings(object sender, RoutedEventArgs e)
         {
-            // Get the position and dimensions of the MainWindow
-            var mainWindowLeft = this.Left; // X coordinate of MainWindow
-            var mainWindowTop = this.Top;   // Y coordinate of MainWindow
-            var mainWindowWidth = this.ActualWidth; // Width of MainWindow
+            if (SettingsWindow != null)
+            {
+                // Get the position and dimensions of the MainWindow
+                var mainWindowLeft = this.Left; // X coordinate of MainWindow
+                var mainWindowTop = this.Top;   // Y coordinate of MainWindow
+                var mainWindowWidth = this.ActualWidth; // Width of MainWindow
 
-            // Set the position for the SettingsWindow to the right of MainWindow
-            SettingsWindow.Left = mainWindowLeft + mainWindowWidth; // Position it to the right
-            SettingsWindow.Top = mainWindowTop; // Align the top of both windows
-            if (SettingsWindow.Visibility == Visibility.Visible)
-            {
-                SettingsWindow.Visibility = Visibility.Hidden;
-                MainBorder.CornerRadius = new CornerRadius(5);
-            }
-            else
-            {
-                SettingsWindow.Visibility = Visibility.Visible;
-                SettingsWindow.Show();
-                MainBorder.CornerRadius = new CornerRadius(5, 0, 0, 5);
+                // Set the position for the SettingsWindow to the right of MainWindow
+                SettingsWindow.Left = mainWindowLeft + mainWindowWidth; // Position it to the right
+                SettingsWindow.Top = mainWindowTop; // Align the top of both windows
+                if (SettingsWindow.Visibility == Visibility.Visible)
+                {
+                    SettingsWindow.Visibility = Visibility.Hidden;
+                    MainBorder.CornerRadius = new CornerRadius(5);
+                }
+                else
+                {
+                    SettingsWindow.Visibility = Visibility.Visible;
+                    FoodWindow.Visibility = Visibility.Hidden;
+                    ToyWindow.Visibility = Visibility.Hidden;
+                    ShopWindow.Visibility = Visibility.Hidden;
+                    SettingsWindow.Show();
+                    MainBorder.CornerRadius = new CornerRadius(5, 0, 0, 5);
+                }
             }
         }
 
@@ -532,6 +538,7 @@ namespace PocketCat
             finally
             {
                 await RefreshBars();
+                States.StartStateResetTask(States.CurrentState);
                 ReturnMain(sender, e);
                 Flags.ButtonLock = false;
             }
@@ -698,6 +705,7 @@ namespace PocketCat
                 // Ensure states are reset even if exceptions occur
                 Flags.IsSleeping = false;
                 States.CurrentState = "Idle";
+                States.StartStateResetTask("Idle");
                 Flags.ButtonLock = false;
                 UpdateTransparencyBasedOnFlags();
             }
@@ -755,30 +763,55 @@ namespace PocketCat
         {
             if(FoodWindow != null)
             {
+                // Get the position and dimensions of the MainWindow
+                var mainWindowLeft = this.Left; // X coordinate of MainWindow
+                var mainWindowTop = this.Top;   // Y coordinate of MainWindow
+                var mainWindowWidth = this.ActualWidth; // Width of MainWindow
+
+                // Set the position for the SettingsWindow to the right of MainWindow
+                FoodWindow.Left = mainWindowLeft + mainWindowWidth; // Position it to the right
+                FoodWindow.Top = mainWindowTop; // Align the top of both windows
                 if (FoodWindow.Visibility == Visibility.Visible)
-                    FoodWindow.Hide();
+                {
+                    FoodWindow.Visibility = Visibility.Hidden;
+                    MainBorder.CornerRadius = new CornerRadius(5);
+                }
                 else
                 {
-                    ShopWindow.Hide();
-                    ToyWindow.Hide();
-                    SettingsWindow.Hide();
+                    FoodWindow.Visibility = Visibility.Visible;
+                    ToyWindow.Visibility = Visibility.Hidden;
+                    SettingsWindow.Visibility = Visibility.Hidden;
+                    ShopWindow.Visibility = Visibility.Hidden;
                     FoodWindow.Show();
+                    MainBorder.CornerRadius = new CornerRadius(5, 0, 0, 5);
                 }
-
             }
         }
         public async void Toggle_ToyWindow()
         {
             if (ToyWindow != null)
             {
+                // Get the position and dimensions of the MainWindow
+                var mainWindowLeft = this.Left; // X coordinate of MainWindow
+                var mainWindowTop = this.Top;   // Y coordinate of MainWindow
+                var mainWindowWidth = this.ActualWidth; // Width of MainWindow
+
+                // Set the position for the SettingsWindow to the right of MainWindow
+                ToyWindow.Left = mainWindowLeft + mainWindowWidth; // Position it to the right
+                ToyWindow.Top = mainWindowTop; // Align the top of both windows
                 if (ToyWindow.Visibility == Visibility.Visible)
-                    ToyWindow.Hide();
+                {
+                    ToyWindow.Visibility = Visibility.Hidden;
+                    MainBorder.CornerRadius = new CornerRadius(5);
+                }
                 else
                 {
-                    ShopWindow.Hide();
+                    ToyWindow.Visibility = Visibility.Visible;
+                    FoodWindow.Visibility = Visibility.Hidden;
+                    SettingsWindow.Visibility = Visibility.Hidden;
+                    ShopWindow.Visibility = Visibility.Hidden;
                     ToyWindow.Show();
-                    SettingsWindow.Hide();
-                    FoodWindow.Hide();
+                    MainBorder.CornerRadius = new CornerRadius(5, 0, 0, 5);
                 }
             }
         }
@@ -786,14 +819,27 @@ namespace PocketCat
         {
             if (ShopWindow != null)
             {
+                // Get the position and dimensions of the MainWindow
+                var mainWindowLeft = this.Left; // X coordinate of MainWindow
+                var mainWindowTop = this.Top;   // Y coordinate of MainWindow
+                var mainWindowWidth = this.ActualWidth; // Width of MainWindow
+
+                // Set the position for the SettingsWindow to the right of MainWindow
+                ShopWindow.Left = mainWindowLeft + mainWindowWidth; // Position it to the right
+                ShopWindow.Top = mainWindowTop; // Align the top of both windows
                 if (ShopWindow.Visibility == Visibility.Visible)
-                    ShopWindow.Hide();
+                {
+                    ShopWindow.Visibility = Visibility.Hidden;
+                    MainBorder.CornerRadius = new CornerRadius(5);
+                }
                 else
                 {
+                    ShopWindow.Visibility = Visibility.Visible;
+                    FoodWindow.Visibility = Visibility.Hidden;
+                    SettingsWindow.Visibility = Visibility.Hidden;
+                    ToyWindow.Visibility = Visibility.Hidden;
                     ShopWindow.Show();
-                    ToyWindow.Hide();
-                    SettingsWindow.Hide();
-                    FoodWindow.Hide();
+                    MainBorder.CornerRadius = new CornerRadius(5, 0, 0, 5);
                 }
             }
         }
@@ -845,6 +891,8 @@ namespace PocketCat
                 ReturnMain(sender, e);
                 Flags.ButtonLock = false;
                 Flags.BlinkLock = false;
+                States.CurrentState = "Idle";
+                States.StartStateResetTask("Idle");
                 UpdateTransparencyBasedOnFlags();
             }
         }
@@ -1228,6 +1276,112 @@ namespace PocketCat
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        private void CloseWindow(object sender, RoutedEventArgs e)
+        {
+            SettingsWindow.Close();
+            ShopWindow.Close();
+            ToyWindow.Close();
+            FoodWindow.Close();
+            Time.Stop();
+            Application.Current.Shutdown();
+            this.Close();
+
+        }
+
+        public async void TryAcceptTip()
+        {
+            await Application.Current.Dispatcher.Invoke(async () =>
+            {
+                string audioFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "audio", "gold.wav");
+                if (System.IO.File.Exists(audioFilePath))
+                {
+                    Console.WriteLine("playing gold.mp3");
+                    Sounds.PlaySound(audioFilePath);
+                }
+                // This code runs on the UI thread
+                await ActionText.StartTextWritingAsync("#NAME# watches all the coins fly.    \nYou feel slightly richer!", 25);
+
+                ShopWindow.ViewModel.Money.AddMoney(10);
+            });
+        }
+        public async void TryAcceptPet()
+        {
+            await Application.Current.Dispatcher.Invoke(async () =>
+            {
+                // This code runs on the UI thread
+                Flags.ButtonLock = true;
+                Flags.BlinkLock = true;    
+                await ActionText.StartTextWritingAsync("#NAME# enjoys your viewers pets.", 25);
+                List<Task> blinkTasks = HandleAllBlinkTasks(0, 1, 0);
+                await Task.WhenAll(blinkTasks);
+                Flags.BlinkLock = false;
+                StatSheet.UpdateStat("Happiness", 1);
+                RefreshBars();
+                Flags.ButtonLock = false;
+            });
+        }
+        public async void TryAcceptFood(string foodName)
+        {
+            FoodActionData foodActionData = new();
+            string[] keys = foodActionData.DataDict.Keys.ToArray();
+            bool found = false;
+            foreach (string key in keys)
+            {
+                if (key.Replace(" ", "") == foodName)
+                {
+                    foodName = key;
+                    found = true;
+                    break;
+                }
+            }
+            if (!found)
+                return;
+            else
+            {
+                var food = foodActionData.DataDict[foodName];
+                await Application.Current.Dispatcher.Invoke(async () =>
+                {
+                    var button = new Button
+                    {
+                        DataContext = new KeyValuePair<string, string>(foodName, food)
+                    };
+                    // Call MainWindow's FeedPet method
+                    FeedPet(button, new RoutedEventArgs());
+                });
+                // Call MainWindow's FeedPet method
+            }
+        }
+        public async void TryAcceptToy(string toyName)
+        {
+            ItemActionData toyActionData = new();
+            string[] keys = toyActionData.DataDict.Keys.ToArray();
+            bool found = false;
+            foreach (string key in keys)
+            {
+                if (key.Replace(" ", "") == toyName)
+                {
+                    toyName = key;
+                    found = true;
+                    break;
+                }
+            }
+            if (!found)
+                return;
+            else
+            {
+                var toy = toyActionData.DataDict[toyName];
+                await Application.Current.Dispatcher.Invoke(async () =>
+                {
+                    var button = new Button
+                    {
+                        DataContext = new KeyValuePair<string, string>(toyName, toy)
+                    };
+                    // Call MainWindow's FeedPet method
+                    PlayPet(button, new RoutedEventArgs());
+                });
+                // Call MainWindow's FeedPet method
+            }
         }
     }
 }

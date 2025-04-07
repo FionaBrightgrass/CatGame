@@ -11,10 +11,10 @@ false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\PocketCat\PocketCat\App.xaml
 13-1589325609
-1-1397927510
-46377541621
+31280882381
+49-1140521484
 226-294794639
 Controls\ActionText.xaml;Controls\CallPopup.xaml;Controls\HeartContainer.xaml;Controls\HoverBox.xaml;Controls\SpriteControl.xaml;Controls\Statbar.xaml;Controls\Windows\Inventory\Food.xaml;Controls\Windows\Inventory\Toys.xaml;Controls\Windows\NotificationWindow.xaml;Controls\Windows\SettingsWindow.xaml;Controls\Windows\Shop\Shop.xaml;MainWindow.xaml;UIDictionary\GlobalStyles.xaml;
 
-False
+True
 

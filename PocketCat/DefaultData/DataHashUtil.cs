@@ -60,6 +60,7 @@ namespace PocketCat.DefaultData
                         using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
                         {
                             swEncrypt.Write(plainText);
+                            swEncrypt.Close();
                         }
                         return msEncrypt.ToArray();
                     }

@@ -162,3 +162,5 @@ D:\PocketCat\PocketCat\obj\Debug\net8.0-windows\PocketCat.genruntimeconfig.cache
 D:\PocketCat\PocketCat\obj\Debug\net8.0-windows\ref\PocketCat.dll
 D:\PocketCat\PocketCat\obj\Debug\net8.0-windows\Controls\Windows\Inventory\Toys.g.cs
 D:\PocketCat\PocketCat\obj\Debug\net8.0-windows\Controls\Windows\Inventory\Toys.baml
+D:\PocketCat\PocketCat\bin\Debug\net8.0-windows\Audio\gold.wav
+D:\PocketCat\PocketCat\bin\Debug\net8.0-windows\Audio\gold.mp3

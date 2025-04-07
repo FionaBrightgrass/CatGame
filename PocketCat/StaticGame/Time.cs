@@ -25,7 +25,6 @@ namespace PocketCat.StaticGame
         static Time()
         {
             StartHungerTimer(); // Keep your existing hunger timer
-            StartHungerTimer();
             LoadCooldownsFromFile();
             PetCooldownDuration = TimeSpan.FromMinutes(_appSettings?.SleepInterval ?? 15);
         }
@@ -172,6 +171,7 @@ namespace PocketCat.StaticGame
             {
                 sw.WriteLine(PetCooldownStartTime.HasValue ? PetCooldownStartTime.Value.ToString("o") : string.Empty);
                 sw.WriteLine(SleepCooldownStartTime.HasValue ? SleepCooldownStartTime.Value.ToString("o") : string.Empty);
+                sw.Close();
             }
         }
 
@@ -194,8 +194,6 @@ namespace PocketCat.StaticGame
                 }
             }
         }
-
-        private static DispatcherTimer _tenMinuteTimer;
 
         // Method to start the timer
         
@@ -284,7 +282,7 @@ namespace PocketCat.StaticGame
         public static void StartAffectionReadyTimer()
         {
             // Create a timer with a 30-minute interval (in milliseconds).
-            _affectionReadyTimer = new System.Timers.Timer(_appSettings.TimeInterval * 60 * 1000);
+            _affectionReadyTimer = new System.Timers.Timer(_appSettings.TimeInterval * 60 * 10);
             _affectionReadyTimer.Elapsed += OnAffectionReadyTimerElapsed;
             _affectionReadyTimer.AutoReset = true; // Ensures the timer repeats.
             _affectionReadyTimer.Enabled = true; // Starts the timer.
@@ -299,7 +297,33 @@ namespace PocketCat.StaticGame
         public static void StopAffectionReadyTimer()
         {
             _affectionReadyTimer?.Stop();
+            _affectionReadyTimer?.Dispose();
         }
+
+        private static System.Timers.Timer _tipTimer;
+
+        public static void StartTipReadyTimer()
+        {
+            // Create a timer with a 30-minute interval (in milliseconds).
+            _tipTimer = new System.Timers.Timer(_appSettings.TimeInterval * 60 * 1000);
+            _tipTimer.Elapsed += OnAffectionReadyTimerElapsed;
+            _tipTimer.AutoReset = true; // Ensures the timer repeats.
+            _tipTimer.Enabled = true; // Starts the timer.
+        }
+
+        private static void OnTipReadyTimerElapsed(object sender, ElapsedEventArgs e)
+        {
+            // Flip the flag to true.
+            Flags.TipReady = true;
+        }
+
+        public static void StopTipReadyTimer()
+        {
+            _tipTimer?.Stop();
+            _tipTimer?.Dispose();
+        }
+
+
 
         private static System.Timers.Timer _statDecreaseTimer;
 
@@ -321,20 +345,18 @@ namespace PocketCat.StaticGame
         public static void StopStatDecreaseTimer()
         {
             _statDecreaseTimer?.Stop();
+            _statDecreaseTimer?.Dispose();
         }
 
         private static System.Timers.Timer _dailyCheckTimer;
-        private static DateTime _currentDate;
         private static Money _moneyInstance;
 
         // Initialize Time tracking
         public static void InitializeMoney(Money money)
         {
             _moneyInstance = money;
-            _currentDate = DateTime.Now.Date; // Set the initial date
-
             // Set up the timer to check every minute (can adjust as needed)
-            _dailyCheckTimer = new System.Timers.Timer(60); // 10 minute interval
+            _dailyCheckTimer = new System.Timers.Timer(60000); // 10 minute interval
             _dailyCheckTimer.Elapsed += DailyCheck;
             _dailyCheckTimer.AutoReset = true;
             _dailyCheckTimer.Start();
@@ -348,7 +370,6 @@ namespace PocketCat.StaticGame
             DateTime today = DateTime.Now.Date;
             if (today != _moneyInstance.LastPayDay)
             {
-                _currentDate = today; // Update the current date
                 Console.WriteLine($"Day has changed to {today:yyyy-MM-dd}. Running daily payout...");
 
                 // Trigger Money's daily payout
@@ -361,6 +382,9 @@ namespace PocketCat.StaticGame
         {
             _dailyCheckTimer?.Stop();
             _dailyCheckTimer?.Dispose();
+            _statDecreaseTimer?.Stop();
+            _statDecreaseTimer?.Dispose();
+            _hungerTimer.Stop();
             Console.WriteLine("Time tracker stopped.");
         }
     }

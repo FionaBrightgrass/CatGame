@@ -12,11 +12,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Audio\gold.mp3" />
+    <None Remove="Audio\gold.wav" />
     <None Remove="Heart.png" />
     <None Remove="Properties\Resources\CatIcon.ico" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Audio\gold.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Audio\gold.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Properties\Resources\CatIcon.ico" />
   </ItemGroup>
 

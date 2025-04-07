@@ -1,9 +1,12 @@
 ﻿using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using Newtonsoft.Json.Linq;
+using PocketCat.StaticGame;
 
 namespace PocketCat.Controls
 {
@@ -13,9 +16,11 @@ namespace PocketCat.Controls
     public partial class SettingsWindow : Window
     {
         private MainWindow MainWindow;
-        public SettingsWindow(AppSettings appSettings, MainWindow mainWindow)
+        private PocketCat.StreamElements.StreamElementsClient _se;
+        public SettingsWindow(AppSettings appSettings, MainWindow mainWindow, StreamElements.StreamElementsClient se)
         {
             MainWindow = mainWindow;
+            _se = se;
             InitializeComponent();
             DataContext = appSettings; // Set the DataContext to the provided AppSettings instance
                                        // Bind the height of Shop to MainWindow
@@ -38,6 +43,7 @@ namespace PocketCat.Controls
                 this.Top = mainWindow.Top;
                 this.Left = mainWindow.Left + mainWindow.ActualWidth;
             };
+            _se = se;
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -211,6 +217,13 @@ namespace PocketCat.Controls
                 appSettings.Pronouns = pronouns;
             }
         }
+
+        private void JWT_Changed(object sender, RoutedEventArgs e)
+        {
+            _se.jwtToken = JWT.Password;
+            Encryption.SaveSecureFile(_se.jwtToken, _se.jwtTokenPath);
+        }
+
 
     }
 }

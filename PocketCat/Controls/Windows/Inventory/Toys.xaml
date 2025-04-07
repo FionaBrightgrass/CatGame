@@ -17,8 +17,6 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="../../../UIDictionary/GlobalStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <!-- Other Resources -->
-            <appSettings:AppSettings x:Key="AppSettings" />
 
             <!-- Row Style for Background Binding -->
             <Style x:Key="DynamicRowStyle" TargetType="DataGridRow">
@@ -33,16 +31,17 @@
         </ResourceDictionary>
     </Window.Resources>
 
-    <Border BorderBrush="{Binding BorderColorBrush, Source={StaticResource AppSettings}}" 
-            BorderThickness="2" CornerRadius="5" Margin="0">
+    <Border x:Name="MainBorder" BorderBrush="{Binding BorderColorBrush, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}" 
+        BorderThickness="0,2,2,2" CornerRadius="0,5,5,0" Margin="0">
         <Border.Background>
-            <SolidColorBrush Color="{Binding WindowColorBrush.Color, Source={StaticResource AppSettings}}" Opacity="0.85" />
+            <SolidColorBrush Color="{Binding WindowColorBrush.Color, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}" 
+                         Opacity="0.85" />
         </Border.Background>
         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="MainGrid">
             <StackPanel>
                 <DockPanel Height="40" HorizontalAlignment="Stretch" VerticalAlignment="Top">
                     <DockPanel HorizontalAlignment="Left" Margin="12,12,0,0">
-                        <TextBlock Text="Food Inventory" FontFamily="Unispace" FontSize="22" Foreground="{Binding TextColorText, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock Text="Items" FontFamily="Unispace" FontSize="22" Foreground="{Binding TextColorText, Source={StaticResource AppSettings}, UpdateSourceTrigger=PropertyChanged}"/>
                     </DockPanel>
 
                     <DockPanel HorizontalAlignment="Right">
@@ -74,7 +73,7 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                         <DataGridTextColumn x:Name="Name" Header=" " Binding="{Binding Name}" Width="180" Foreground="{Binding TextColorBrush, Source={StaticResource AppSettings}}" IsReadOnly="True" CellStyle="{StaticResource ShopDataGridCell}" FontFamily="Unispace"/>
-                        <DataGridTextColumn x:Name="Quantity" Header="Quantity" Binding="{Binding Quantity}" Width="80" Foreground="{Binding TextColorBrush, Source={StaticResource AppSettings}}" IsReadOnly="True" CellStyle="{StaticResource ShopDataGridCell}" FontFamily="Unispace" FontSize="14"/>
+                        <DataGridTextColumn x:Name="Quantity" Header="Quantity" Binding="{Binding Quantity}" Width="80" Foreground="{Binding TextColorBrush, Source={StaticResource AppSettings}}" IsReadOnly="True" CellStyle="{StaticResource ShopDataGridCell}" FontFamily="Unispace" FontSize="12"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
